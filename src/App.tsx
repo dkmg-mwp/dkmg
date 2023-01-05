@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 function App() {
     const [input, setInput] = useState('');
@@ -70,6 +71,7 @@ function App() {
                     </div>
                 ))}
             </div>
+            <Outlet />
         </div>
     );
 }
