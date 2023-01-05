@@ -1,3 +1,5 @@
+import SearchBar from '../../components/SearchBar/SearchBar';
+
 const Home = () => {
     return (
         <div>
@@ -5,7 +7,7 @@ const Home = () => {
                 Friends with allergies? No worries, we’ll help you not to get
                 them killed..
             </h1>
-            {/* Search bar goes here */}
+            <SearchBar />
         </div>
     );
 };
