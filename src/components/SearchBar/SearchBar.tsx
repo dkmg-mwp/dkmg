@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-const SearchBar = ({ setFood }) => {
+type Props = {
+    setFood: React.Dispatch<React.SetStateAction<Food[]>>;
+};
+
+const SearchBar = ({ setFood }: Props) => {
     const [input, setInput] = useState('');
 
     const handleSearch = async (search: string) => {

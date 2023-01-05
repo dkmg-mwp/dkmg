@@ -4,11 +4,12 @@ import { useState } from 'react';
 
 const Search = () => {
     const [food, setFood] = useState<Food[]>([]);
+    console.log(food);
     return (
         <div>
             <SearchBar setFood={setFood} />
             <h5>Results for: </h5>
-            {/* <Card /> */}
+            {/* <Card food={food}/> */}
         </div>
     );
 };
