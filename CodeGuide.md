@@ -1,14 +1,20 @@
 ## Code guide
 
+* Mobile first - Dimensions: iPhone 8
+
 * All new TSX files start with rafce 
-* Always create a new branch based on the main branch
+* Camelcase to name TSX files
+* Delete React imports if not used
+* Single quotes
+
 * The standard for all functions are arrow key functions 
 ``
 const functionName = async () => {
        // some code
     };
 ``
-* Delete React imports if not used
+
+* Always create a new branch based on the main branch
 * To create a branch
 ``
 git switch -C <branch name>
@@ -17,6 +23,3 @@ git switch -C <branch name>
 ``
 git branch -D <branch name>
 ``
-* Mobile first - Dimensions: iPhone 8
-* Camelcase to name TSX files
-* Single quotes
