@@ -1,5 +1,4 @@
 import Search from './routes/Search/Search';
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 function App() {
