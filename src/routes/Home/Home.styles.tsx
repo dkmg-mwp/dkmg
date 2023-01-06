@@ -19,8 +19,7 @@ export const Title = styled.h1`
     position: relative;
     width: 280px;
     height: 142px;
-    left: 20px;
-    top: 95px;
+    top: 75px;
     font-family: 'Mulish';
     font-style: normal;
     font-weight: 600;
