@@ -12,7 +12,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     padding: 20px;
-    border-box: box-sizing;
+    box-sizing: border-box;
 }
 
 body {
@@ -35,22 +35,26 @@ h2 {
     font-weight: medium;
     margin: 0.5em 0em;
 }
+
 h3 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.3em;
     margin-left: 5px;
 }
+
 h4 {
     font-size: 1.25rem;
     font-weight: normal;
     margin-top: 2px;
     margin-bottom: 2px;
 }
+
 h5 {
     font-size: 1rem;
     margin: 0;
 }
+
 p {
     padding-top: 0.5em;
     font-size: 0.875;
