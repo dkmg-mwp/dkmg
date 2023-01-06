@@ -2,6 +2,7 @@ import { RiCloseFill, RiStarFill, RiSubtractFill } from 'react-icons/ri';
 import axios from 'axios';
 import { useState } from 'react';
 
+
 type Props = {
     food: Food[];
 };
@@ -26,7 +27,6 @@ const Card = ({ food }: Props) => {
 
         console.log(open);
     }
-
     return (
         <div>
             {food.map((i) => (
