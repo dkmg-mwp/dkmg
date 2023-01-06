@@ -12,7 +12,7 @@ const Navbar = () => {
                         color: isActive ? '#EF8A62' : '#2B8872',
                     })}
                 >
-                    <RiHome5Fill />
+                    <RiHome5Fill style={{ height: '24px', width: '24px' }} />
                 </NavLink>
                 <NavLink
                     to='/search'
@@ -20,7 +20,7 @@ const Navbar = () => {
                         color: isActive ? '#EF8A62' : '#2B8872',
                     })}
                 >
-                    <RiSearchLine />
+                    <RiSearchLine style={{ height: '24px', width: '24px' }} />
                 </NavLink>
             </NavbarContainer>
         </Footer>
