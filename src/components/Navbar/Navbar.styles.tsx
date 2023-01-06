@@ -15,4 +15,5 @@ export const NavbarContainer = styled.footer`
     box-shadow: 0px 16px 17px rgba(128, 174, 152, 0.37);
     backdrop-filter: blur(10.5px);
     border-radius: 20px;
+    z-index: 5; 
 `;
