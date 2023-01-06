@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.article`
-    border: black 1px solid;
-    margin: 10px;
+    margin: 20px;
     display: flex;
+    flex-direction: column;
+    background: #eff2ee;
+    box-shadow: 9px 15px 10px -1px rgba(92, 130, 122, 0.28);
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    padding: 20px 10px 20px 10px;
 `;
 export const CardWrapper = styled.article`
-    display: grid;
-    grid-column: 1 / 3;
     padding: 10px;
 `;
 
@@ -20,6 +23,7 @@ export const Left = styled.div`
 `;
 export const CardImage = styled.img`
     max-width: 120px;
+    border-radius: 15px;
 `;
 
 export const CardRatings = styled.div``;
@@ -39,7 +43,7 @@ export const SmallButton = styled.button`
 `;
 
 export const CardAccordian = styled.div`
-    display: flex;
+    display: block;
 `;
 export const CardAccordianBox = styled.div`
     display: flex;
