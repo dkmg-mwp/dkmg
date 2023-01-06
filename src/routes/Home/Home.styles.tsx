@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 export const Container = styled.section`
     position: relative;
     min-width: 100vw;
-    min-height: 667px;
+    min-height: 100vh;
     top: 0px;
     background: #cce3c8;
 `;
