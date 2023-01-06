@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const NavbarContainer = styled.footer`
+export const Footer = styled.footer`
+    display: flex;
+    justify-content: center;
+`
+
+export const NavbarContainer = styled.nav`
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -8,8 +13,7 @@ export const NavbarContainer = styled.footer`
     position: absolute;
     min-width: 280px;
     height: 74px;
-    left: 20px; //fixa
-    top: 571px;
+    bottom: 22px; 
     background: #e3ebe2;
     border: 1px solid #dde5e9;
     box-shadow: 0px 16px 17px rgba(128, 174, 152, 0.37);
