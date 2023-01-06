@@ -13,13 +13,13 @@ export const NavbarContainer = styled.nav`
     align-items: center;
     justify-content: space-around;
     padding: 20px 32px;
-    position: absolute;
+    position: fixed;
     min-width: 280px;
     height: 74px;
     bottom: 22px;
     background: #e3ebe2;
     border: 1px solid #dde5e9;
-    box-shadow: 0px 16px 17px rgba(128, 174, 152, 0.37);
+    box-shadow: 0px 26px 17px rgba(128, 174, 152, 0.87);
     backdrop-filter: blur(10.5px);
     border-radius: 20px;
     z-index: 5;
