@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.h1`
-    position: absolute;
+    position: relative;
     width: 280px;
     height: 142px;
     left: 20px;
@@ -11,15 +11,21 @@ export const Title = styled.h1`
     font-weight: 600;
     font-size: 24px;
     line-height: 150%;
-    /* or 36px */
     display: flex;
     align-items: center;
     letter-spacing: 0.005em;
     color: #2b8876;
 `;
 
+export const Wrapper = styled.div`
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+`
+
 export const Container = styled.section`
-    position: absolute;
+    position: relative;
     min-width: 100vw;
     min-height: 667px;
     top: 0px;
@@ -34,9 +40,9 @@ export const SearchBarSection = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 20px 32px;
-    position: absolute;
-    top: 302px;
-    left: 20px; 
+    position: relative;
+    top: 132px;
+    left: 0px; 
     background: rgba(255, 255, 255, 0.63);
     border: 1px solid #dde5e9;
     box-shadow: 0px 16px 17px rgba(128, 174, 152, 0.23);
