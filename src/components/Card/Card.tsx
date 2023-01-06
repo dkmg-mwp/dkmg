@@ -2,7 +2,6 @@ import { RiCloseFill, RiStarFill, RiSubtractFill } from 'react-icons/ri';
 import axios from 'axios';
 import { useState } from 'react';
 
-
 type Props = {
     food: Food[];
 };
