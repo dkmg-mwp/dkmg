@@ -9,7 +9,7 @@ const Home = () => {
             <Wrapper>
                 <Title>
                     Friends with allergies? No worries, we’ll help you not to
-                    get them killed..
+                    get them killed...
                 </Title>
                 <SearchBarSection>
                     <SearchBar setFood={setFood} />
