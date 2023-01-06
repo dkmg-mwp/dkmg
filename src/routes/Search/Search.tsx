@@ -12,7 +12,7 @@ const Search = () => {
             <InnerContainer>
                 <SearchBar setFood={setFood} />
                 <h3>Results for: </h3>
-                <Card />
+                <Card food={food} />
             </InnerContainer>
         </Container>
     );
