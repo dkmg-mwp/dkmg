@@ -1,9 +1,10 @@
 import { RiHome5Fill, RiSearchLine } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
+import { NavbarContainer } from './Navbar.styles';
 
 const Navbar = () => {
     return (
-        <footer>
+        <NavbarContainer>
             <NavLink
                 to='/'
                 style={({ isActive }) => ({
@@ -20,7 +21,7 @@ const Navbar = () => {
             >
                 <RiSearchLine />
             </NavLink>
-        </footer>
+        </NavbarContainer>
     );
 };
 
