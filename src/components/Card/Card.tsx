@@ -1,6 +1,13 @@
 import { RiStarFill, RiSubtractFill } from 'react-icons/ri';
 
-const Card = () => {
+
+type Props = {
+    food: Food[];
+};
+
+const Card = ({ food }: Props) => {
+
+
     return (
         <article
             style={{
@@ -36,7 +43,7 @@ const Card = () => {
                         <RiStarFill />
                         <RiStarFill /> <RiStarFill /> <RiStarFill />
                     </div>
-                    <h3>Lasagna</h3>
+                    <h3></h3>
                 </div>
                 {/* Right section */}
                 <div
