@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 :root {
     font-family: Mulish;
     font-size: 14px;
