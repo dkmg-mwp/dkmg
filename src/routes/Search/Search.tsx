@@ -3,9 +3,12 @@ import { useState } from 'react';
 import Card from '../../components/Card/Card';
 import { Container, InnerContainer, Text } from './Search.styles';
 
-const Search = () => {
-    const [food, setFood] = useState<Food[]>([]);
-    console.log(food);
+type Props = {
+    food: Food[];
+    setFood: React.Dispatch<React.SetStateAction<Food[]>>;
+};
+
+const Search = ({ food, setFood }: Props) => {
     return (
         <Container>
             <Text>Search recipes for your next gathering!</Text>
