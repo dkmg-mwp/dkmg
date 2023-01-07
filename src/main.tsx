@@ -6,9 +6,6 @@ import ErrorPage from './ErrorPage';
 import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
-import { useState } from 'react';
-
-const [food, setFood] = useState<Food[]>([]);
 
 const router = createBrowserRouter([
     {
@@ -18,11 +15,11 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home food={food} setFood={setFood} />,
+                element: <Home />,
             },
             {
                 path: 'search',
-                element: <Search  food={food} setFood={setFood}/>,
+                element: <Search />,
             },
         ],
     },
