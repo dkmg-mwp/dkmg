@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const InnerContainer = styled.div`
     display: grid;
     justify-content: center;
+    bottom: 0;
     width: 100vw;
     height: 516px;
     top: 151px;

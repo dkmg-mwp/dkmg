@@ -26,6 +26,7 @@ import {
     SmallButton,
 } from './Card.styles';
 
+
 type Props = {
     food: Food[];
 };
