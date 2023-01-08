@@ -1,6 +1,31 @@
-import { RiCloseFill, RiStarFill, RiSubtractFill } from 'react-icons/ri';
+import {
+    RiArrowDropDownFill,
+    RiStarFill,
+    RiSubtractFill,
+    RiPlantLine,
+    RiPlantFill,
+} from 'react-icons/ri';
+import { TbMilk } from 'react-icons/tb';
+import { CiWheat } from 'react-icons/ci';
 import axios from 'axios';
 import { useState } from 'react';
+import {
+    CardAccordian,
+    CardAccordianBox,
+    CardAccordianInfo,
+    CardContainer,
+    CardImage,
+    CardRatings,
+    CardTitle,
+    CardWrapper,
+    Wrapper,
+    ExcludeTag,
+    IncludeTag,
+    Left,
+    Right,
+    SmallButton,
+} from './Card.styles';
+
 
 type Props = {
     food: Food[];
@@ -16,7 +41,7 @@ const Card = ({ food }: Props) => {
                 import.meta.env.VITE_API_KEY
             }&`
         );
-
+        toggleAccordian();
         setInfo(res.data);
         return res.data;
     };
@@ -27,92 +52,121 @@ const Card = ({ food }: Props) => {
         console.log(open);
     }
     return (
-        <div>
+        <>
             {food.map((i) => (
-                <article
-                    key={i.id}
-                    style={{
-                        border: 'black 1px solid',
-                        margin: '10px',
-                        display: 'flex',
-                    }}
-                >
-                    <div
-                        style={{
-                            display: 'flex',
-                            padding: '10px',
-                        }}
-                    >
+                <CardContainer key={i.id}>
+                    <CardWrapper>
                         {/* Left section */}
-                        <div
-                            style={{
-                                padding: '10px',
-                            }}
-                        >
-                            <img src={i.image} height='50px' />
-                        </div>
-                        {/* Center section */}
-                        <div
-                            style={{
-                                padding: '10px',
-                            }}
-                        >
-                            <div>
-                                <RiStarFill />
-                                <RiStarFill /> <RiStarFill /> <RiStarFill />
-                            </div>
-                            <h3>{i.title}</h3>
-                        </div>
-                        {/* Right section */}
-                        <div
-                            onClick={() => handleInfo(i.id)}
-                            onChange={toggleAccordian}
-                            style={{
-                                padding: '10px',
-                            }}
-                        >
-                            {open ? (
-                                <RiCloseFill
-                                    onClick={() => toggleAccordian()}
-                                />
-                            ) : (
-                                <RiSubtractFill
-                                    onClick={() => toggleAccordian()}
-                                />
-                            )}
-                            {/* Accordian section */}
+                        <Wrapper>
+                            <Left>
+                                <CardImage src={i.image} />
+                            </Left>
 
+                            {/* Right section */}
+                            <Right>
+                                <CardRatings>
+                                    <RiStarFill />
+                                    <RiStarFill /> <RiStarFill /> <RiStarFill />
+                                </CardRatings>
+                                <CardTitle>{i.title}</CardTitle>
+                            </Right>
+                        </Wrapper>
+
+                        {/* Accordian section */}
+                        <CardAccordian>
                             {open && info ? (
-                                <div key={i.id}>
+                                <CardAccordianBox key={i.id}>
                                     {info.title === i.title && (
                                         <>
-                                            <p>
-                                                Dairy free:
-                                                {info.dairyFree ? 'yes' : 'no'}
-                                            </p>
-                                            <p>
-                                                Gluten free:
-                                                {info.glutenFree ? 'yes' : 'no'}
-                                            </p>
-                                            <p>
+                                            <SmallButton
+                                                onClick={() =>
+                                                    toggleAccordian()
+                                                }
+                                            >
+                                                <RiSubtractFill size={24} />
+                                            </SmallButton>
+
+                                            <CardAccordianInfo>
+                                                Dairy Free :
+                                                {info.dairyFree ? (
+                                                    <IncludeTag>
+                                                        <TbMilk size={30} />
+                                                        Yes
+                                                    </IncludeTag>
+                                                ) : (
+                                                    <ExcludeTag>
+                                                        <TbMilk size={30} />
+                                                        No
+                                                    </ExcludeTag>
+                                                )}
+                                            </CardAccordianInfo>
+                                            <CardAccordianInfo>
+                                                Gluten Free:
+                                                {info.glutenFree ? (
+                                                    <IncludeTag>
+                                                        <CiWheat size={30} />
+                                                        Yes
+                                                    </IncludeTag>
+                                                ) : (
+                                                    <ExcludeTag>
+                                                        <CiWheat size={30} />
+                                                        No
+                                                    </ExcludeTag>
+                                                )}
+                                            </CardAccordianInfo>
+                                            <CardAccordianInfo>
                                                 Vegan:
-                                                {info.vegan ? 'yes' : 'no'}
-                                            </p>
-                                            <p>
+                                                {info.vegan ? (
+                                                    <IncludeTag>
+                                                        <RiPlantFill
+                                                            size={30}
+                                                        />
+                                                        Yes
+                                                    </IncludeTag>
+                                                ) : (
+                                                    <ExcludeTag>
+                                                        <RiPlantFill
+                                                            size={30}
+                                                        />
+                                                        No
+                                                    </ExcludeTag>
+                                                )}
+                                            </CardAccordianInfo>
+                                            <CardAccordianInfo>
                                                 Vegetarian:
-                                                {info.vegetarian ? 'yes' : 'no'}
-                                            </p>
+                                                {info.vegetarian ? (
+                                                    <IncludeTag>
+                                                        <RiPlantLine
+                                                            size={30}
+                                                        />
+                                                        Yes
+                                                    </IncludeTag>
+                                                ) : (
+                                                    <ExcludeTag>
+                                                        <RiPlantLine
+                                                            size={30}
+                                                        />
+                                                        No
+                                                    </ExcludeTag>
+                                                )}
+                                            </CardAccordianInfo>
                                         </>
                                     )}
-                                </div>
+                                </CardAccordianBox>
                             ) : (
-                                !info
+                                <SmallButton onClick={() => handleInfo(i.id)}>
+                                    Allergies
+                                    <RiArrowDropDownFill
+                                        size={24}
+                                        style={{ paddingLeft: '1em' }}
+                                    />
+                                </SmallButton>
                             )}
-                        </div>
-                    </div>
-                </article>
+                        </CardAccordian>
+                    </CardWrapper>
+                </CardContainer>
             ))}
-        </div>
+        </>
     );
 };
 
