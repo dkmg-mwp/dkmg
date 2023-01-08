@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { RiSearchLine } from 'react-icons/ri';
+import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
 
 type Props = {
     setFood: React.Dispatch<React.SetStateAction<Food[]>>;
@@ -19,14 +21,15 @@ const SearchBar = ({ setFood }: Props) => {
     };
 
     return (
-        <div className='App'>
-            <input
+        <SearchBarContainer>
+            <SearchBarInput
                 type='text'
                 value={input}
+                placeholder='Search recipe'
                 onChange={(e) => setInput(e.target.value)}
             />
-            <button onClick={() => handleSearch(input)}>click</button>
-        </div>
+            <RiSearchLine onClick={() => handleSearch(input)} size={25} />
+        </SearchBarContainer>
     );
 };
 

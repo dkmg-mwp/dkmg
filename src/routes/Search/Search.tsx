@@ -1,19 +1,28 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { useState } from 'react';
 import Card from '../../components/Card/Card';
-import { Container, InnerContainer, Text } from './Search.styles';
-
+import {
+    Container,
+    H3,
+    H4,
+    InnerContainer,
+    SearchContainer,
+    TextContainer,
+} from './Search.styles';
 
 const Search = () => {
     const [food, setFood] = useState<Food[]>([]);
-    console.log(food);
     return (
         <Container>
-            <Text>Search recipes for your next gathering!</Text>
+            <TextContainer>
+                <H3>Search recipes for your next gathering!</H3>
+            </TextContainer>
 
             <InnerContainer>
-                <SearchBar setFood={setFood} />
-                <h3>Results for: </h3>
+                <SearchContainer>
+                    <SearchBar setFood={setFood} />
+                    <H4>Results for:</H4>
+                </SearchContainer>
                 <Card food={food} />
             </InnerContainer>
         </Container>
