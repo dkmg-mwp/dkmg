@@ -40,16 +40,16 @@ const Card = ({ food }: Props) => {
                 import.meta.env.VITE_API_KEY
             }&`
         );
-        toggleAccordian();
+
         setInfo(res.data);
         return res.data;
     };
 
-    function toggleAccordian() {
-        setOpen((prevState) => !prevState);
+    // function toggleAccordian() {
+    //     setOpen((prevState) => !prevState);
 
-        console.log(open);
-    }
+    //     console.log(open);
+    // }
     return (
         <>
             {food.map((i) => (
@@ -64,8 +64,8 @@ const Card = ({ food }: Props) => {
                             {/* Right section */}
                             <Right>
                                 <CardRatings>
+                                    <RiStarFill /> <RiStarFill /> <RiStarFill />{' '}
                                     <RiStarFill />
-                                    <RiStarFill /> <RiStarFill /> <RiStarFill />
                                 </CardRatings>
                                 <CardTitle>{i.title}</CardTitle>
                             </Right>
@@ -73,14 +73,12 @@ const Card = ({ food }: Props) => {
 
                         {/* Accordian section */}
                         <CardAccordian>
-                            {open && info ? (
+                            {info ? (
                                 <CardAccordianBox key={i.id}>
                                     {info.title === i.title && (
                                         <>
                                             <SmallButton
-                                                onClick={() =>
-                                                    toggleAccordian()
-                                                }
+                                                onClick={() => handleInfo(i.id)}
                                             >
                                                 <RiSubtractFill size={24} />
                                             </SmallButton>
@@ -157,7 +155,7 @@ const Card = ({ food }: Props) => {
                                     Allergies
                                     <RiArrowDropDownFill
                                         size={24}
-                                        style={{ paddingLeft: '1em' }}
+                                        style={{ paddingLeft: '0.2em' }}
                                     />
                                 </SmallButton>
                             )}

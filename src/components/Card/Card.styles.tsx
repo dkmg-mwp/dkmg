@@ -8,11 +8,9 @@ export const CardContainer = styled.article`
     box-shadow: 9px 15px 10px -1px rgba(92, 130, 122, 0.28);
     backdrop-filter: blur(2px);
     border-radius: 15px;
-    padding: 20px 10px 20px 10px;
-`;
-export const CardWrapper = styled.article`
     padding: 10px;
 `;
+export const CardWrapper = styled.article``;
 
 export const Wrapper = styled.div`
     display: flex;
@@ -23,11 +21,13 @@ export const Left = styled.div`
 `;
 export const CardImage = styled.img`
     max-width: 120px;
+    max-height: 100px;
+    object-fit: contain;
     border-radius: 15px;
 `;
 
 export const CardRatings = styled.div``;
-export const CardTitle = styled.h3``;
+export const CardTitle = styled.h5``;
 
 export const Right = styled.div`
     padding: 10px;
@@ -40,10 +40,13 @@ export const SmallButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    letter-spacing: 0.025em;
+    color: white;
 `;
 
 export const CardAccordian = styled.div`
     display: block;
+    padding: 5px 10px;
 `;
 export const CardAccordianBox = styled.div`
     display: flex;
