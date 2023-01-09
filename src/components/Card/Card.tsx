@@ -68,89 +68,8 @@ const Card = ({ food }: Props) => {
                                     <RiStarFill />
                                 </CardRatings>
                                 <CardTitle>{i.title}</CardTitle>
-                            </Right>
-                        </Wrapper>
 
-                        {/* Accordian section */}
-                        <CardAccordian>
-                            {info ? (
-                                <CardAccordianBox key={i.id}>
-                                    {info.title === i.title && (
-                                        <>
-                                            <SmallButton
-                                                onClick={() => handleInfo(i.id)}
-                                            >
-                                                <RiSubtractFill size={24} />
-                                            </SmallButton>
-
-                                            <CardAccordianInfo>
-                                                Dairy Free :
-                                                {info.dairyFree ? (
-                                                    <IncludeTag>
-                                                        <TbMilk size={30} />
-                                                        Yes
-                                                    </IncludeTag>
-                                                ) : (
-                                                    <ExcludeTag>
-                                                        <TbMilk size={30} />
-                                                        No
-                                                    </ExcludeTag>
-                                                )}
-                                            </CardAccordianInfo>
-                                            <CardAccordianInfo>
-                                                Gluten Free:
-                                                {info.glutenFree ? (
-                                                    <IncludeTag>
-                                                        <CiWheat size={30} />
-                                                        Yes
-                                                    </IncludeTag>
-                                                ) : (
-                                                    <ExcludeTag>
-                                                        <CiWheat size={30} />
-                                                        No
-                                                    </ExcludeTag>
-                                                )}
-                                            </CardAccordianInfo>
-                                            <CardAccordianInfo>
-                                                Vegan:
-                                                {info.vegan ? (
-                                                    <IncludeTag>
-                                                        <RiPlantFill
-                                                            size={30}
-                                                        />
-                                                        Yes
-                                                    </IncludeTag>
-                                                ) : (
-                                                    <ExcludeTag>
-                                                        <RiPlantFill
-                                                            size={30}
-                                                        />
-                                                        No
-                                                    </ExcludeTag>
-                                                )}
-                                            </CardAccordianInfo>
-                                            <CardAccordianInfo>
-                                                Vegetarian:
-                                                {info.vegetarian ? (
-                                                    <IncludeTag>
-                                                        <RiPlantLine
-                                                            size={30}
-                                                        />
-                                                        Yes
-                                                    </IncludeTag>
-                                                ) : (
-                                                    <ExcludeTag>
-                                                        <RiPlantLine
-                                                            size={30}
-                                                        />
-                                                        No
-                                                    </ExcludeTag>
-                                                )}
-                                            </CardAccordianInfo>
-                                        </>
-                                    )}
-                                </CardAccordianBox>
-                            ) : (
+                                {open && info && info.title === i.title && (
                                 <SmallButton onClick={() => handleInfo(i.id)}>
                                     Allergies
                                     <RiArrowDropDownFill
@@ -158,7 +77,83 @@ const Card = ({ food }: Props) => {
                                         style={{ paddingLeft: '0.2em' }}
                                     />
                                 </SmallButton>
-                            )}
+                                )}
+
+                              
+                            </Right>
+                        </Wrapper>
+
+                        {/* Accordian section */}
+
+                        <CardAccordian>
+                            <CardAccordianBox key={i.id}>
+                                {info && info.title === i.title && (
+                                    <>
+                                     <SmallButton onClick={}>
+                                <RiSubtractFill
+                                    size={24}
+                                    style={{ paddingLeft: '0.2em' }}
+                                />
+                            </SmallButton>
+                                        <CardAccordianInfo>
+                                            Dairy Free :
+                                            {info.dairyFree ? (
+                                                <IncludeTag>
+                                                    <TbMilk size={30} />
+                                                    Yes
+                                                </IncludeTag>
+                                            ) : (
+                                                <ExcludeTag>
+                                                    <TbMilk size={30} />
+                                                    No
+                                                </ExcludeTag>
+                                            )}
+                                        </CardAccordianInfo>
+                                        <CardAccordianInfo>
+                                            Gluten Free:
+                                            {info.glutenFree ? (
+                                                <IncludeTag>
+                                                    <CiWheat size={30} />
+                                                    Yes
+                                                </IncludeTag>
+                                            ) : (
+                                                <ExcludeTag>
+                                                    <CiWheat size={30} />
+                                                    No
+                                                </ExcludeTag>
+                                            )}
+                                        </CardAccordianInfo>
+                                        <CardAccordianInfo>
+                                            Vegan:
+                                            {info.vegan ? (
+                                                <IncludeTag>
+                                                    <RiPlantFill size={30} />
+                                                    Yes
+                                                </IncludeTag>
+                                            ) : (
+                                                <ExcludeTag>
+                                                    <RiPlantFill size={30} />
+                                                    No
+                                                </ExcludeTag>
+                                            )}
+                                        </CardAccordianInfo>
+                                        <CardAccordianInfo>
+                                            Vegetarian:
+                                            {info.vegetarian ? (
+                                                <IncludeTag>
+                                                    <RiPlantLine size={30} />
+                                                    Yes
+                                                </IncludeTag>
+                                            ) : (
+                                                <ExcludeTag>
+                                                    <RiPlantLine size={30} />
+                                                    No
+                                                </ExcludeTag>
+                                            )}
+                                        </CardAccordianInfo>
+                                    </>
+                                )}
+                            </CardAccordianBox>
                         </CardAccordian>
                     </CardWrapper>
                 </CardContainer>
