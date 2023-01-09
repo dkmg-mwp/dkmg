@@ -20,8 +20,8 @@ export const SearchBarInput = styled.input`
     border-style: none;
     background-color: transparent;
     &:focus {
-    outline: none;
-    color: green;
+        outline: none;
+        color: green;
         /* box-shadow: 0px 0px 2px red; */
     }
 `;
