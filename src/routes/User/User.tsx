@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { RiAddLine, RiUserAddFill } from 'react-icons/ri';
+import { RiUserAddFill } from 'react-icons/ri';
 import { InnerContainer, TextContainer } from '../Search/Search.styles';
 import { Container, Input, InputSection, Title, Wrapper } from './User.styles';
 
