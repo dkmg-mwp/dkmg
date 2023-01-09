@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { RiHome5Fill, RiSearchLine } from 'react-icons/ri';
+import { RiHome5Fill, RiSearchLine, RiUserFill } from 'react-icons/ri';
 
 export const Footer = styled.footer`
     display: flex;
@@ -46,6 +46,18 @@ export const HomeIcon = styled(RiHome5Fill)`
 `;
 
 export const SearchIcon = styled(RiSearchLine)`
+    width: 24px;
+    height: 24px;
+    &:hover {
+        width: 48px;
+        height: 48px;
+    }
+    ${NavLinks}.active & {
+        width: 48px;
+        height: 48px;
+    }
+`;
+export const UserIcon = styled(RiUserFill)`
     width: 24px;
     height: 24px;
     &:hover {
