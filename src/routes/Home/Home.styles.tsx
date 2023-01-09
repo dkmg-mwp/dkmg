@@ -15,27 +15,16 @@ export const Wrapper = styled.div`
     align-items: center;
 `;
 
-export const Title = styled.h1`
-    position: relative;
-    width: 280px;
-    height: 142px;
-    top: 75px;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 150%;
+export const InnerContainer = styled.div`
+    padding: 24px 10px;
+    min-height: 600px;
+    background: #cce3c8;
+    border-radius: 26px 26px 0px 0px;
+`;
+
+export const TextContainer = styled.div`
     display: flex;
+    justify-content: center;
     align-items: center;
-    letter-spacing: 0.005em;
-    color: #2b8876;
+    padding: 40px 20px;
 `;
-
-export const SearchBarSection = styled.section`
-    width: 280px;
-    height: 64px;
-    position: relative;
-    top: 132px;
-`;
-
-//innercontainer från serach styles
