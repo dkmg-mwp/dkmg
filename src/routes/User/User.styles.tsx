@@ -1,6 +1,23 @@
 import styled from 'styled-components';
 
-export const SearchBarContainer = styled.div`
+export const Container = styled.section`
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 0px;
+    background: #cce3c8;
+`;
+
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const Title = styled.h1``;
+
+export const InputSection = styled.div`
     box-sizing: border-box;
     width: 100%;
     height: 64px;
@@ -15,13 +32,12 @@ export const SearchBarContainer = styled.div`
     border-radius: 40px;
 `;
 
-export const SearchBarInput = styled.input`
+export const Input = styled.input`
     text-decoration: none;
     border-style: none;
     background-color: transparent;
     &:focus {
-    outline: none;
-    color: green;
+        outline: none;
         /* box-shadow: 0px 0px 2px red; */
     }
 `;
