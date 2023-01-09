@@ -19,6 +19,7 @@ export const SearchBarInput = styled.input`
     text-decoration: none;
     border-style: none;
     background-color: transparent;
+    color: green;
     &:focus {
         outline: none;
         /* box-shadow: 0px 0px 2px red; */
