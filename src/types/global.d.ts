@@ -12,3 +12,12 @@ type Info = {
     vegetarian: boolean;
     title: string;
 };
+
+type Guest = {
+    id: string,
+    name: string,
+    dairyFree: boolean;
+    glutenFree: boolean;
+    vegan: boolean;
+    vegetarian: boolean;
+};
