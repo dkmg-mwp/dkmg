@@ -36,8 +36,11 @@ export const Input = styled.input`
     text-decoration: none;
     border-style: none;
     background-color: transparent;
+    color: #2b8872;
+    font-family: Mulish;
     &:focus {
         outline: none;
+        color: #2b8872;
         /* box-shadow: 0px 0px 2px red; */
     }
 `;
