@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import {
     Container,
@@ -9,6 +9,10 @@ import {
 
 const Home = () => {
     const [food, setFood] = useState<Food[]>([]);
+
+    useEffect(() => {
+        document.title = 'Home';
+    }, []);
     return (
         <Container>
             <Wrapper>
