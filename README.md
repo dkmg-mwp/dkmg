@@ -1,8 +1,10 @@
 # DKMG
+
 Dont Kill My Guest!
 
 ## Demo link:
-Access our site at [DKMG.lul](https://dapper-moonbeam-d57eea.netlify.app/)
+
+Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/)
 
 ## Table of Content:
 
@@ -19,6 +21,7 @@ Access our site at [DKMG.lul](https://dapper-moonbeam-d57eea.netlify.app/)
   - [License](#license)
 
 ## About The App
+
 [Dont Kill My Guest] is a website to help people not to slaughter them dinner guests.
 
 ## Screenshots
@@ -28,23 +31,30 @@ Access our site at [DKMG.lul](https://dapper-moonbeam-d57eea.netlify.app/)
 Picture by [John Doe](https://Johndoedoedoe.com)
 
 ## Technologies
-I used `html`, `css`, `js`, `typescript`, `styled-component`, `axios`, ...
+
+`react`, `typescript`, `styled-components`, `axios`, `vite`...
 
 ## Setup
-- download or clone the repository
-- run `npm install`
-- You will need your own `api key`
+
+-   download or clone the repository
+-   run `npm install`
+-   You will need your own `api key`
 
 ## Approach
+
 I adopted the `BEM` naming style for my css class names and ...
 
 ## Status
-[name of project] is still in progress. `Version 2` will be out soon.
+
+[Dont Kill My Guest] is still in progress.
 
 ## Credits
+
 List of contriubutors:
-- [John Doe](johndoe.com)
-- [Beginners guide to BEM](link-goes-here.com)
+
+-   [Linda Andersson](https://www.linkedin.com/in/linda-andersson-stockholm/)
+-   [Sandy Congreve](https://www.linkedin.com/in/sandycongreve/)
+-   [Marcus Piri](https://www.linkedin.com/in/marcus-piri-968a61221/)
 
 ## License
 

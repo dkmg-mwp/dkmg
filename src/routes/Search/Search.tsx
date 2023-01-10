@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import {
     Container,
@@ -12,6 +12,10 @@ import {
 
 const Search = () => {
     const [food, setFood] = useState<Food[]>([]);
+
+    useEffect(() => {
+        document.title = 'Search';
+    }, []);
     return (
         <Container>
             <TextContainer>
