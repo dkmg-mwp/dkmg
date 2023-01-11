@@ -86,7 +86,7 @@ const User = () => {
                                         <input
                                             type='checkbox'
                                             name='Dairy Free'
-                                            value={dairyFree.toString()}
+                                            checked={dairyFree}
                                             onChange={handleDairyFree}
                                         />
                                         <label>Dairy Free</label>
@@ -95,7 +95,7 @@ const User = () => {
                                         <input
                                             type='checkbox'
                                             name='Gluten Free'
-                                            value={glutenFree.toString()}
+                                            checked={glutenFree}
                                             onChange={handleGlutenFree}
                                         />
                                         <label>Gluten Free</label>
@@ -104,7 +104,7 @@ const User = () => {
                                         <input
                                             type='checkbox'
                                             name='Vegan'
-                                            value={vegan.toString()}
+                                            checked={vegan}
                                             onChange={handleVegan}
                                         />
                                         <label>Vegan</label>
@@ -113,7 +113,7 @@ const User = () => {
                                         <input
                                             type='checkbox'
                                             name='Vegetarian'
-                                            value={vegetarian.toString()}
+                                            checked={vegetarian}
                                             onChange={handleVegetarian}
                                         />
                                         <label>Vegetarian</label>
