@@ -16,6 +16,7 @@ const Search = () => {
     useEffect(() => {
         document.title = 'Search';
     }, []);
+
     return (
         <Container>
             <TextContainer>
