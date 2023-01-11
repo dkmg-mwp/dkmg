@@ -7,6 +7,7 @@ import {
     H4,
     InnerContainer,
     SearchContainer,
+    SearchResult,
     TextContainer,
 } from './Search.styles';
 
@@ -23,7 +24,11 @@ const Search = () => {
                     <SearchBar setFood={setFood} />
                     <H4>Results for:</H4>
                 </SearchContainer>
-                <Card food={food} />
+                <SearchResult>
+                    {food.map((item) => (
+                        <Card key={item.id} food={item} />
+                    ))}
+                </SearchResult>
             </InnerContainer>
         </Container>
     );
