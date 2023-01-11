@@ -19,10 +19,26 @@ const User = () => {
         await removeGuest(id).then(() => fetchGuests().then(setGuests));
     };
 
+    const guestRender = () => {
+        return (
+            <span>
+                {guests.map((g) => (
+                    <div key={g.id}>
+                        <p>{g.name}</p>
+                        <button onClick={() => handleRemove(g.id)}>
+                            Remove
+                        </button>
+                    </div>
+                ))}
+            </span>
+        );
+    };
+
     useEffect(() => {
         document.title = 'User';
         fetchGuests().then(setGuests);
     }, []);
+    
     return (
         <Container>
             <Wrapper>
@@ -43,14 +59,7 @@ const User = () => {
                             size={25}
                         />
                     </InputSection>
-                    {guests.map((g) => (
-                        <div key={g.id}>
-                            <p>{g.name}</p>
-                            <button onClick={() => handleRemove(g.id)}>
-                                click
-                            </button>
-                        </div>
-                    ))}
+                    {guestRender()}
                 </InnerContainer>
             </Wrapper>
         </Container>
