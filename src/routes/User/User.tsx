@@ -12,22 +12,6 @@ const User = () => {
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
 
-    const handleDairyFree = () => {
-        setDairyFree((prev) => !prev);
-    };
-
-    const handleGlutenFree = () => {
-        setGlutenFree((prev) => !prev);
-    };
-
-    const handleVegan = () => {
-        setVegan((prev) => !prev);
-    };
-
-    const handleVegetarian = () => {
-        setVegetarian((prev) => !prev);
-    };
-
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
         await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
@@ -87,7 +71,7 @@ const User = () => {
                                             type='checkbox'
                                             name='Dairy Free'
                                             checked={dairyFree}
-                                            onChange={handleDairyFree}
+                                            onChange={() => setDairyFree((prev) => !prev)}
                                         />
                                         <label>Dairy Free</label>
                                     </li>
@@ -96,7 +80,7 @@ const User = () => {
                                             type='checkbox'
                                             name='Gluten Free'
                                             checked={glutenFree}
-                                            onChange={handleGlutenFree}
+                                            onChange={() => setGlutenFree((prev) => !prev)}
                                         />
                                         <label>Gluten Free</label>
                                     </li>
@@ -105,7 +89,7 @@ const User = () => {
                                             type='checkbox'
                                             name='Vegan'
                                             checked={vegan}
-                                            onChange={handleVegan}
+                                            onChange={() =>  setVegan((prev) => !prev)}
                                         />
                                         <label>Vegan</label>
                                     </li>
@@ -114,7 +98,7 @@ const User = () => {
                                             type='checkbox'
                                             name='Vegetarian'
                                             checked={vegetarian}
-                                            onChange={handleVegetarian}
+                                            onChange={() => setVegetarian((prev) => !prev)}
                                         />
                                         <label>Vegetarian</label>
                                     </li>
