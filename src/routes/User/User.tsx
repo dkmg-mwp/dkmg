@@ -32,6 +32,10 @@ const User = () => {
         if (input.length === 0) return;
         await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
         setInput('');
+        setDairyFree(false);
+        setGlutenFree(false);
+        setVegan(false);
+        setVegetarian(false);
         await fetchGuests().then(setGuests);
     };
 
@@ -116,10 +120,12 @@ const User = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <RiUserAddFill
+                            <button
                                 onClick={() => handleAdd(input)}
-                                size={25}
-                            />
+                                type='submit'
+                            >
+                                <RiUserAddFill size={25} />
+                            </button>
                         </form>
                     </InputSection>
                     {guestRender()}
