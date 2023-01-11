@@ -24,28 +24,8 @@ export const CardColumn = styled.div`
 export const CardRatings = styled.div``;
 export const CardTitle = styled.h5``;
 
-export const SmallButton = styled.button`
-    border: 1px solid #ef8a62;
-    background-color: #ef8a62;
-    color: white;
-    border-radius: 6px;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.025em;
-    min-height: 30px;
-`;
 
-export const WhiteButton = styled.button`
-    border: 1px solid #ef8a62;
-    color: #ef8a62;
-    background-color: white;
-    border-radius: 6px;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 0.025em;
-    min-height: 30px;
-`;
+
+export const CardSection = styled.div`
+    
+`

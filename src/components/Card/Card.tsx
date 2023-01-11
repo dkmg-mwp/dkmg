@@ -6,28 +6,28 @@ import {
     CardTitle,
     CardContainer,
     CardColumn,
-    WhiteButton,
-    SmallButton,
+    CardSection,
 } from './Card.styles';
 import axios from 'axios';
-import Accordion from '../Accordion/Accordion';
+import AllergyList from '../AllergyList/AllergyList';
+import { SmallButton } from '../Buttons/Button.styles';
 
 type Props = {
     food: Food;
 };
 
 const Card = ({ food }: Props) => {
-    const [info, setInfo] = useState<Info>();
+    const [allergies, setAllergies] = useState<Allergies>();
     const [open, setOpen] = useState(false);
 
-    const handleInfo = async (id: number) => {
+    const getAllergies = async (id: number) => {
         const res = await axios.get(
             `${import.meta.env.VITE_URL_KEY}recipes/${id}/information?apiKey=${
                 import.meta.env.VITE_API_KEY
             }&`
         );
 
-        setInfo(res.data);
+        setAllergies(res.data);
         handleOnClick();
 
         return res.data;
@@ -48,19 +48,75 @@ const Card = ({ food }: Props) => {
                 </CardRatings>
                 <CardTitle>{food.title}</CardTitle>
                 {!open ? (
-                    <SmallButton onClick={() => handleInfo(food.id)}>
+                    <SmallButton primary onClick={() => getAllergies(food.id)}>
                         Allergies <RiArrowDownSLine />
                     </SmallButton>
                 ) : (
-                    <WhiteButton onClick={() => handleInfo(food.id)}>
+                    <SmallButton onClick={() => getAllergies(food.id)}>
                         See Less <RiArrowUpSLine />
-                    </WhiteButton>
+                    </SmallButton>
                 )}
             </CardColumn>
 
-            <div>{open && info && <Accordion key={food.id} info={info} />}</div>
+            <CardSection>
+                {open && allergies && (
+                    <AllergyList key={food.id} allergies={allergies} />
+                )}
+            </CardSection>
         </CardContainer>
     );
 };
 
 export default Card;
+// import { PropsWithChildren, useEffect, useState } from 'react';
+// import {
+//     CardImage,
+//     CardTitle,
+//     CardContainer,
+//     CardColumn,
+//     CardSection,
+// } from './Card.styles';
+
+// import Accordion from '../Accordion/Accordion';
+// import {
+//     ActiveAccordionButton,
+//     DefaultAccordionButton,
+// } from '../Buttons/Buttons';
+// import axios from 'axios';
+
+// type Props = {
+//     id: number;
+//     image: string;
+//     title: string;
+//     open: boolean;
+//     children?: React.ReactNode;
+//     info: Info;
+// };
+
+// const Card = ({ id, image, title, onClick, children }: Props) => {
+
+//     return (
+//         <CardContainer key={id}>
+//             <CardColumn>
+//                 <CardImage src={image} />
+//             </CardColumn>
+//             <CardColumn>
+//                 <CardTitle>{title}</CardTitle>
+//                 {!open ? (
+//                     <DefaultAccordionButton
+//                         buttonText='Allergies'
+//                         onClick={() => handleInfo(id)}
+//                     />
+//                 ) : (
+//                     <ActiveAccordionButton
+//                         buttonText='See less'
+//                         onClick={() => handleInfo(id)}
+//                     />
+//                 )}
+//             </CardColumn>
+//             {open && <CardSection>{children}</CardSection>}
+//         </CardContainer>
+//     );
+// };
+
+// export default Card;

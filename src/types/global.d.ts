@@ -5,7 +5,7 @@ type Food = {
     title: string;
 };
 
-type Info = {
+type Allergies = {
     dairyFree: boolean;
     glutenFree: boolean;
     vegan: boolean;

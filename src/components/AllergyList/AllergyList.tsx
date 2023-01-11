@@ -8,18 +8,18 @@ import {
     CardAccordionInfo,
     ExcludeTag,
     IncludeTag,
-} from './Accordion.styles';
+} from './AllergyList.styles';
 
 type Props = {
-    info: Info;
+    allergies: Allergies;
 };
 
-const Accordion = ({ info }: Props) => {
+const AllergyList = ({ allergies }: Props) => {
     return (
         <CardAccordion>
             <CardAccordionBox>
                 <CardAccordionInfo>
-                    {info.dairyFree ? (
+                    {allergies.dairyFree ? (
                         <IncludeTag>
                             {' '}
                             <TbMilk size={30} />
@@ -33,7 +33,7 @@ const Accordion = ({ info }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {info.glutenFree ? (
+                    {allergies.glutenFree ? (
                         <IncludeTag>
                             {' '}
                             <CiWheat size={30} /> Gluten Free: Yes
@@ -47,7 +47,7 @@ const Accordion = ({ info }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {info.vegan ? (
+                    {allergies.vegan ? (
                         <IncludeTag>
                             {' '}
                             <RiPlantFill size={30} /> Vegan: Yes
@@ -60,7 +60,7 @@ const Accordion = ({ info }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {info.vegetarian ? (
+                    {allergies.vegetarian ? (
                         <IncludeTag>
                             {' '}
                             <RiPlantLine size={30} />
@@ -78,4 +78,4 @@ const Accordion = ({ info }: Props) => {
     );
 };
 
-export default Accordion;
+export default AllergyList;
