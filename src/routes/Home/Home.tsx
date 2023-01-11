@@ -1,13 +1,30 @@
-import { Title, Container, Wrapper } from './Home.styles';
+import { useEffect, useState } from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import {
+    Container,
+    Wrapper,
+    InnerContainer,
+    TextContainer,
+} from './Home.styles';
 
 const Home = () => {
+    const [food, setFood] = useState<Food[]>([]);
+
+    useEffect(() => {
+        document.title = 'Home';
+    }, []);
     return (
         <Container>
             <Wrapper>
-                <Title>
-                    Friends with allergies? No worries, we’ll help you not to
-                    get them killed...
-                </Title>
+                <TextContainer>
+                    <h1>
+                        Friends with allergies? No worries, we’ll help you not
+                        to get them killed...
+                    </h1>
+                </TextContainer>
+                <InnerContainer>
+                    <SearchBar setFood={setFood} />
+                </InnerContainer>
             </Wrapper>
         </Container>
     );

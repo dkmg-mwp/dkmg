@@ -4,6 +4,7 @@ import {
     NavLinks,
     HomeIcon,
     SearchIcon,
+    UserIcon,
 } from './Navbar.styles';
 
 const Navbar = () => {
@@ -15,6 +16,9 @@ const Navbar = () => {
                 </NavLinks>
                 <NavLinks to='/search'>
                     <SearchIcon></SearchIcon>
+                </NavLinks>
+                <NavLinks to='/user'>
+                    <UserIcon></UserIcon>
                 </NavLinks>
             </NavbarContainer>
         </Footer>

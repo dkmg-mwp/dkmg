@@ -6,6 +6,7 @@ import ErrorPage from './ErrorPage';
 import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
+import User from './routes/User/User';
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: 'search',
                 element: <Search />,
+            },
+            {
+                path: 'user',
+                element: <User />,
             },
         ],
     },
