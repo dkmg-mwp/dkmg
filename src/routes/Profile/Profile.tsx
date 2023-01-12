@@ -33,34 +33,10 @@ const User = () => {
         await removeGuest(id).then(() => fetchGuests().then(setGuests));
     };
 
-    const guestRender = () => {
+    const guestCreationRender = () => {
         return (
             <span>
-                {guests.map((g) => (
-                    <div key={g.id}>
-                        <p>{g.name}</p>
-                        <button onClick={() => handleRemove(g.id)}>
-                            Remove
-                        </button>
-                    </div>
-                ))}
-            </span>
-        );
-    };
-
-    useEffect(() => {
-        document.title = 'Profile';
-        fetchGuests().then(setGuests);
-    }, []);
-
-    return (
-        <Container>
-            <Wrapper>
-                <TextContainer>
-                    <Title>Who’s your annoying friend?</Title>
-                </TextContainer>
-
-                <InnerContainer>
+                {
                     <InputSection>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <Input
@@ -126,6 +102,40 @@ const User = () => {
                             </button>
                         </form>
                     </InputSection>
+                }
+            </span>
+        );
+    };
+
+    const guestRender = () => {
+        return (
+            <span>
+                {guests.map((g) => (
+                    <div key={g.id}>
+                        <p>{g.name}</p>
+                        <button onClick={() => handleRemove(g.id)}>
+                            Remove
+                        </button>
+                    </div>
+                ))}
+            </span>
+        );
+    };
+
+    useEffect(() => {
+        document.title = 'Profile';
+        fetchGuests().then(setGuests);
+    }, []);
+
+    return (
+        <Container>
+            <Wrapper>
+                <TextContainer>
+                    <Title>Who’s your annoying friend?</Title>
+                </TextContainer>
+
+                <InnerContainer>
+                    {guestCreationRender()}
                     {guestRender()}
                 </InnerContainer>
             </Wrapper>
