@@ -8,10 +8,10 @@ import {
     Title,
     Wrapper,
 } from './Profile.styles';
-import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
+import { useProfile } from './Profile.context';
 
 const User = () => {
-    const [guests, setGuests] = useState<Guest[]>([]);
+    const { guests, handleAddProfile, handleRemoveProfile } = useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -20,17 +20,8 @@ const User = () => {
 
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
-        await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
+        await handleAddProfile(name, dairyFree, glutenFree, vegan, vegetarian);
         setInput('');
-        setDairyFree(false);
-        setGlutenFree(false);
-        setVegan(false);
-        setVegetarian(false);
-        await fetchGuests().then(setGuests);
-    };
-
-    const handleRemove = async (id: string) => {
-        await removeGuest(id).then(() => fetchGuests().then(setGuests));
     };
 
     const guestRender = () => {
@@ -39,7 +30,7 @@ const User = () => {
                 {guests.map((g) => (
                     <div key={g.id}>
                         <p>{g.name}</p>
-                        <button onClick={() => handleRemove(g.id)}>
+                        <button onClick={() => handleRemoveProfile(g.id)}>
                             Remove
                         </button>
                     </div>
@@ -50,7 +41,6 @@ const User = () => {
 
     useEffect(() => {
         document.title = 'Profile';
-        fetchGuests().then(setGuests);
     }, []);
 
     return (
