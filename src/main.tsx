@@ -6,7 +6,7 @@ import ErrorPage from './ErrorPage';
 import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
-import User from './routes/User/User';
+import User from './routes/Profile/Profile';
 import { ContextWrapper } from './utils/ContextWrapper';
 
 const router = createBrowserRouter([

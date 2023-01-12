@@ -1,4 +1,4 @@
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
+import { RiArrowDownSLine } from 'react-icons/ri';
 import { SmallButton } from './Button.styles';
 
 type Props = {

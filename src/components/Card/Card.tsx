@@ -1,4 +1,4 @@
-import { RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
+import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { useState } from 'react';
 import {
     CardImage,
@@ -7,15 +7,17 @@ import {
     CardColumn,
     CardSection,
 } from './Card.styles';
-import { useSearch } from '../../routes/Search/Search.context';
 import axios from 'axios';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../Buttons/Button.styles';
 
-const Card = () => {
+type Props = {
+    dish: Dish;
+};
+
+const Card = ({ dish }: Props) => {
     const [allergies, setAllergies] = useState<Allergies>();
     const [open, setOpen] = useState(false);
-    const { dishes } = useSearch();
 
     const getAllergies = async (id: number) => {
         const res = await axios.get(
