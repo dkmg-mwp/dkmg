@@ -8,7 +8,8 @@ import {
     Title,
     Wrapper,
 } from './Profile.styles';
-import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
+import { addGuest, fetchGuests } from '../../api/dkmg-api';
+import GuestCard from '../../components/GuestCard/GuestCard';
 
 const User = () => {
     const [guests, setGuests] = useState<Guest[]>([]);
@@ -27,10 +28,6 @@ const User = () => {
         setVegan(false);
         setVegetarian(false);
         await fetchGuests().then(setGuests);
-    };
-
-    const handleRemove = async (id: string) => {
-        await removeGuest(id).then(() => fetchGuests().then(setGuests));
     };
 
     const guestCreationRender = () => {
@@ -109,16 +106,15 @@ const User = () => {
 
     const guestRender = () => {
         return (
-            <span>
-                {guests.map((g) => (
-                    <div key={g.id}>
-                        <p>{g.name}</p>
-                        <button onClick={() => handleRemove(g.id)}>
-                            Remove
-                        </button>
-                    </div>
+            <>
+                {guests.map((guest) => (
+                    <GuestCard
+                        key={guest.id}
+                        guest={guest}
+                        setGuests={setGuests}
+                    />
                 ))}
-            </span>
+            </>
         );
     };
 
