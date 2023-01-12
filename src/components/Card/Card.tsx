@@ -7,17 +7,15 @@ import {
     CardColumn,
     CardSection,
 } from './Card.styles';
+import { useSearch } from '../../routes/Search/Search.context';
 import axios from 'axios';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../Buttons/Button.styles';
 
-type Props = {
-    food: Food;
-};
-
-const Card = ({ food }: Props) => {
+const Card = () => {
     const [allergies, setAllergies] = useState<Allergies>();
     const [open, setOpen] = useState(false);
+    const { dishes } = useSearch();
 
     const getAllergies = async (id: number) => {
         const res = await axios.get(
@@ -25,10 +23,8 @@ const Card = ({ food }: Props) => {
                 import.meta.env.VITE_API_KEY
             }&`
         );
-
         setAllergies(res.data);
         handleOnClick();
-
         return res.data;
     };
 
@@ -39,16 +35,16 @@ const Card = ({ food }: Props) => {
     return (
         <CardContainer>
             <CardColumn>
-                <CardImage src={food.image} />
+                <CardImage src={dish.image} />
             </CardColumn>
             <CardColumn>
-                <CardTitle>{food.title}</CardTitle>
+                <CardTitle>{dish.title}</CardTitle>
                 {!open ? (
-                    <SmallButton primary onClick={() => getAllergies(food.id)}>
+                    <SmallButton primary onClick={() => getAllergies(dish.id)}>
                         Allergies <RiArrowDownSLine />
                     </SmallButton>
                 ) : (
-                    <SmallButton onClick={() => getAllergies(food.id)}>
+                    <SmallButton onClick={() => getAllergies(dish.id)}>
                         See Less <RiArrowUpSLine />
                     </SmallButton>
                 )}
@@ -56,7 +52,7 @@ const Card = ({ food }: Props) => {
 
             <CardSection>
                 {open && allergies && (
-                    <AllergyList key={food.id} allergies={allergies} />
+                    <AllergyList key={dish.id} allergies={allergies} />
                 )}
             </CardSection>
         </CardContainer>
