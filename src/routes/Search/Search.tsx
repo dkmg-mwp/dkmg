@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Card from '../../components/Card/Card';
 import {
     Container,
@@ -11,8 +11,6 @@ import {
 } from './Search.styles';
 
 const Search = () => {
-    const [food, setFood] = useState<Food[]>([]);
-
     useEffect(() => {
         document.title = 'Search';
     }, []);
@@ -24,10 +22,10 @@ const Search = () => {
 
             <InnerContainer>
                 <SearchContainer>
-                    <SearchBar setFood={setFood} />
+                    <SearchBar />
                     <H4>Results for:</H4>
                 </SearchContainer>
-                <Card food={food} />
+                <Card />
             </InnerContainer>
         </Container>
     );

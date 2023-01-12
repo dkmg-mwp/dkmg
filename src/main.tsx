@@ -7,6 +7,7 @@ import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
 import User from './routes/User/User';
+import { ContextWrapper } from './utils/ContextWrapper';
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ContextWrapper>
+            <RouterProvider router={router} />
+        </ContextWrapper>
     </React.StrictMode>
 );

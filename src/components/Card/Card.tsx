@@ -25,14 +25,12 @@ import {
     Right,
     SmallButton,
 } from './Card.styles';
+import { useSearch } from '../../routes/Search/Search.context';
 
-type Props = {
-    food: Food[];
-};
-
-const Card = ({ food }: Props) => {
+const Card = () => {
     const [info, setInfo] = useState<Info>();
     const [open, setOpen] = useState(false);
+    const { dishes } = useSearch();
 
     const handleInfo = async (id: number) => {
         const res = await axios.get(
@@ -52,13 +50,13 @@ const Card = ({ food }: Props) => {
     // }
     return (
         <>
-            {food.map((i) => (
-                <CardContainer key={i.id}>
+            {dishes.map((dish) => (
+                <CardContainer key={dish.id}>
                     <CardWrapper>
                         {/* Left section */}
                         <Wrapper>
                             <Left>
-                                <CardImage src={i.image} />
+                                <CardImage src={dish.image} />
                             </Left>
 
                             {/* Right section */}
@@ -67,18 +65,20 @@ const Card = ({ food }: Props) => {
                                     <RiStarFill /> <RiStarFill /> <RiStarFill />{' '}
                                     <RiStarFill />
                                 </CardRatings>
-                                <CardTitle>{i.title}</CardTitle>
+                                <CardTitle>{dish.title}</CardTitle>
                             </Right>
                         </Wrapper>
 
                         {/* Accordian section */}
                         <CardAccordian>
                             {info ? (
-                                <CardAccordianBox key={i.id}>
-                                    {info.title === i.title && (
+                                <CardAccordianBox key={dish.id}>
+                                    {info.title === dish.title && (
                                         <>
                                             <SmallButton
-                                                onClick={() => handleInfo(i.id)}
+                                                onClick={() =>
+                                                    handleInfo(dish.id)
+                                                }
                                             >
                                                 <RiSubtractFill size={24} />
                                             </SmallButton>
@@ -151,7 +151,9 @@ const Card = ({ food }: Props) => {
                                     )}
                                 </CardAccordianBox>
                             ) : (
-                                <SmallButton onClick={() => handleInfo(i.id)}>
+                                <SmallButton
+                                    onClick={() => handleInfo(dish.id)}
+                                >
                                     Allergies
                                     <RiArrowDropDownFill
                                         size={24}

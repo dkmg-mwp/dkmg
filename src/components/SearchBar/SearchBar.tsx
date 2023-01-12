@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
+import { useSearch } from '../../routes/Search/Search.context';
 import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
 
-type Props = {
-    setFood: React.Dispatch<React.SetStateAction<Food[]>>;
-};
+// type Props = {
+//     setFood: React.Dispatch<React.SetStateAction<Food[]>>;
+// };
 
-const SearchBar = ({ setFood }: Props) => {
+const SearchBar = () => {
+    const { setDishes } = useSearch();
     const [input, setInput] = useState('');
 
     const handleSearch = async (search: string) => {
@@ -16,7 +18,7 @@ const SearchBar = ({ setFood }: Props) => {
                 import.meta.env.VITE_API_KEY
             }&query=${search}`
         );
-        setFood(res.data.results);
+        setDishes(res.data.results);
         return res.data;
     };
 
