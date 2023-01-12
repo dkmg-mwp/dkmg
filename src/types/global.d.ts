@@ -26,9 +26,6 @@ type Dish = {
     image: string;
     imageType: string;
     title: string;
-};
-
-type Allergies = {
     dairyFree: boolean;
     glutenFree: boolean;
     vegan: boolean;
@@ -44,6 +41,7 @@ type Guest = {
     vegan?: boolean;
     vegetarian?: boolean;
 };
+
 type User = {
     id: string;
     name: string;

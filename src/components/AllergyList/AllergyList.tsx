@@ -11,15 +11,15 @@ import {
 } from './AllergyList.styles';
 
 type Props = {
-    allergies: Allergies;
+    dish: Dish;
 };
 
-const AllergyList = ({ allergies }: Props) => {
+const AllergyList = ({ dish }: Props) => {
     return (
         <CardAccordion>
             <CardAccordionBox>
                 <CardAccordionInfo>
-                    {allergies.dairyFree ? (
+                    {dish.dairyFree ? (
                         <IncludeTag>
                             {' '}
                             <TbMilk size={30} />
@@ -33,7 +33,7 @@ const AllergyList = ({ allergies }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {allergies.glutenFree ? (
+                    {dish.glutenFree ? (
                         <IncludeTag>
                             {' '}
                             <CiWheat size={30} /> Gluten Free: Yes
@@ -47,7 +47,7 @@ const AllergyList = ({ allergies }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {allergies.vegan ? (
+                    {dish.vegan ? (
                         <IncludeTag>
                             {' '}
                             <RiPlantFill size={30} /> Vegan: Yes
@@ -60,7 +60,7 @@ const AllergyList = ({ allergies }: Props) => {
                     )}
                 </CardAccordionInfo>
                 <CardAccordionInfo>
-                    {allergies.vegetarian ? (
+                    {dish.vegetarian ? (
                         <IncludeTag>
                             {' '}
                             <RiPlantLine size={30} />

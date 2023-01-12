@@ -7,7 +7,6 @@ import {
     CardColumn,
     CardSection,
 } from './Card.styles';
-import axios from 'axios';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../Buttons/Button.styles';
 
@@ -16,19 +15,7 @@ type Props = {
 };
 
 const Card = ({ dish }: Props) => {
-    const [allergies, setAllergies] = useState<Allergies>();
     const [open, setOpen] = useState(false);
-
-    const getAllergies = async (id: number) => {
-        const res = await axios.get(
-            `${import.meta.env.VITE_URL_KEY}recipes/${id}/information?apiKey=${
-                import.meta.env.VITE_API_KEY
-            }&`
-        );
-        setAllergies(res.data);
-        handleOnClick();
-        return res.data;
-    };
 
     function handleOnClick() {
         setOpen((prevState) => !prevState);
@@ -42,20 +29,18 @@ const Card = ({ dish }: Props) => {
             <CardColumn>
                 <CardTitle>{dish.title}</CardTitle>
                 {!open ? (
-                    <SmallButton primary onClick={() => getAllergies(dish.id)}>
+                    <SmallButton primary onClick={() => handleOnClick()}>
                         Allergies <RiArrowDownSLine />
                     </SmallButton>
                 ) : (
-                    <SmallButton onClick={() => getAllergies(dish.id)}>
+                    <SmallButton onClick={() => handleOnClick()}>
                         See Less <RiArrowUpSLine />
                     </SmallButton>
                 )}
             </CardColumn>
 
             <CardSection>
-                {open && allergies && (
-                    <AllergyList key={dish.id} allergies={allergies} />
-                )}
+                {open && <AllergyList key={dish.id} dish={dish} />}
             </CardSection>
         </CardContainer>
     );
