@@ -1,15 +1,7 @@
-import { useEffect, useState } from 'react';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import {
-    Container,
-    Wrapper,
-    InnerContainer,
-    TextContainer,
-} from './Home.styles';
+import { useEffect } from 'react';
+import { Container, Wrapper, TextContainer } from './Home.styles';
 
 const Home = () => {
-    const [food, setFood] = useState<Food[]>([]);
-
     useEffect(() => {
         document.title = 'Home';
     }, []);
@@ -22,9 +14,6 @@ const Home = () => {
                         to get them killed...
                     </h1>
                 </TextContainer>
-                <InnerContainer>
-                    <SearchBar setFood={setFood} />
-                </InnerContainer>
             </Wrapper>
         </Container>
     );

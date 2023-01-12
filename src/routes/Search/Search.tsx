@@ -7,6 +7,7 @@ import {
     H4,
     InnerContainer,
     SearchContainer,
+    SearchResult,
     TextContainer,
 } from './Search.styles';
 
@@ -14,6 +15,7 @@ const Search = () => {
     useEffect(() => {
         document.title = 'Search';
     }, []);
+
     return (
         <Container>
             <TextContainer>
@@ -25,7 +27,11 @@ const Search = () => {
                     <SearchBar />
                     <H4>Results for:</H4>
                 </SearchContainer>
-                <Card />
+                <SearchResult>
+                    {food.map((item) => (
+                        <Card key={item.id} food={item} />
+                    ))}
+                </SearchResult>
             </InnerContainer>
         </Container>
     );

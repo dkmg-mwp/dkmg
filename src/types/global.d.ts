@@ -22,7 +22,7 @@ type Dish = {
     title: string;
 };
 
-type Info = {
+type Allergies = {
     dairyFree: boolean;
     glutenFree: boolean;
     vegan: boolean;

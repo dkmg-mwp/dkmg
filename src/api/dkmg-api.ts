@@ -23,14 +23,27 @@ const setDatabase = (db: Db) => {
     localStorage.setItem('db', JSON.stringify(db));
 };
 
-export const addGuest = async (name: string) => {
+export const addGuest = async (
+    name: string,
+    dairyFree: boolean,
+    glutenFree: boolean,
+    vegan: boolean,
+    vegetarian: boolean
+) => {
     // const res = await axios.post<GuestResponse>(`https`, {
     //     name,
     // });
     // return res.data.id;
     const db = getDatabase();
 
-    db.guests.push({ id: uuidv4(), name });
+    db.guests.push({
+        id: uuidv4(),
+        name,
+        dairyFree,
+        glutenFree,
+        vegan,
+        vegetarian,
+    });
     setDatabase(db);
 };
 

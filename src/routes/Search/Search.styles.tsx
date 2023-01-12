@@ -32,3 +32,9 @@ export const SearchContainer = styled.div`
 export const H4 = styled.h4`
     margin-top: 30px;
 `;
+
+export const SearchResult = styled.div`
+    display: grid;
+    gap: 1.5rem;
+    margin: 1rem 1rem;
+`;
