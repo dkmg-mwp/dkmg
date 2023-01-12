@@ -1,8 +1,7 @@
-import { RiArrowDownSLine, RiArrowUpSLine, RiStarFill } from 'react-icons/ri';
+import { RiArrowDownSLine, RiArrowUpSLine} from 'react-icons/ri';
 import { useState } from 'react';
 import {
     CardImage,
-    CardRatings,
     CardTitle,
     CardContainer,
     CardColumn,
@@ -43,9 +42,6 @@ const Card = ({ food }: Props) => {
                 <CardImage src={food.image} />
             </CardColumn>
             <CardColumn>
-                <CardRatings>
-                    <RiStarFill /> <RiStarFill /> <RiStarFill /> <RiStarFill />
-                </CardRatings>
                 <CardTitle>{food.title}</CardTitle>
                 {!open ? (
                     <SmallButton primary onClick={() => getAllergies(food.id)}>
@@ -68,55 +64,3 @@ const Card = ({ food }: Props) => {
 };
 
 export default Card;
-// import { PropsWithChildren, useEffect, useState } from 'react';
-// import {
-//     CardImage,
-//     CardTitle,
-//     CardContainer,
-//     CardColumn,
-//     CardSection,
-// } from './Card.styles';
-
-// import Accordion from '../Accordion/Accordion';
-// import {
-//     ActiveAccordionButton,
-//     DefaultAccordionButton,
-// } from '../Buttons/Buttons';
-// import axios from 'axios';
-
-// type Props = {
-//     id: number;
-//     image: string;
-//     title: string;
-//     open: boolean;
-//     children?: React.ReactNode;
-//     info: Info;
-// };
-
-// const Card = ({ id, image, title, onClick, children }: Props) => {
-
-//     return (
-//         <CardContainer key={id}>
-//             <CardColumn>
-//                 <CardImage src={image} />
-//             </CardColumn>
-//             <CardColumn>
-//                 <CardTitle>{title}</CardTitle>
-//                 {!open ? (
-//                     <DefaultAccordionButton
-//                         buttonText='Allergies'
-//                         onClick={() => handleInfo(id)}
-//                     />
-//                 ) : (
-//                     <ActiveAccordionButton
-//                         buttonText='See less'
-//                         onClick={() => handleInfo(id)}
-//                     />
-//                 )}
-//             </CardColumn>
-//             {open && <CardSection>{children}</CardSection>}
-//         </CardContainer>
-//     );
-// };
-
-// export default Card;
