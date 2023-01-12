@@ -1,4 +1,3 @@
-// import axios from 'axios';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
