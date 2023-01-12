@@ -112,6 +112,14 @@ const User = () => {
                         key={guest.id}
                         guest={guest}
                         setGuests={setGuests}
+                        dairyFree={dairyFree}
+                        setDairyFree={setDairyFree}
+                        glutenFree={glutenFree}
+                        setGlutenFree={setGlutenFree}
+                        vegan={vegan}
+                        setVegan={setVegan}
+                        vegetarian={vegetarian}
+                        setVegetarian={setVegetarian}
                     />
                 ))}
             </>
