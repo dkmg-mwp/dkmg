@@ -49,7 +49,7 @@ const User = () => {
     };
 
     useEffect(() => {
-        document.title = 'User';
+        document.title = 'Profile';
         fetchGuests().then(setGuests);
     }, []);
 

@@ -18,6 +18,12 @@ const SearchBar = () => {
         return res.data;
     };
 
+    const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleSearch(input);
+        }
+    };
+
     return (
         <SearchBarContainer>
             <SearchBarInput
@@ -25,6 +31,7 @@ const SearchBar = () => {
                 value={input}
                 placeholder='Search recipe'
                 onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => handleKey(e)}
             />
             <RiSearchLine onClick={() => handleSearch(input)} size={25} />
         </SearchBarContainer>

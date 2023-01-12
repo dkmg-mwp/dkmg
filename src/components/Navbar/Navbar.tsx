@@ -17,7 +17,7 @@ const Navbar = () => {
                 <NavLinks to='/search'>
                     <SearchIcon></SearchIcon>
                 </NavLinks>
-                <NavLinks to='/user'>
+                <NavLinks to='/profile'>
                     <UserIcon></UserIcon>
                 </NavLinks>
             </NavbarContainer>
