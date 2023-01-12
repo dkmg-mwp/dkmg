@@ -30,9 +30,9 @@ const Card = ({ dish }: Props) => {
         return res.data;
     };
 
-    function handleOnClick() {
+    const handleOnClick = () => {
         setOpen((prevState) => !prevState);
-    }
+    };
 
     return (
         <CardContainer>

@@ -5,6 +5,7 @@ const Home = () => {
     useEffect(() => {
         document.title = 'Home';
     }, []);
+
     return (
         <Container>
             <Wrapper>

@@ -1,6 +1,7 @@
 interface ProviderProps {
     children?: React.ReactNode;
 }
+
 interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
@@ -44,6 +45,7 @@ type Guest = {
     vegan?: boolean;
     vegetarian?: boolean;
 };
+
 type User = {
     id: string;
     name: string;
