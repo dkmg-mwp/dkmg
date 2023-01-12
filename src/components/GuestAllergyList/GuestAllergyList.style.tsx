@@ -12,7 +12,7 @@ export const CardAccordionBox = styled.div`
 `;
 export const CardAccordionInfo = styled.div`
     display: flex;
-    padding: 10px;
+    // padding: 10px;
     justify-content: center;
     align-items: center;
 `;
@@ -20,7 +20,7 @@ export const IncludeTag = styled.p`
     display: flex;
     padding: 10px;
     justify-content: stretch;
-    gap: 1em;
+    // gap: 1em;
     align-items: center;
     color: green;
 `;
