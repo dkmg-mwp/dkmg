@@ -32,7 +32,9 @@ const GuestCard = ({ guest, setGuests }: Props) => {
             <CardColumn>
                 ICON GOES HERE
                 <CardImage />
-                <SmallButton  primary onClick={() => handleRemove(guest.id)}>Remove</SmallButton>
+                <SmallButton primary onClick={() => handleRemove(guest.id)}>
+                    Remove
+                </SmallButton>
             </CardColumn>
             <CardColumn>
                 <CardTitle>{guest.name}</CardTitle>
