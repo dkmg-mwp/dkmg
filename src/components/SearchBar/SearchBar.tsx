@@ -1,22 +1,14 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
-import { useSearch } from '../../routes/Search/Search.context';
 import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
 
-const SearchBar = () => {
-    const { setDishes } = useSearch();
-    const [input, setInput] = useState('');
+type Props = {
+    handleSearch: (search: string) => void;
+};
 
-    const handleSearch = async (search: string) => {
-        const res = await axios.get(
-            `${import.meta.env.VITE_URL_KEY}recipes/complexSearch?apiKey=${
-                import.meta.env.VITE_API_KEY
-            }&query=${search}`
-        );
-        setDishes(res.data.results);
-        return res.data;
-    };
+const SearchBar = ({ handleSearch }: Props) => {
+    const [input, setInput] = useState('');
 
     return (
         <SearchBarContainer>

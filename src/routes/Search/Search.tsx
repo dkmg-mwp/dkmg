@@ -11,9 +11,22 @@ import {
     TextContainer,
 } from './Search.styles';
 import { useSearch } from './Search.context';
+import axios from 'axios';
 
 const Search = () => {
-    const { dishes } = useSearch();
+    const { dishes, setDishes } = useSearch();
+
+    const handleSearch = async (search: string) => {
+        const res = await axios.get(
+            `${
+                import.meta.env.VITE_URL_KEY
+            }recipes/complexSearch?addRecipeInformation=true&apiKey=${
+                import.meta.env.VITE_API_KEY
+            }&query=${search}`
+        );
+        setDishes(res.data.results);
+        return res.data;
+    };
 
     useEffect(() => {
         document.title = 'Search';
@@ -24,10 +37,9 @@ const Search = () => {
             <TextContainer>
                 <H3>Search recipes for your next gathering!</H3>
             </TextContainer>
-
             <InnerContainer>
                 <SearchContainer>
-                    <SearchBar />
+                    <SearchBar handleSearch={handleSearch} />
                     <H4>Results for:</H4>
                 </SearchContainer>
                 <SearchResult>
