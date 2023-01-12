@@ -11,7 +11,13 @@ interface ProfileContext {
     setGuests: React.Dispatch<React.SetStateAction>;
     users: User[];
     guests: Guest[];
-    handleAddProfile: (name: string) => Promise<uknown>;
+    handleAddProfile: (
+        name: string,
+        dairyFree: boolean,
+        glutenFree: boolean,
+        vegan: boolean,
+        vegetarian: boolean
+    ) => Promise<uknown>;
     handleRemoveProfile: (id: string) => Promise<uknown>;
 }
 

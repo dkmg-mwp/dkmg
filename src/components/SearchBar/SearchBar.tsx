@@ -4,10 +4,6 @@ import { RiSearchLine } from 'react-icons/ri';
 import { useSearch } from '../../routes/Search/Search.context';
 import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
 
-// type Props = {
-//     setFood: React.Dispatch<React.SetStateAction<Food[]>>;
-// };
-
 const SearchBar = () => {
     const { setDishes } = useSearch();
     const [input, setInput] = useState('');

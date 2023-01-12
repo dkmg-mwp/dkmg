@@ -24,8 +24,4 @@ export const CardColumn = styled.div`
 export const CardRatings = styled.div``;
 export const CardTitle = styled.h5``;
 
-
-
-export const CardSection = styled.div`
-    
-`
+export const CardSection = styled.div``;

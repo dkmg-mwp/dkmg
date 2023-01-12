@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardAccordion = styled.div`
-   display: flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
 `;
@@ -31,4 +31,3 @@ export const ExcludeTag = styled.p`
     align-items: center;
     color: red;
 `;
-

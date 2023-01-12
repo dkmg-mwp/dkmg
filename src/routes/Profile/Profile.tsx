@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import { RiUserAddFill } from 'react-icons/ri';
 import { InnerContainer, TextContainer } from '../Search/Search.styles';
-import { Container, Input, InputSection, Title, Wrapper } from './User.styles';
+import {
+    Container,
+    Input,
+    InputSection,
+    Title,
+    Wrapper,
+} from './Profile.styles';
 import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
 
 const User = () => {
@@ -71,7 +77,9 @@ const User = () => {
                                             type='checkbox'
                                             name='Dairy Free'
                                             checked={dairyFree}
-                                            onChange={() => setDairyFree((prev) => !prev)}
+                                            onChange={() =>
+                                                setDairyFree((prev) => !prev)
+                                            }
                                         />
                                         <label>Dairy Free</label>
                                     </li>
@@ -80,7 +88,9 @@ const User = () => {
                                             type='checkbox'
                                             name='Gluten Free'
                                             checked={glutenFree}
-                                            onChange={() => setGlutenFree((prev) => !prev)}
+                                            onChange={() =>
+                                                setGlutenFree((prev) => !prev)
+                                            }
                                         />
                                         <label>Gluten Free</label>
                                     </li>
@@ -89,7 +99,9 @@ const User = () => {
                                             type='checkbox'
                                             name='Vegan'
                                             checked={vegan}
-                                            onChange={() =>  setVegan((prev) => !prev)}
+                                            onChange={() =>
+                                                setVegan((prev) => !prev)
+                                            }
                                         />
                                         <label>Vegan</label>
                                     </li>
@@ -98,7 +110,9 @@ const User = () => {
                                             type='checkbox'
                                             name='Vegetarian'
                                             checked={vegetarian}
-                                            onChange={() => setVegetarian((prev) => !prev)}
+                                            onChange={() =>
+                                                setVegetarian((prev) => !prev)
+                                            }
                                         />
                                         <label>Vegetarian</label>
                                     </li>

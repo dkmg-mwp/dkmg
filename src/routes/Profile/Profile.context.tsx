@@ -5,8 +5,14 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [users, setUsers] = useState<User[]>([]);
     const [guests, setGuests] = useState<Guest[]>([]);
 
-    const handleAddProfile = async (name: string) => {
-        await addGuest(name);
+    const handleAddProfile = async (
+        name: string,
+        dairyFree: boolean,
+        glutenFree: boolean,
+        vegan: boolean,
+        vegetarian: boolean
+    ) => {
+        await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
         await fetchGuests().then(setGuests);
     };
 

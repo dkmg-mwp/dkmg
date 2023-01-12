@@ -10,8 +10,11 @@ import {
     SearchResult,
     TextContainer,
 } from './Search.styles';
+import { useSearch } from './Search.context';
 
 const Search = () => {
+    const { dishes } = useSearch();
+
     useEffect(() => {
         document.title = 'Search';
     }, []);
@@ -28,8 +31,8 @@ const Search = () => {
                     <H4>Results for:</H4>
                 </SearchContainer>
                 <SearchResult>
-                    {food.map((item) => (
-                        <Card key={item.id} food={item} />
+                    {dishes.map((dish) => (
+                        <Card key={dish.id} dish={dish} />
                     ))}
                 </SearchResult>
             </InnerContainer>
