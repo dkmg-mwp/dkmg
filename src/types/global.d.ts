@@ -36,10 +36,10 @@ type Dish = {
 type Guest = {
     id: string;
     name: string;
-    dairyFree?: boolean;
-    glutenFree?: boolean;
-    vegan?: boolean;
-    vegetarian?: boolean;
+    dairyFree: boolean;
+    glutenFree: boolean;
+    vegan: boolean;
+    vegetarian: boolean;
 };
 
 type User = {
