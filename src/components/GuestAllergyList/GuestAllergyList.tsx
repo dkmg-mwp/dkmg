@@ -11,25 +11,17 @@ import {
 
 type Props = {
     guest: Guest;
-    dairyFree: boolean;
     setDairyFree: React.Dispatch<React.SetStateAction<boolean>>;
-    glutenFree: boolean;
     setGlutenFree: React.Dispatch<React.SetStateAction<boolean>>;
-    vegan: boolean;
     setVegan: React.Dispatch<React.SetStateAction<boolean>>;
-    vegetarian: boolean;
     setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const GuestAllergyList = ({
     guest,
-    dairyFree,
     setDairyFree,
-    glutenFree,
     setGlutenFree,
-    vegan,
     setVegan,
-    vegetarian,
     setVegetarian,
 }: Props) => {
     return (
@@ -42,7 +34,7 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Dairy Free'
-                                checked={dairyFree}
+                                checked={guest.dairyFree}
                                 onChange={() => setDairyFree((prev) => !prev)}
                             />
                         </IncludeTag>
@@ -52,7 +44,7 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Dairy Free'
-                                checked={dairyFree}
+                                checked={guest.dairyFree}
                                 onChange={() => setDairyFree((prev) => !prev)}
                             />
                         </ExcludeTag>
@@ -63,7 +55,7 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Gluten Free'
-                                checked={glutenFree}
+                                checked={guest.glutenFree}
                                 onChange={() => setGlutenFree((prev) => !prev)}
                             />
                         </IncludeTag>
@@ -73,18 +65,18 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Gluten Free'
-                                checked={glutenFree}
+                                checked={guest.glutenFree}
                                 onChange={() => setGlutenFree((prev) => !prev)}
                             />
                         </ExcludeTag>
                     )}
-                     {guest.vegan ? (
+                    {guest.vegan ? (
                         <IncludeTag>
                             <RiPlantFill size={30} />
                             <input
                                 type='checkbox'
                                 name='Vegan'
-                                checked={vegan}
+                                checked={guest.vegan}
                                 onChange={() => setVegan((prev) => !prev)}
                             />
                         </IncludeTag>
@@ -94,18 +86,18 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Vegan'
-                                checked={vegan}
+                                checked={guest.vegan}
                                 onChange={() => setVegan((prev) => !prev)}
                             />
                         </ExcludeTag>
                     )}
-                     {guest.vegetarian ? (
+                    {guest.vegetarian ? (
                         <IncludeTag>
                             <RiPlantLine size={30} />
                             <input
                                 type='checkbox'
                                 name='Vegetarian'
-                                checked={vegetarian}
+                                checked={guest.vegetarian}
                                 onChange={() => setVegetarian((prev) => !prev)}
                             />
                         </IncludeTag>
@@ -115,7 +107,7 @@ const GuestAllergyList = ({
                             <input
                                 type='checkbox'
                                 name='Vegetarian'
-                                checked={vegetarian}
+                                checked={guest.vegetarian}
                                 onChange={() => setVegetarian((prev) => !prev)}
                             />
                         </ExcludeTag>
