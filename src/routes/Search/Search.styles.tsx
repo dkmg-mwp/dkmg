@@ -20,6 +20,15 @@ export const InnerContainer = styled.div`
     border-radius: 26px 26px 0px 0px;
 `;
 
+export const Wrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+`;
+
 export const SearchContainer = styled.div`
     display: flex;
     flex-direction: column;

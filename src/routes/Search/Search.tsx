@@ -9,12 +9,16 @@ import {
     SearchContainer,
     SearchResult,
     TextContainer,
+    Wrapper,
 } from './Search.styles';
 import { useSearch } from './Search.context';
 import axios from 'axios';
+import GuestFilter from '../../components/GuestFilter/GuestFilter';
+import { useProfile } from '../Profile/Profile.context';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
+    const { guests } = useProfile();
 
     const handleSearch = async (search: string) => {
         const res = await axios.get(
@@ -37,6 +41,11 @@ const Search = () => {
             <TextContainer>
                 <H3>Search recipes for your next gathering!</H3>
             </TextContainer>
+                <Wrapper>
+                    {guests.map((guest) => (
+                        <GuestFilter key={guest.id} guest={guest} />
+                    ))}
+                </Wrapper>
             <InnerContainer>
                 <SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
