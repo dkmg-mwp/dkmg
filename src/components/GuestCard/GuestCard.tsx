@@ -28,8 +28,7 @@ const GuestCard = ({
     return (
         <CardContainer>
             <CardColumn>
-                ICON GOES HERE
-                <CardImage />
+                <CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
                 <SmallButton
                     primary
                     onClick={() => handleRemoveProfile(guest.id)}
