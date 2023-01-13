@@ -15,6 +15,7 @@ import { useSearch } from './Search.context';
 import axios from 'axios';
 import GuestFilter from '../../components/GuestFilter/GuestFilter';
 import { useProfile } from '../Profile/Profile.context';
+import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
@@ -41,20 +42,22 @@ const Search = () => {
             <TextContainer>
                 <H3>Search recipes for your next gathering!</H3>
             </TextContainer>
-                <Wrapper>
-                    {guests.map((guest) => (
-                        <GuestFilter key={guest.id} guest={guest} />
-                    ))}
-                </Wrapper>
+            <Wrapper>
+                {guests.map((guest) => (
+                    <GuestFilter key={guest.id} guest={guest} />
+                ))}
+            </Wrapper>
             <InnerContainer>
                 <SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
                     <H4>Results for:</H4>
                 </SearchContainer>
                 <SearchResult>
-                    {dishes.map((dish) => (
-                        <Card key={dish.id} dish={dish} />
-                    ))}
+                    {!guests ? (
+                        dishes.map((dish) => <Card key={dish.id} dish={dish} />)
+                    ) : (
+                        <FilteredDishes guests={guests} dishes={dishes} />
+                    )}
                 </SearchResult>
             </InnerContainer>
         </Container>
