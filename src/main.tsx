@@ -6,6 +6,8 @@ import ErrorPage from './ErrorPage';
 import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
+import User from './routes/Profile/Profile';
+import { ContextWrapper } from './utils/ContextWrapper';
 
 const router = createBrowserRouter([
     {
@@ -21,12 +23,18 @@ const router = createBrowserRouter([
                 path: 'search',
                 element: <Search />,
             },
+            {
+                path: 'profile',
+                element: <User />,
+            },
         ],
     },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ContextWrapper>
+            <RouterProvider router={router} />
+        </ContextWrapper>
     </React.StrictMode>
 );

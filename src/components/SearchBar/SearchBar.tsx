@@ -1,32 +1,31 @@
-import axios from 'axios';
 import { useState } from 'react';
+import { RiSearchLine } from 'react-icons/ri';
+import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
 
 type Props = {
-    setFood: React.Dispatch<React.SetStateAction<Food[]>>;
+    handleSearch: (search: string) => void;
 };
 
-const SearchBar = ({ setFood }: Props) => {
+const SearchBar = ({ handleSearch }: Props) => {
     const [input, setInput] = useState('');
 
-    const handleSearch = async (search: string) => {
-        const res = await axios.get(
-            `${import.meta.env.VITE_URL_KEY}recipes/complexSearch?apiKey=${
-                import.meta.env.VITE_API_KEY
-            }&query=${search}`
-        );
-        setFood(res.data.results);
-        return res.data;
+    const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleSearch(input);
+        }
     };
 
     return (
-        <div className='App'>
-            <input
+        <SearchBarContainer>
+            <SearchBarInput
                 type='text'
                 value={input}
+                placeholder='Search recipe'
                 onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => handleKey(e)}
             />
-            <button onClick={() => handleSearch(input)}>click</button>
-        </div>
+            <RiSearchLine onClick={() => handleSearch(input)} size={25} />
+        </SearchBarContainer>
     );
 };
 

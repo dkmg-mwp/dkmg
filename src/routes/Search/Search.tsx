@@ -1,20 +1,52 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Card from '../../components/Card/Card';
-import { Container, InnerContainer, Text } from './Search.styles';
-
+import {
+    Container,
+    H3,
+    H4,
+    InnerContainer,
+    SearchContainer,
+    SearchResult,
+    TextContainer,
+} from './Search.styles';
+import { useSearch } from './Search.context';
+import axios from 'axios';
 
 const Search = () => {
-    const [food, setFood] = useState<Food[]>([]);
-    console.log(food);
+    const { dishes, setDishes } = useSearch();
+
+    const handleSearch = async (search: string) => {
+        const res = await axios.get(
+            `${
+                import.meta.env.VITE_URL_KEY
+            }recipes/complexSearch?addRecipeInformation=true&apiKey=${
+                import.meta.env.VITE_API_KEY
+            }&query=${search}`
+        );
+        setDishes(res.data.results);
+        return res.data;
+    };
+
+    useEffect(() => {
+        document.title = 'Search';
+    }, []);
+
     return (
         <Container>
-            <Text>Search recipes for your next gathering!</Text>
-
+            <TextContainer>
+                <H3>Search recipes for your next gathering!</H3>
+            </TextContainer>
             <InnerContainer>
-                <SearchBar setFood={setFood} />
-                <h3>Results for: </h3>
-                <Card food={food} />
+                <SearchContainer>
+                    <SearchBar handleSearch={handleSearch} />
+                    <H4>Results for:</H4>
+                </SearchContainer>
+                <SearchResult>
+                    {dishes.map((dish) => (
+                        <Card key={dish.id} dish={dish} />
+                    ))}
+                </SearchResult>
             </InnerContainer>
         </Container>
     );
