@@ -9,38 +9,26 @@ import {
     CardTitle,
 } from './GuestCard.style';
 import { SmallButton } from '../Buttons/Button.styles';
-import { fetchGuests, removeGuest } from '../../api/dkmg-api';
+import { useProfile } from '../../routes/Profile/Profile.context';
 
 type Props = {
     guest: Guest;
     setGuests: React.Dispatch<React.SetStateAction<Guest[]>>;
-    dairyFree: boolean;
     setDairyFree: React.Dispatch<React.SetStateAction<boolean>>;
-    glutenFree: boolean;
     setGlutenFree: React.Dispatch<React.SetStateAction<boolean>>;
-    vegan: boolean;
     setVegan: React.Dispatch<React.SetStateAction<boolean>>;
-    vegetarian: boolean;
     setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const GuestCard = ({
     guest,
-    setGuests,
-    dairyFree,
     setDairyFree,
-    glutenFree,
     setGlutenFree,
-    vegan,
     setVegan,
-    vegetarian,
     setVegetarian,
 }: Props) => {
+    const { handleRemoveProfile } = useProfile();
     const [open, setOpen] = useState(false);
-
-    const handleRemove = async (id: string) => {
-        await removeGuest(id).then(() => fetchGuests().then(setGuests));
-    };
 
     const handleOnClick = () => {
         setOpen((prevState) => !prevState);
@@ -51,7 +39,10 @@ const GuestCard = ({
             <CardColumn>
                 ICON GOES HERE
                 <CardImage />
-                <SmallButton primary onClick={() => handleRemove(guest.id)}>
+                <SmallButton
+                    primary
+                    onClick={() => handleRemoveProfile(guest.id)}
+                >
                     Remove
                 </SmallButton>
             </CardColumn>
@@ -73,13 +64,9 @@ const GuestCard = ({
                     <GuestAllergyList
                         key={guest.id}
                         guest={guest}
-                        dairyFree={dairyFree}
                         setDairyFree={setDairyFree}
-                        glutenFree={glutenFree}
                         setGlutenFree={setGlutenFree}
-                        vegan={vegan}
                         setVegan={setVegan}
-                        vegetarian={vegetarian}
                         setVegetarian={setVegetarian}
                     />
                 )}
