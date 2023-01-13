@@ -6,7 +6,7 @@ const GuestFilter = ({ guest }: GuestList) => {
             <CardTitle>{guest.name}</CardTitle>
             <input
                 type='checkbox'
-                name=''
+                name='guest'
                 defaultChecked
             />
         </CardContainer>
