@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { RiUserAddFill } from 'react-icons/ri';
-import { InnerContainer, TextContainer } from '../Search/Search.styles';
+import {
+    InnerContainer,
+    SearchContainer,
+    SearchResult,
+    TextContainer,
+} from '../Search/Search.styles';
 import {
     Container,
     Input,
@@ -10,6 +15,7 @@ import {
 } from './Profile.styles';
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
+import { CardContainer } from '../../components/Card/Card.styles';
 
 const User = () => {
     const { guests, handleAddProfile } = useProfile();
@@ -31,16 +37,24 @@ const User = () => {
 
     const guestCreationRender = () => {
         return (
-            <span>
+            <CardContainer>
                 {
-                    <InputSection>
+                    <SearchContainer>
                         <form onSubmit={(e) => e.preventDefault()}>
+                            <InputSection>
                             <Input
                                 type='text'
                                 value={input}
                                 placeholder='Enter name'
                                 onChange={(e) => setInput(e.target.value)}
                             />
+                               <button
+                                onClick={() => handleAdd(input)}
+                                type='submit'
+                            >
+                                <RiUserAddFill size={25} />
+                            </button>
+                            </InputSection>
                             <div>
                                 <h4>Restrictions:</h4>
                                 <ul>
@@ -90,22 +104,17 @@ const User = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <button
-                                onClick={() => handleAdd(input)}
-                                type='submit'
-                            >
-                                <RiUserAddFill size={25} />
-                            </button>
+                        
                         </form>
-                    </InputSection>
+                    </SearchContainer>
                 }
-            </span>
+            </CardContainer>
         );
     };
 
     const guestRender = () => {
         return (
-            <>
+            <SearchResult>
                 {guests.map((guest) => (
                     <GuestCard
                         key={guest.id}
@@ -116,7 +125,7 @@ const User = () => {
                         setVegetarian={setVegetarian}
                     />
                 ))}
-            </>
+            </SearchResult>
         );
     };
 
@@ -132,8 +141,9 @@ const User = () => {
                 </TextContainer>
 
                 <InnerContainer>
-                    {guestCreationRender()}
-                    {guestRender()}
+                    <SearchContainer> {guestCreationRender()}</SearchContainer>
+
+                    <SearchResult> {guestRender()}</SearchResult>
                 </InnerContainer>
             </Wrapper>
         </Container>
