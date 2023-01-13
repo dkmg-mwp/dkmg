@@ -7,238 +7,99 @@ type Props = {
 
 const FilteredDishes = ({ guests, dishes }: Props) => {
     const results = () => {
-        for (let i = 0; i < guests.length; i++) {
-            // if only dairy is true
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].glutenFree == false &&
-                guests[i].vegan === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filteredDairy = dishes.filter(
-                    (dish) => dish.dairyFree != false
-                );
-                return filteredDairy;
+        const guest = guests.map((guest) => {
+            let dairyBool = false;
+            let glutenBool = false;
+            let veganBool = false;
+            let vegetarianBool = false;
+            if (guest.dairyFree) {
+                return (dairyBool = true);
+            } else if (guest.glutenFree) {
+                return (glutenBool = true);
+            } else if (guest.vegan) {
+                return (veganBool = true);
+            } else if (guest.vegetarian) {
+                return (vegetarianBool = true);
+            } else if (!guest.dairyFree) {
+                return dairyBool;
+            } else if (!guest.glutenFree) {
+                return glutenBool;
+            } else if (!guest.vegan) {
+                return veganBool;
+            } else if (!guest.vegetarian) {
+                return vegetarianBool;
             }
+        });
 
-            // if only gluten is true
-            if (
-                guests[i].glutenFree === true &&
-                guests[i].dairyFree == false &&
-                guests[i].vegan === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filteredGluten = dishes.filter(
-                    (dish) => dish.glutenFree != false
-                );
-                return filteredGluten;
-            }
+        const dishAll = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegan)
+            .filter((dish) => dish.vegetarian);
+        const dishDairy = dishes.filter((dish) => dish.dairyFree);
+        const dishGluten = dishes.filter((dish) => dish.glutenFree);
+        const dishVegan = dishes.filter((dish) => dish.vegan);
+        const dishVegetarian = dishes.filter((dish) => dish.vegetarian);
+        const dishDairyGluten = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.glutenFree);
+        const dishDairyVegan = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.vegan);
+        const dishDairyVegetarain = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.vegetarian);
+        const dishGlutenVegan = dishes
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegan);
+        const dishGlutenVegetarian = dishes
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegetarian);
+        const dishVeganVegetarian = dishes
+            .filter((dish) => dish.vegan)
+            .filter((dish) => dish.vegetarian);
+        const dishDairyGlutenVegan = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegan);
+        const dishDairyGlutenVegetarian = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegetarian);
+        const dishDairyVeganVegetarian = dishes
+            .filter((dish) => dish.dairyFree)
+            .filter((dish) => dish.vegan)
+            .filter((dish) => dish.vegetarian);
+        const dishGlutenVeganVegetarian = dishes
+            .filter((dish) => dish.glutenFree)
+            .filter((dish) => dish.vegan)
+            .filter((dish) => dish.vegetarian);
 
-            // if onlt vegan is true
-            if (
-                guests[i].vegan === true &&
-                guests[i].glutenFree == false &&
-                guests[i].dairyFree === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filteredVegan = dishes.filter(
-                    (dish) => dish.vegan != false
-                );
-                return filteredVegan;
-            }
-
-            // if only vegetarian is true
-            if (
-                guests[i].vegetarian === true &&
-                guests[i].glutenFree == false &&
-                guests[i].vegan === false &&
-                guests[i].dairyFree === false
-            ) {
-                if (!dishes) return;
-                const filteredVegetarian = dishes.filter(
-                    (dish) => dish.vegetarian != false
-                );
-                return filteredVegetarian;
-            }
-
-            // if all are true
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].glutenFree === true &&
-                guests[i].vegan === true &&
-                guests[i].vegetarian === true
-            ) {
-                if (!dishes) return;
-                const filterAllDish = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false &&
-                        dish.glutenFree != false &&
-                        dish.vegan != false &&
-                        dish.vegetarian != false
-                );
-                return filterAllDish;
-            }
-
-            // if dairy and gluten
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].glutenFree === true &&
-                guests[i].vegan === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filterDiaryGluten = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false && dish.glutenFree != false
-                );
-                return filterDiaryGluten;
-            }
-
-            // if dairy and vegan
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].vegan === true &&
-                guests[i].glutenFree === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filterDairyVegan = dishes.filter(
-                    (dish) => dish.dairyFree != false && dish.vegan != false
-                );
-                return filterDairyVegan;
-            }
-
-            // if dairy and vegetarian
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].vegetarian === true &&
-                guests[i].vegan === false &&
-                guests[i].glutenFree === false
-            ) {
-                if (!dishes) return;
-                const filterDairyVegetarian = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false && dish.vegetarian != false
-                );
-                return filterDairyVegetarian;
-            }
-
-            // if gluten and vegan
-            if (
-                guests[i].glutenFree === true &&
-                guests[i].vegan === true &&
-                guests[i].dairyFree === false &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filterGlutenVegan = dishes.filter(
-                    (dish) => dish.glutenFree != false && dish.vegan != false
-                );
-                return filterGlutenVegan;
-            }
-
-            // if gluten and vegetarian
-            if (
-                guests[i].glutenFree === true &&
-                guests[i].vegetarian === true &&
-                guests[i].vegan === false &&
-                guests[i].dairyFree === false
-            ) {
-                if (!dishes) return;
-                const filterGlutenVegetarain = dishes.filter(
-                    (dish) =>
-                        dish.glutenFree != false && dish.vegetarian != false
-                );
-                return filterGlutenVegetarain;
-            }
-
-            // if vegan and vegetraian
-            if (
-                guests[i].vegan === true &&
-                guests[i].vegetarian &&
-                guests[i].dairyFree === false &&
-                guests[i].glutenFree === false
-            ) {
-                if (!dishes) return;
-                const filterVeganVegetarian = dishes.filter(
-                    (dish) => dish.vegan != false && dish.vegetarian != false
-                );
-                return filterVeganVegetarian;
-            }
-
-            // if diary, gluten and vegan
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].glutenFree === true &&
-                guests[i].vegan === true &&
-                guests[i].vegetarian === false
-            ) {
-                if (!dishes) return;
-                const filterDairyGlutenVegan = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false &&
-                        dish.glutenFree != false &&
-                        dish.vegan != false
-                );
-                return filterDairyGlutenVegan;
-            }
-
-            // if diary, gluten and vegetarian
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].glutenFree === true &&
-                guests[i].vegetarian === true &&
-                guests[i].vegan === false
-            ) {
-                if (!dishes) return;
-                const filterDairyGlutenVegetarian = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false &&
-                        dish.glutenFree != false &&
-                        dish.vegetarian != false
-                );
-                return filterDairyGlutenVegetarian;
-            }
-
-            // if diary, vegan and vegetarian
-            if (
-                guests[i].dairyFree === true &&
-                guests[i].vegan === true &&
-                guests[i].vegetarian === true &&
-                guests[i].glutenFree === false
-            ) {
-                if (!dishes) return;
-                const filterDairyVeganVegetarian = dishes.filter(
-                    (dish) =>
-                        dish.dairyFree != false &&
-                        dish.vegan != false &&
-                        dish.vegetarian != false
-                );
-                return filterDairyVeganVegetarian;
-            }
-
-            // if gluten, vegan and vegetarian
-            if (
-                guests[i].glutenFree === true &&
-                guests[i].vegan === true &&
-                guests[i].vegetarian === true &&
-                guests[i].dairyFree === false
-            ) {
-                if (!dishes) return;
-                const filterGlutenVeganVegetarian = dishes.filter(
-                    (dish) =>
-                        dish.glutenFree != false &&
-                        dish.vegan != false &&
-                        dish.vegetarian != false
-                );
-                return filterGlutenVeganVegetarian;
-            }
+        
+        if (guest){
+            return dishDairyGlutenVegetarian
         }
-        console.log(dishes);
+
+        // if all are true
+        // if only dairy is true
+        // if only gluten is true
+        // if onlt vegan is true
+        // if only vegetarian is true
+        // if dairy and gluten
+        // if dairy and vegan
+        // if dairy and vegetarian
+        // if gluten and vegan
+        // if gluten and vegetarian
+        // if vegan and vegetraian
+        // if diary, gluten and vegan
+        // if diary, gluten and vegetarian
+        // if diary, vegan and vegetarian
+        // if gluten, vegan and vegetarian
     };
+
+    // {results().map((dish) => (
+    //     <Card key={dish.id} dish={dish} />
+    // ))}
 
     return (
         <div>
