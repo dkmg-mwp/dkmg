@@ -2,14 +2,6 @@ interface ProviderProps {
     children?: React.ReactNode;
 }
 
-interface restrictionsProp {
-    guest: Guest;
-    setDairyFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setGlutenFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegan: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
@@ -28,6 +20,11 @@ interface ProfileContext {
         vegetarian: boolean
     ) => Promise<uknown>;
     handleRemoveProfile: (id: string) => Promise<uknown>;
+    handleUpdateProfile: (
+        id: string,
+        restriction: boolean,
+        choice: string
+    ) => Promise<uknown>;
 }
 
 type Dish = {
@@ -50,6 +47,10 @@ type Guest = {
     vegan: boolean;
     vegetarian: boolean;
 };
+
+interface GuestList {
+    guest: Guest;
+}
 
 type User = {
     id: string;

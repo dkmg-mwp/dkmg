@@ -1,6 +1,7 @@
 import { CiWheat } from 'react-icons/ci';
 import { RiPlantFill, RiPlantLine } from 'react-icons/ri';
 import { TbMilk } from 'react-icons/tb';
+import { useProfile } from '../../routes/Profile/Profile.context';
 import {
     CardAccordion,
     CardAccordionBox,
@@ -9,13 +10,17 @@ import {
     IncludeTag,
 } from './GuestAllergyList.style';
 
-const GuestAllergyList = ({
-    guest,
-    setDairyFree,
-    setGlutenFree,
-    setVegan,
-    setVegetarian,
-}: restrictionsProp) => {
+const GuestAllergyList = ({ guest }: GuestList) => {
+    const { handleUpdateProfile } = useProfile();
+
+    const handleUpdate = async (
+        id: string,
+        restriction: boolean,
+        choice: string
+    ) => {
+        await handleUpdateProfile(id, restriction, choice);
+    };
+
     return (
         <CardAccordion>
             <CardAccordionBox>
@@ -27,7 +32,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Dairy Free'
                                 checked={guest.dairyFree}
-                                onChange={() => setDairyFree((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.dairyFree,
+                                        'dairyFree'
+                                    );
+                                }}
                             />
                         </IncludeTag>
                     ) : (
@@ -37,7 +48,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Dairy Free'
                                 checked={guest.dairyFree}
-                                onChange={() => setDairyFree((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.dairyFree,
+                                        'dairyFree'
+                                    );
+                                }}
                             />
                         </ExcludeTag>
                     )}
@@ -48,7 +65,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Gluten Free'
                                 checked={guest.glutenFree}
-                                onChange={() => setGlutenFree((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.glutenFree,
+                                        'glutenFree'
+                                    );
+                                }}
                             />
                         </IncludeTag>
                     ) : (
@@ -58,7 +81,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Gluten Free'
                                 checked={guest.glutenFree}
-                                onChange={() => setGlutenFree((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.glutenFree,
+                                        'glutenFree'
+                                    );
+                                }}
                             />
                         </ExcludeTag>
                     )}
@@ -69,7 +98,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Vegan'
                                 checked={guest.vegan}
-                                onChange={() => setVegan((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.vegan,
+                                        'vegan'
+                                    );
+                                }}
                             />
                         </IncludeTag>
                     ) : (
@@ -79,7 +114,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Vegan'
                                 checked={guest.vegan}
-                                onChange={() => setVegan((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.vegan,
+                                        'vegan'
+                                    );
+                                }}
                             />
                         </ExcludeTag>
                     )}
@@ -90,7 +131,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Vegetarian'
                                 checked={guest.vegetarian}
-                                onChange={() => setVegetarian((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.vegetarian,
+                                        'vegetarian'
+                                    );
+                                }}
                             />
                         </IncludeTag>
                     ) : (
@@ -100,7 +147,13 @@ const GuestAllergyList = ({
                                 type='checkbox'
                                 name='Vegetarian'
                                 checked={guest.vegetarian}
-                                onChange={() => setVegetarian((prev) => !prev)}
+                                onChange={() => {
+                                    handleUpdate(
+                                        guest.id,
+                                        guest.vegetarian,
+                                        'vegetarian'
+                                    );
+                                }}
                             />
                         </ExcludeTag>
                     )}

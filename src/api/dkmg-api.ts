@@ -57,3 +57,26 @@ export const removeGuest = async (id: string) => {
     db.guests = db.guests.filter((guest) => guest.id !== id);
     setDatabase(db);
 };
+
+export const updateGuest = async (
+    id: string,
+    restriction: boolean,
+    choice: string
+) => {
+    const db = getDatabase();
+    const foundGuest = db.guests.find((guest) => guest.id === id);
+    if (!foundGuest) return;
+    if (choice === 'dairyFree') {
+        foundGuest.dairyFree = !restriction;
+    }
+    if (choice === 'glutenFree') {
+        foundGuest.glutenFree = !restriction;
+    }
+    if (choice === 'vegan') {
+        foundGuest.vegan = !restriction;
+    }
+    if (choice === 'vegetarian') {
+        foundGuest.vegetarian = !restriction;
+    }
+    setDatabase(db);
+};

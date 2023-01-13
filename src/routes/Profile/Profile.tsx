@@ -42,18 +42,18 @@ const User = () => {
                     <SearchContainer>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <InputSection>
-                            <Input
-                                type='text'
-                                value={input}
-                                placeholder='Enter name'
-                                onChange={(e) => setInput(e.target.value)}
-                            />
-                               <button
-                                onClick={() => handleAdd(input)}
-                                type='submit'
-                            >
-                                <RiUserAddFill size={25} />
-                            </button>
+                                <Input
+                                    type='text'
+                                    value={input}
+                                    placeholder='Enter name'
+                                    onChange={(e) => setInput(e.target.value)}
+                                />
+                                <button
+                                    onClick={() => handleAdd(input)}
+                                    type='submit'
+                                >
+                                    <RiUserAddFill size={25} />
+                                </button>
                             </InputSection>
                             <div>
                                 <h4>Restrictions:</h4>
@@ -104,7 +104,6 @@ const User = () => {
                                     </li>
                                 </ul>
                             </div>
-                        
                         </form>
                     </SearchContainer>
                 }
@@ -116,14 +115,7 @@ const User = () => {
         return (
             <SearchResult>
                 {guests.map((guest) => (
-                    <GuestCard
-                        key={guest.id}
-                        guest={guest}
-                        setDairyFree={setDairyFree}
-                        setGlutenFree={setGlutenFree}
-                        setVegan={setVegan}
-                        setVegetarian={setVegetarian}
-                    />
+                    <GuestCard key={guest.id} guest={guest} />
                 ))}
             </SearchResult>
         );
