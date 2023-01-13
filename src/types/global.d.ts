@@ -20,7 +20,11 @@ interface ProfileContext {
         vegetarian: boolean
     ) => Promise<uknown>;
     handleRemoveProfile: (id: string) => Promise<uknown>;
-    handleUpdateProfile: (id: string, restriction: boolean, choice: string) => Promise<uknown>;
+    handleUpdateProfile: (
+        id: string,
+        restriction: boolean,
+        choice: string
+    ) => Promise<uknown>;
 }
 
 type Dish = {
