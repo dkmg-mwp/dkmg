@@ -9,21 +9,13 @@ import {
     IncludeTag,
 } from './GuestAllergyList.style';
 
-type Props = {
-    guest: Guest;
-    setDairyFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setGlutenFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegan: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
 const GuestAllergyList = ({
     guest,
     setDairyFree,
     setGlutenFree,
     setVegan,
     setVegetarian,
-}: Props) => {
+}: restrictionsProp) => {
     return (
         <CardAccordion>
             <CardAccordionBox>

@@ -11,22 +11,13 @@ import {
 import { SmallButton } from '../Buttons/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
 
-type Props = {
-    guest: Guest;
-    setGuests: React.Dispatch<React.SetStateAction<Guest[]>>;
-    setDairyFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setGlutenFree: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegan: React.Dispatch<React.SetStateAction<boolean>>;
-    setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
 const GuestCard = ({
     guest,
     setDairyFree,
     setGlutenFree,
     setVegan,
     setVegetarian,
-}: Props) => {
+}: restrictionsProp) => {
     const { handleRemoveProfile } = useProfile();
     const [open, setOpen] = useState(false);
 
