@@ -10,6 +10,7 @@ import {
 } from './Profile.styles';
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
+
 const User = () => {
     const { guests, handleAddProfile, setGuests } = useProfile();
     const [input, setInput] = useState('');
@@ -22,6 +23,10 @@ const User = () => {
         if (input.length === 0) return;
         await handleAddProfile(name, dairyFree, glutenFree, vegan, vegetarian);
         setInput('');
+        setDairyFree(false);
+        setGlutenFree(false);
+        setVegan(false);
+        setVegetarian(false);
     };
 
     const guestCreationRender = () => {
@@ -106,13 +111,9 @@ const User = () => {
                         key={guest.id}
                         guest={guest}
                         setGuests={setGuests}
-                        dairyFree={dairyFree}
                         setDairyFree={setDairyFree}
-                        glutenFree={glutenFree}
                         setGlutenFree={setGlutenFree}
-                        vegan={vegan}
                         setVegan={setVegan}
-                        vegetarian={vegetarian}
                         setVegetarian={setVegetarian}
                     />
                 ))}
