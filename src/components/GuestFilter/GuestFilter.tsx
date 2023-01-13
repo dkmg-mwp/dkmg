@@ -1,6 +1,6 @@
 import { CardContainer, CardTitle } from './GuestFilter.styles';
 
-const GuestFilter = ({ guest }: guestList) => {
+const GuestFilter = ({ guest }: GuestList) => {
     return (
         <CardContainer>
             <CardTitle>{guest.name}</CardTitle>
