@@ -12,7 +12,7 @@ import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
 
 const User = () => {
-    const { guests, handleAddProfile, setGuests } = useProfile();
+    const { guests, handleAddProfile } = useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -110,7 +110,6 @@ const User = () => {
                     <GuestCard
                         key={guest.id}
                         guest={guest}
-                        setGuests={setGuests}
                         setDairyFree={setDairyFree}
                         setGlutenFree={setGlutenFree}
                         setVegan={setVegan}
