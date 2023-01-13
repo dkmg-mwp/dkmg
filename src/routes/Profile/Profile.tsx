@@ -9,7 +9,7 @@ import {
     Wrapper,
 } from './Profile.styles';
 import { useProfile } from './Profile.context';
-
+import GuestCard from '../../components/GuestCard/GuestCard';
 const User = () => {
     const { guests, handleAddProfile, handleRemoveProfile } = useProfile();
     const [input, setInput] = useState('');
@@ -24,33 +24,10 @@ const User = () => {
         setInput('');
     };
 
-    const guestRender = () => {
+    const guestCreationRender = () => {
         return (
             <span>
-                {guests.map((g) => (
-                    <div key={g.id}>
-                        <p>{g.name}</p>
-                        <button onClick={() => handleRemoveProfile(g.id)}>
-                            Remove
-                        </button>
-                    </div>
-                ))}
-            </span>
-        );
-    };
-
-    useEffect(() => {
-        document.title = 'Profile';
-    }, []);
-
-    return (
-        <Container>
-            <Wrapper>
-                <TextContainer>
-                    <Title>Who’s your annoying friend?</Title>
-                </TextContainer>
-
-                <InnerContainer>
+                {
                     <InputSection>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <Input
@@ -116,6 +93,47 @@ const User = () => {
                             </button>
                         </form>
                     </InputSection>
+                }
+            </span>
+        );
+    };
+
+    const guestRender = () => {
+        return (
+            <>
+                {guests.map((guest) => (
+                    <GuestCard
+                        key={guest.id}
+                        guest={guest}
+                        setGuests={setGuests}
+                        dairyFree={dairyFree}
+                        setDairyFree={setDairyFree}
+                        glutenFree={glutenFree}
+                        setGlutenFree={setGlutenFree}
+                        vegan={vegan}
+                        setVegan={setVegan}
+                        vegetarian={vegetarian}
+                        setVegetarian={setVegetarian}
+                    />
+                ))}
+            </>
+        );
+    };
+
+    useEffect(() => {
+        document.title = 'Profile';
+        fetchGuests().then(setGuests);
+    }, []);
+
+    return (
+        <Container>
+            <Wrapper>
+                <TextContainer>
+                    <Title>Who’s your annoying friend?</Title>
+                </TextContainer>
+
+                <InnerContainer>
+                    {guestCreationRender()}
                     {guestRender()}
                 </InnerContainer>
             </Wrapper>

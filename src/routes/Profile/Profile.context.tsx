@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
+
 const ProfileContext = createContext<ProfileContext | null>(null);
+
 export const ProfileProvider = ({ children }: ProviderProps) => {
     const [users, setUsers] = useState<User[]>([]);
     const [guests, setGuests] = useState<Guest[]>([]);

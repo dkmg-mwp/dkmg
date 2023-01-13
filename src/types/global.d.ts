@@ -1,6 +1,7 @@
 interface ProviderProps {
     children?: React.ReactNode;
 }
+
 interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
