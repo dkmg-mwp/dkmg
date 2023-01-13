@@ -168,7 +168,3 @@ const User = () => {
 
 export default User;
 
-// document.addEventListener('click', e => {
-//     console.log(e.target)
-//     //om e.target är input
-// })
