@@ -11,13 +11,7 @@ import {
 import { SmallButton } from '../Buttons/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
 
-const GuestCard = ({
-    guest,
-    setDairyFree,
-    setGlutenFree,
-    setVegan,
-    setVegetarian,
-}: restrictionsProp) => {
+const GuestCard = ({ guest }: GuestList) => {
     const { handleRemoveProfile } = useProfile();
     const [open, setOpen] = useState(false);
 
@@ -51,16 +45,7 @@ const GuestCard = ({
             </CardColumn>
 
             <CardSection>
-                {open && (
-                    <GuestAllergyList
-                        key={guest.id}
-                        guest={guest}
-                        setDairyFree={setDairyFree}
-                        setGlutenFree={setGlutenFree}
-                        setVegan={setVegan}
-                        setVegetarian={setVegetarian}
-                    />
-                )}
+                {open && <GuestAllergyList key={guest.id} guest={guest} />}
             </CardSection>
         </CardContainer>
     );
