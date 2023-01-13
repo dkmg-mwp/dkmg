@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
+import {
+    addGuest,
+    fetchGuests,
+    removeGuest,
+    updateGuest,
+} from '../../api/dkmg-api';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
@@ -22,6 +27,12 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         await removeGuest(id).then(() => fetchGuests().then(setGuests));
     };
 
+    const handleUpdateProfile = async (id: string, restriction: boolean, choice: string) => {
+        await updateGuest(id, restriction, choice).then(() =>
+            fetchGuests().then(setGuests)
+        );
+    };
+
     useEffect(() => {
         fetchGuests().then(setGuests);
     }, []);
@@ -35,6 +46,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
                 setGuests,
                 handleAddProfile,
                 handleRemoveProfile,
+                handleUpdateProfile,
             }}
         >
             {children}
