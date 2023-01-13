@@ -17,9 +17,10 @@ type Props = {
 const Card = ({ dish }: Props) => {
     const [open, setOpen] = useState(false);
 
-    function handleOnClick() {
+
+    const handleOnClick = () => {
         setOpen((prevState) => !prevState);
-    }
+    };
 
     return (
         <CardContainer>

@@ -8,10 +8,10 @@ import {
     Title,
     Wrapper,
 } from './Profile.styles';
-import { addGuest, fetchGuests, removeGuest } from '../../api/dkmg-api';
-
+import { useProfile } from './Profile.context';
+import GuestCard from '../../components/GuestCard/GuestCard';
 const User = () => {
-    const [guests, setGuests] = useState<Guest[]>([]);
+    const { guests, handleAddProfile, handleRemoveProfile } = useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -20,47 +20,14 @@ const User = () => {
 
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
-        await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
+        await handleAddProfile(name, dairyFree, glutenFree, vegan, vegetarian);
         setInput('');
-        setDairyFree(false);
-        setGlutenFree(false);
-        setVegan(false);
-        setVegetarian(false);
-        await fetchGuests().then(setGuests);
     };
 
-    const handleRemove = async (id: string) => {
-        await removeGuest(id).then(() => fetchGuests().then(setGuests));
-    };
-
-    const guestRender = () => {
+    const guestCreationRender = () => {
         return (
             <span>
-                {guests.map((g) => (
-                    <div key={g.id}>
-                        <p>{g.name}</p>
-                        <button onClick={() => handleRemove(g.id)}>
-                            Remove
-                        </button>
-                    </div>
-                ))}
-            </span>
-        );
-    };
-
-    useEffect(() => {
-        document.title = 'Profile';
-        fetchGuests().then(setGuests);
-    }, []);
-
-    return (
-        <Container>
-            <Wrapper>
-                <TextContainer>
-                    <Title>Who’s your annoying friend?</Title>
-                </TextContainer>
-
-                <InnerContainer>
+                {
                     <InputSection>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <Input
@@ -126,6 +93,47 @@ const User = () => {
                             </button>
                         </form>
                     </InputSection>
+                }
+            </span>
+        );
+    };
+
+    const guestRender = () => {
+        return (
+            <>
+                {guests.map((guest) => (
+                    <GuestCard
+                        key={guest.id}
+                        guest={guest}
+                        setGuests={setGuests}
+                        dairyFree={dairyFree}
+                        setDairyFree={setDairyFree}
+                        glutenFree={glutenFree}
+                        setGlutenFree={setGlutenFree}
+                        vegan={vegan}
+                        setVegan={setVegan}
+                        vegetarian={vegetarian}
+                        setVegetarian={setVegetarian}
+                    />
+                ))}
+            </>
+        );
+    };
+
+    useEffect(() => {
+        document.title = 'Profile';
+        fetchGuests().then(setGuests);
+    }, []);
+
+    return (
+        <Container>
+            <Wrapper>
+                <TextContainer>
+                    <Title>Who’s your annoying friend?</Title>
+                </TextContainer>
+
+                <InnerContainer>
+                    {guestCreationRender()}
                     {guestRender()}
                 </InnerContainer>
             </Wrapper>
