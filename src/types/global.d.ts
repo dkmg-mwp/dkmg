@@ -9,6 +9,9 @@ interface restrictionsProp {
     setVegan: React.Dispatch<React.SetStateAction<boolean>>;
     setVegetarian: React.Dispatch<React.SetStateAction<boolean>>;
 }
+interface guestProp {
+    guest: Guest;
+}
 
 interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
