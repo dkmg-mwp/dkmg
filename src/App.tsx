@@ -7,7 +7,7 @@ function App() {
         <div className='App'>
             <Outlet />
             <Navbar />
-            <GlobalStyle/>
+            <GlobalStyle />
         </div>
     );
 }
