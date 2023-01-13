@@ -11,7 +11,7 @@ import {
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
 const User = () => {
-    const { guests, handleAddProfile, handleRemoveProfile } = useProfile();
+    const { guests, handleAddProfile, setGuests } = useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -122,7 +122,6 @@ const User = () => {
 
     useEffect(() => {
         document.title = 'Profile';
-        fetchGuests().then(setGuests);
     }, []);
 
     return (
