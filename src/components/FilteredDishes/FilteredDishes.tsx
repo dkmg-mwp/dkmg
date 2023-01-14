@@ -70,7 +70,7 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
         });
 
         //Guests and dish combos
-        // if no restrictions 
+        // if no restrictions
         if (!dairyguest && !glutenGuest && !veganGuest && !vegetarianGuest) {
             return dishes;
         } // if only dairy is true
