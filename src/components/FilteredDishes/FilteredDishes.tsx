@@ -1,11 +1,11 @@
 import Card from '../Card/Card';
 
 type Props = {
-    guests: Guest[];
+    filteredGuest: Guest[];
     dishes: Dish[];
 };
 
-const FilteredDishes = ({ guests, dishes }: Props) => {
+const FilteredDishes = ({ filteredGuest, dishes }: Props) => {
     const results = () => {
         //filtered dishes
         const dishAll = dishes
@@ -53,19 +53,19 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
             .filter((dish) => dish.vegetarian);
 
         // filterd guests
-        const dairyguest = guests.some(function (element) {
+        const dairyguest = filteredGuest.some(function (element) {
             return element.dairyFree;
         });
 
-        const glutenGuest = guests.some(function (element) {
+        const glutenGuest = filteredGuest.some(function (element) {
             return element.glutenFree;
         });
 
-        const veganGuest = guests.some(function (element) {
+        const veganGuest = filteredGuest.some(function (element) {
             return element.vegan;
         });
 
-        const vegetarianGuest = guests.some(function (element) {
+        const vegetarianGuest = filteredGuest.some(function (element) {
             return element.vegetarian;
         });
 

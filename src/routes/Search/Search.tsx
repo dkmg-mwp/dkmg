@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import {
     Container,
@@ -20,6 +20,8 @@ import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 const Search = () => {
     const { dishes, setDishes } = useSearch();
     const { guests } = useProfile();
+    const [selectedGuest, setSelectedGuest] = useState('');
+    const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
     const handleSearch = async (search: string) => {
         const res = await axios.get(
@@ -33,9 +35,19 @@ const Search = () => {
         return res.data;
     };
 
+    const handleFiltredGuest = () => {
+        if (!selectedGuest) return;
+        const newFilter = guests.filter((guest) => guest.id === selectedGuest);
+        setFilteredGuest(newFilter);
+    };
+
     useEffect(() => {
         document.title = 'Search';
     }, []);
+
+    useEffect(() => {
+        handleFiltredGuest();
+    }, [selectedGuest]);
 
     return (
         <Container>
@@ -44,7 +56,11 @@ const Search = () => {
             </TextContainer>
             <Wrapper>
                 {guests.map((guest) => (
-                    <GuestFilter key={guest.id} guest={guest} />
+                    <GuestFilter
+                        key={guest.id}
+                        guest={guest}
+                        setSelectedGuest={setSelectedGuest}
+                    />
                 ))}
             </Wrapper>
             <InnerContainer>
@@ -53,10 +69,13 @@ const Search = () => {
                     <H4>Results for:</H4>
                 </SearchContainer>
                 <SearchResult>
-                    {!guests ? (
+                    {!filteredGuest ? (
                         dishes.map((dish) => <Card key={dish.id} dish={dish} />)
                     ) : (
-                        <FilteredDishes guests={guests} dishes={dishes} />
+                        <FilteredDishes
+                            filteredGuest={filteredGuest}
+                            dishes={dishes}
+                        />
                     )}
                 </SearchResult>
             </InnerContainer>
