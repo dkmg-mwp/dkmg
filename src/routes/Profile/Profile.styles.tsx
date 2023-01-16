@@ -38,7 +38,7 @@ export const InputSection = styled.div`
     display: flex;
     align-items: center;
     padding-bottom: 1rem;
-`;
+
 
 export const Input = styled.input`
     text-decoration: none;
