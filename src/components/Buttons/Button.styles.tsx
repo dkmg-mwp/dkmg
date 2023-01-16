@@ -23,9 +23,8 @@ export const AddButton = styled.button`
     align-items: center;
     align-content: center;
     letter-spacing: 0.025em;
- 
+
     border-radius: 20px;
     padding: 10px 15px;
     width: 100%;
- 
 `;

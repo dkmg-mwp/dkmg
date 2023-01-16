@@ -1,8 +1,6 @@
 import { RiUserAddFill } from 'react-icons/ri';
 import * as Styled from './Form.styled';
 
-
-
 const GuestForm = () => {
     return (
         <Styled.Form>
@@ -16,7 +14,7 @@ const GuestForm = () => {
                 <Styled.Subtitle></Styled.Subtitle>
                 <Styled.List>
                     <Styled.ListItem>
-                        <Styled.Checkbox/>
+                        <Styled.Checkbox />
                         <Styled.Label></Styled.Label>
                     </Styled.ListItem>
                 </Styled.List>

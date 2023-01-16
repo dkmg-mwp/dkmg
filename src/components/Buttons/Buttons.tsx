@@ -1,4 +1,3 @@
-
 type Props = {
     value: string;
     onClick: () => void;
@@ -7,7 +6,7 @@ type Props = {
 export const AddButton = ({ value, onClick, type }: Props) => {
     return (
         <button onClick={onClick} type={type}>
-            {value}    
+            {value}
         </button>
     );
 };

@@ -41,11 +41,11 @@ const Search = () => {
             <TextContainer>
                 <H3>Search recipes for your next gathering!</H3>
             </TextContainer>
-                <Wrapper>
-                    {guests.map((guest) => (
-                        <GuestFilter key={guest.id} guest={guest} />
-                    ))}
-                </Wrapper>
+            <Wrapper>
+                {guests.map((guest) => (
+                    <GuestFilter key={guest.id} guest={guest} />
+                ))}
+            </Wrapper>
             <InnerContainer>
                 <SearchContainer>
                     <SearchBar handleSearch={handleSearch} />

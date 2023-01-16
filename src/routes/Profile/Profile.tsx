@@ -132,14 +132,7 @@ const User = () => {
         return (
             <SearchResult>
                 {[...guests].reverse().map((guest) => (
-                    <GuestCard
-                        key={guest.id}
-                        guest={guest}
-                        setDairyFree={setDairyFree}
-                        setGlutenFree={setGlutenFree}
-                        setVegan={setVegan}
-                        setVegetarian={setVegetarian}
-                    />
+                    <GuestCard key={guest.id} guest={guest} />
                 ))}
             </SearchResult>
         );
@@ -167,4 +160,3 @@ const User = () => {
 };
 
 export default User;
-

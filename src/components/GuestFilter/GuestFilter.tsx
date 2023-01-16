@@ -4,11 +4,7 @@ const GuestFilter = ({ guest }: GuestList) => {
     return (
         <CardContainer>
             <CardTitle>{guest.name}</CardTitle>
-            <input
-                type='checkbox'
-                name=''
-                defaultChecked
-            />
+            <input type='checkbox' name='' defaultChecked />
         </CardContainer>
     );
 };
