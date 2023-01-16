@@ -2,12 +2,18 @@ import { CardContainer, CardTitle } from './GuestFilter.styles';
 
 type Props = {
     guest: Guest;
-    setSelectedGuest: React.Dispatch<React.SetStateAction<string>>;
+    setSelectedGuest: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
     const handleCheck = (id: string) => {
-        setSelectedGuest(id);
+        setSelectedGuest((prevSelectedGuests) => {
+            if (prevSelectedGuests.includes(id)) {
+                return prevSelectedGuests.filter((guestId) => guestId !== id);
+            } else {
+                return [...prevSelectedGuests, id];
+            }
+        });
     };
 
     return (

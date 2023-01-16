@@ -20,7 +20,7 @@ import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 const Search = () => {
     const { dishes, setDishes } = useSearch();
     const { guests } = useProfile();
-    const [selectedGuest, setSelectedGuest] = useState('');
+    const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
     const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
     const handleSearch = async (search: string) => {
@@ -36,8 +36,10 @@ const Search = () => {
     };
 
     const handleFiltredGuest = () => {
-        if (!selectedGuest) return;
-        const newFilter = guests.filter((guest) => guest.id === selectedGuest);
+        if (!selectedGuest.length) return;
+        const newFilter = guests.filter((guest) =>
+            selectedGuest.includes(guest.id)
+        );
         setFilteredGuest(newFilter);
     };
 
