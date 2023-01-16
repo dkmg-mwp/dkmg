@@ -12,3 +12,20 @@ export const SmallButton = styled.button<{ primary?: boolean }>`
     letter-spacing: 0.025em;
     min-height: 30px;
 `;
+
+export const AddButton = styled.button`
+    border: none;
+    background-color: #2b8872;
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    letter-spacing: 0.025em;
+ 
+    border-radius: 20px;
+    padding: 10px 15px;
+    width: 100%;
+ 
+`;

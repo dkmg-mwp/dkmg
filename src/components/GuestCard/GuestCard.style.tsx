@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardImage = styled.img`
-    max-width: 150px;
+    max-width: 75px;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
