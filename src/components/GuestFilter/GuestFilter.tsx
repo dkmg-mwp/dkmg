@@ -1,10 +1,29 @@
 import { CardContainer, CardTitle } from './GuestFilter.styles';
 
-const GuestFilter = ({ guest }: GuestList) => {
+type Props = {
+    guest: Guest;
+    setSelectedGuest: React.Dispatch<React.SetStateAction<string[]>>;
+};
+
+const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
+    const handleCheck = (id: string) => {
+        setSelectedGuest((prevSelectedGuests) => {
+            if (prevSelectedGuests.includes(id)) {
+                return prevSelectedGuests.filter((guestId) => guestId !== id);
+            } else {
+                return [...prevSelectedGuests, id];
+            }
+        });
+    };
+
     return (
         <CardContainer>
             <CardTitle>{guest.name}</CardTitle>
-            <input type='checkbox' name='' defaultChecked />
+            <input
+                type='checkbox'
+                name='guest'
+                onChange={() => handleCheck(guest.id)}
+            />
         </CardContainer>
     );
 };

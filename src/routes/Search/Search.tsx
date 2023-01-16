@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import {
     Container,
@@ -15,10 +15,13 @@ import { useSearch } from './Search.context';
 import axios from 'axios';
 import GuestFilter from '../../components/GuestFilter/GuestFilter';
 import { useProfile } from '../Profile/Profile.context';
+import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
     const { guests } = useProfile();
+    const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
+    const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
     const handleSearch = async (search: string) => {
         const res = await axios.get(
@@ -32,9 +35,21 @@ const Search = () => {
         return res.data;
     };
 
+    const handleFiltredGuest = () => {
+        if (!selectedGuest.length) return;
+        const newFilter = guests.filter((guest) =>
+            selectedGuest.includes(guest.id)
+        );
+        setFilteredGuest(newFilter);
+    };
+
     useEffect(() => {
         document.title = 'Search';
     }, []);
+
+    useEffect(() => {
+        handleFiltredGuest();
+    }, [selectedGuest]);
 
     return (
         <Container>
@@ -43,7 +58,11 @@ const Search = () => {
             </TextContainer>
             <Wrapper>
                 {guests.map((guest) => (
-                    <GuestFilter key={guest.id} guest={guest} />
+                    <GuestFilter
+                        key={guest.id}
+                        guest={guest}
+                        setSelectedGuest={setSelectedGuest}
+                    />
                 ))}
             </Wrapper>
             <InnerContainer>
@@ -52,9 +71,14 @@ const Search = () => {
                     <H4>Results for:</H4>
                 </SearchContainer>
                 <SearchResult>
-                    {dishes.map((dish) => (
-                        <Card key={dish.id} dish={dish} />
-                    ))}
+                    {!filteredGuest ? (
+                        dishes.map((dish) => <Card key={dish.id} dish={dish} />)
+                    ) : (
+                        <FilteredDishes
+                            filteredGuest={filteredGuest}
+                            dishes={dishes}
+                        />
+                    )}
                 </SearchResult>
             </InnerContainer>
         </Container>
