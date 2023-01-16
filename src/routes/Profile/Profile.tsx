@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RiUserAddFill } from 'react-icons/ri';
+import { RiPlantFill, RiPlantLine, RiUserAddFill } from 'react-icons/ri';
 import {
     InnerContainer,
     SearchContainer,
@@ -7,15 +7,26 @@ import {
     TextContainer,
 } from '../Search/Search.styles';
 import {
+    Checkbox,
     Container,
+    GuestContainer,
+    Guests,
     Input,
     InputSection,
+    Label,
+    List,
+    ListItem,
+    ListSection,
+    Subtitle,
     Title,
     Wrapper,
 } from './Profile.styles';
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
-import { CardContainer } from '../../components/Card/Card.styles';
+import { Form } from 'react-router-dom';
+import { CiWheat } from 'react-icons/ci';
+import { TbMilk } from 'react-icons/tb';
+import { AddButton } from '../../components/Buttons/Button.styles';
 
 const User = () => {
     const { guests, handleAddProfile } = useProfile();
@@ -37,29 +48,32 @@ const User = () => {
 
     const guestCreationRender = () => {
         return (
-            <CardContainer>
+            <GuestContainer>
                 {
-                    <SearchContainer>
-                        <form onSubmit={(e) => e.preventDefault()}>
-                            <InputSection>
-                                <Input
-                                    type='text'
-                                    value={input}
-                                    placeholder='Enter name'
-                                    onChange={(e) => setInput(e.target.value)}
-                                />
-                                <button
-                                    onClick={() => handleAdd(input)}
-                                    type='submit'
-                                >
-                                    <RiUserAddFill size={25} />
-                                </button>
-                            </InputSection>
-                            <div>
-                                <h4>Restrictions:</h4>
-                                <ul>
-                                    <li>
-                                        <input
+                    <Form onSubmit={(e) => e.preventDefault()}>
+                        <InputSection>
+                            <Input
+                                type='text'
+                                value={input}
+                                placeholder='Enter name'
+                                onChange={(e) => setInput(e.target.value)}
+                            />
+                            <AddButton
+                                onClick={() => handleAdd(input)}
+                                type='submit'
+                            >
+                                {'Add guest'}
+                                <RiUserAddFill size={15} />
+                            </AddButton>
+                        </InputSection>
+                        {input.length !== 0 && (
+                            <ListSection>
+                                <Subtitle>Restrictions:</Subtitle>
+                                <List>
+                                    <ListItem>
+                                        <TbMilk size={30} />
+
+                                        <Checkbox
                                             type='checkbox'
                                             name='Dairy Free'
                                             checked={dairyFree}
@@ -67,10 +81,11 @@ const User = () => {
                                                 setDairyFree((prev) => !prev)
                                             }
                                         />
-                                        <label>Dairy Free</label>
-                                    </li>
-                                    <li>
-                                        <input
+                                        <Label>Dairy Free</Label>
+                                    </ListItem>
+                                    <ListItem>
+                                        <CiWheat size={30} />
+                                        <Checkbox
                                             type='checkbox'
                                             name='Gluten Free'
                                             checked={glutenFree}
@@ -78,10 +93,11 @@ const User = () => {
                                                 setGlutenFree((prev) => !prev)
                                             }
                                         />
-                                        <label>Gluten Free</label>
-                                    </li>
-                                    <li>
-                                        <input
+                                        <Label>Gluten Free</Label>
+                                    </ListItem>
+                                    <ListItem>
+                                        <RiPlantFill size={30} />
+                                        <Checkbox
                                             type='checkbox'
                                             name='Vegan'
                                             checked={vegan}
@@ -89,10 +105,11 @@ const User = () => {
                                                 setVegan((prev) => !prev)
                                             }
                                         />
-                                        <label>Vegan</label>
-                                    </li>
-                                    <li>
-                                        <input
+                                        <Label>Vegan</Label>
+                                    </ListItem>
+                                    <ListItem>
+                                        <RiPlantLine size={30} />
+                                        <Checkbox
                                             type='checkbox'
                                             name='Vegetarian'
                                             checked={vegetarian}
@@ -100,21 +117,21 @@ const User = () => {
                                                 setVegetarian((prev) => !prev)
                                             }
                                         />
-                                        <label>Vegetarian</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </form>
-                    </SearchContainer>
+                                        <Label>Vegetarian</Label>
+                                    </ListItem>
+                                </List>
+                            </ListSection>
+                        )}
+                    </Form>
                 }
-            </CardContainer>
+            </GuestContainer>
         );
     };
 
     const guestRender = () => {
         return (
             <SearchResult>
-                {guests.map((guest) => (
+                {[...guests].reverse().map((guest) => (
                     <GuestCard key={guest.id} guest={guest} />
                 ))}
             </SearchResult>
@@ -133,9 +150,9 @@ const User = () => {
                 </TextContainer>
 
                 <InnerContainer>
-                    <SearchContainer> {guestCreationRender()}</SearchContainer>
+                    <SearchContainer>{guestCreationRender()}</SearchContainer>
 
-                    <SearchResult> {guestRender()}</SearchResult>
+                    <Guests> {guestRender()}</Guests>
                 </InnerContainer>
             </Wrapper>
         </Container>

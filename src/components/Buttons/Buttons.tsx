@@ -1,14 +1,12 @@
-import { RiArrowDownSLine } from 'react-icons/ri';
-import { SmallButton } from './Button.styles';
-
 type Props = {
-    buttonText: string;
+    value: string;
     onClick: () => void;
+    type: 'submit';
 };
-export const AccordionButton = ({ buttonText, onClick }: Props) => {
+export const AddButton = ({ value, onClick, type }: Props) => {
     return (
-        <SmallButton onClick={onClick}>
-            {buttonText} <RiArrowDownSLine />
-        </SmallButton>
+        <button onClick={onClick} type={type}>
+            {value}
+        </button>
     );
 };
