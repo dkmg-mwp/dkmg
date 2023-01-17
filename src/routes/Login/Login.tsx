@@ -39,7 +39,6 @@ const expandingTransition = {
     stiffness: 30,
 };
 
-
 const Login = () => {
     const [isExpanded, setExpanded] = useState(false);
     const [active, setActive] = useState('login');

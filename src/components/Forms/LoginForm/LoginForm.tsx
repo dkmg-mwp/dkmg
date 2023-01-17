@@ -10,8 +10,6 @@ import {
     SubmitButton,
 } from './LoginForm.styles';
 
-
-
 const LoginForm = () => {
     const { switchToSignUp } = useContext(AccountContext);
     return (

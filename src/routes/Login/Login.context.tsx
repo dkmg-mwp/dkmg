@@ -5,5 +5,3 @@ type AccountType = {
     switchToLogIn?: () => void;
 };
 export const AccountContext = createContext<Partial<AccountType>>({});
-
-
