@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useIsAuthenticated, useSignIn } from 'react-auth-kit';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
@@ -39,7 +39,6 @@ const expandingTransition = {
     stiffness: 30,
 };
 
-
 const Login = () => {
     const [isExpanded, setExpanded] = useState(false);
     const [active, setActive] = useState('login');
@@ -65,6 +64,14 @@ const Login = () => {
         }, 400);
     };
     const contextValue = { switchToSignUp, switchToLogIn };
+
+    useEffect(() => {
+        if (active === 'login') {
+            document.title = 'Login';
+        } else {
+            document.title = 'Sign up';
+        }
+    }, []);
 
     return (
         <AccountContext.Provider value={contextValue}>
