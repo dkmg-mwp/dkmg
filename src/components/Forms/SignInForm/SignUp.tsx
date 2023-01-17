@@ -1,6 +1,7 @@
 // import axios from 'axios';
 import axios from 'axios';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AccountContext } from '../../../routes/Login/Login.context';
 
 import {
@@ -18,6 +19,7 @@ const SignUpForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async () => {
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
@@ -26,6 +28,12 @@ const SignUpForm = () => {
             password: password,
         });
         setToken(res.data);
+        if (token) {
+            navigate('/profile');
+        } else {
+            navigate('/login');
+        }
+        console.log(token);
     };
 
     return (
@@ -50,18 +58,13 @@ const SignUpForm = () => {
                     placeholder='Password'
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Input
-                    type='password'
-                    placeholder='Confirm Password'
-                    onChange={(e) => setPassword(e.target.value)}
-                />
                 <SubmitButton type='submit'>Sign up</SubmitButton>
             </FormContainer>
 
             <MutedLink>
                 Already have an account?
                 <BoldLink href='#' onClick={switchToLogIn}>
-                    Login
+                    Log in
                 </BoldLink>
             </MutedLink>
         </BoxContainer>
