@@ -75,7 +75,7 @@ const Search = () => {
                         dishes.map((dish) => <Card key={dish.id} dish={dish} />)
                     ) : (
                         <FilteredDishes
-                            filteredGuest={filteredGuest}
+                            guests={filteredGuest}
                             dishes={dishes}
                         />
                     )}
