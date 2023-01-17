@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { useIsAuthenticated, useSignIn } from 'react-auth-kit';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignInForm/SignUp';
 import { AccountContext } from './Login.context';
@@ -68,10 +66,10 @@ const Login = () => {
     useEffect(() => {
         if (active === 'login') {
             document.title = 'Login';
-        } else {
-            document.title = 'Sign up';
+        } else if (active === 'signup') {
+            document.title = 'Sign Up';
         }
-    }, []);
+    }, [active]);
 
     return (
         <AccountContext.Provider value={contextValue}>
