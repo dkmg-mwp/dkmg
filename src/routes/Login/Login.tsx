@@ -40,7 +40,6 @@ const expandingTransition = {
 const Login = () => {
     const [isExpanded, setExpanded] = useState(false);
     const [active, setActive] = useState('login');
-   
 
     const playExpandedAnimation = () => {
         setExpanded(true);
