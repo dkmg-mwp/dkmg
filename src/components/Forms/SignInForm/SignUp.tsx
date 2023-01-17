@@ -17,25 +17,24 @@ const SignUpForm = () => {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [token, setToken] = useState('');
 
-    const handleSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault();
-        console.log('hej');
-
+    const handleSubmit = async () => {
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
             firstname: firstName,
             email: email,
             password: password,
         });
-
-        console.log(res.data);
-
-        // return res.data;
+        setToken(res.data);
     };
 
     return (
         <BoxContainer>
-            <FormContainer onSubmit={() => handleSubmit}>
+            <FormContainer
+                onSubmit={(e) => {
+                    handleSubmit(), e.preventDefault();
+                }}
+            >
                 <Input
                     type='text'
                     placeholder='Full Name'
