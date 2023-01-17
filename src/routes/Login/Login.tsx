@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignInForm/SignUp';
 import { AccountContext } from './Login.context';
@@ -40,6 +40,7 @@ const expandingTransition = {
 const Login = () => {
     const [isExpanded, setExpanded] = useState(false);
     const [active, setActive] = useState('login');
+   
 
     const playExpandedAnimation = () => {
         setExpanded(true);
@@ -85,7 +86,7 @@ const Login = () => {
                         {active === 'login' && (
                             <HeaderContainer>
                                 <HeaderText>Welcome</HeaderText>
-                                <HeaderText>Back</HeaderText>
+                                <HeaderText>Back Foodie!</HeaderText>
                                 <SmallText>Please log in to continue</SmallText>
                             </HeaderContainer>
                         )}
@@ -94,7 +95,7 @@ const Login = () => {
                                 <HeaderText>Create</HeaderText>
                                 <HeaderText>Account</HeaderText>
                                 <SmallText>
-                                    Please sign up to continue
+                                    Sign up & help your guests!
                                 </SmallText>
                             </HeaderContainer>
                         )}
