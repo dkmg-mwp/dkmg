@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import ErrorPage from './ErrorPage';
-import './index.css';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
 import User from './routes/Profile/Profile';
 import { ContextWrapper } from './utils/ContextWrapper';
+import Login from './routes/Login/Login';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: 'profile',
                 element: <User />,
+            },
+            {
+                path: 'login',
+                element: <Login />,
             },
         ],
     },
