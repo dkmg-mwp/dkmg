@@ -4,7 +4,7 @@ export const Container = styled.div`
     margin-top: 10px;
 `;
 
-export const H3 = styled.h3``;
+export const H3 = styled.h1``;
 
 export const TextContainer = styled.div`
     display: flex;
@@ -24,9 +24,6 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
 `;
 
 export const SearchContainer = styled.div`
