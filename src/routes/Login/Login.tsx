@@ -24,7 +24,7 @@ const backDropVariants = {
     },
     collapsed: {
         width: '140%',
-        height: '400px',
+        height: '450px',
         borderRadius: '50%',
         transform: '150deg',
     },
