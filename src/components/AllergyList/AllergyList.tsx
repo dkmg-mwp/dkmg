@@ -50,12 +50,12 @@ const AllergyList = ({ dish }: Props) => {
                     {dish.vegan ? (
                         <IncludeTag>
                             {' '}
-                            <RiPlantFill size={30} /> Vegan: Yes
+                            <RiPlantFill size={30} /> Vegan Safe: Yes
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
                             {' '}
-                            <RiPlantFill size={30} /> Vegan: No
+                            <RiPlantFill size={30} /> Vegan Safe: No
                         </ExcludeTag>
                     )}
                 </CardAccordionInfo>
@@ -64,12 +64,12 @@ const AllergyList = ({ dish }: Props) => {
                         <IncludeTag>
                             {' '}
                             <RiPlantLine size={30} />
-                            Vegetarian: Yes
+                            Vegetarian Safe: Yes
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
                             {' '}
-                            <RiPlantLine size={30} /> Vegetarian: No
+                            <RiPlantLine size={30} /> Vegetarian Safe: No
                         </ExcludeTag>
                     )}
                 </CardAccordionInfo>

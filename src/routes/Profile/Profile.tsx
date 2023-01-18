@@ -79,7 +79,6 @@ const User = () => {
                                 <List>
                                     <ListItem>
                                         <TbMilk size={30} />
-
                                         <Checkbox
                                             type='checkbox'
                                             name='Dairy Free'
@@ -112,7 +111,7 @@ const User = () => {
                                                 setVegan((prev) => !prev)
                                             }
                                         />
-                                        <Label>Vegan</Label>
+                                        <Label>Vegan Safe</Label>
                                     </ListItem>
                                     <ListItem>
                                         <RiPlantLine size={30} />
@@ -124,7 +123,7 @@ const User = () => {
                                                 setVegetarian((prev) => !prev)
                                             }
                                         />
-                                        <Label>Vegetarian</Label>
+                                        <Label>Vegetarian Safe</Label>
                                     </ListItem>
                                 </List>
                             </ListSection>
