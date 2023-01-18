@@ -13,10 +13,11 @@ export const TextContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
 `;
 
 export const InnerContainer = styled.div`
+    margin-top: 20px;
     padding: 24px 10px;
     min-height: 600px;
     background: #cce3c8;
