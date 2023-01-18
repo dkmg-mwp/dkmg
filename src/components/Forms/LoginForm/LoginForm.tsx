@@ -1,8 +1,5 @@
-import axios from 'axios';
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { AccountContext } from '../../../routes/Login/Login.context';
-
 import {
     BoldLink,
     BoxContainer,
@@ -12,33 +9,20 @@ import {
     SubmitButton,
 } from './LoginForm.styles';
 
-const LoginForm = () => {
+type Props = {
+    handleLogin: (email: string, password: string) => void;
+};
+
+const LoginForm = ({ handleLogin }: Props) => {
     const { switchToSignUp } = useContext(AccountContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState('');
-    const navigate = useNavigate();
-
-    const handleLogin = async () => {
-        const res = await axios.post(`https://dkmg.glitch.me/auth/login`, {
-            email: email,
-            password: password,
-        });
-        console.log(res);
-        setToken(res.data);
-        if (token) {
-            navigate('/profile');
-        } else {
-            navigate('/login');
-        }
-        console.log(token);
-    };
 
     return (
         <BoxContainer>
             <FormContainer
                 onSubmit={(e) => {
-                    handleLogin(), e.preventDefault();
+                    handleLogin(email, password), e.preventDefault();
                 }}
             >
                 <Input
