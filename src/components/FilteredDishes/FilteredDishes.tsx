@@ -40,7 +40,7 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
                 filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
             ) : (
                 <h3>
-                    It seems {renderGuest()} can't eat anything! You sure you
+                    It seems {renderGuest()} cant eat anything! You sure you
                     want to invite them?
                 </h3>
             )}
