@@ -1,7 +1,7 @@
 import Card from '../Card/Card';
 
 type Props = {
-    guests: Guest[]; 
+    guests: Guest[];
     dishes: Dish[];
 };
 
@@ -27,11 +27,23 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
         );
     });
 
+    const renderGuest = () => {
+        const allGuests = guests.map((guest) => guest.name);
+        for (let i = 0; i < allGuests.length; i++) {
+            return <>{allGuests[i]}</>;
+        }
+    };
+
     return (
         <div>
-            {filteredDishes.map((dish) => (
-                <Card key={dish.id} dish={dish} />
-            ))}
+            {filteredDishes.length !== 0 ? (
+                filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
+            ) : (
+                <h3>
+                    It seems {renderGuest()} can't eat anything! You sure you
+                    want to invite them?
+                </h3>
+            )}
         </div>
     );
 };
