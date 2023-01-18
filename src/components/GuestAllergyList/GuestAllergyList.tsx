@@ -27,6 +27,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                 <CardAccordionInfo>
                     {guest.dairyFree ? (
                         <IncludeTag>
+                            <label>Dairy Free</label>
                             <TbMilk size={30} />
                             <input
                                 type='checkbox'
@@ -43,6 +44,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
+                            <label>Dairy Free</label>
                             <TbMilk size={30} />
                             <input
                                 type='checkbox'
@@ -60,6 +62,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                     )}
                     {guest.glutenFree ? (
                         <IncludeTag>
+                            <label>Gluten Free</label>
                             <CiWheat size={30} />
                             <input
                                 type='checkbox'
@@ -76,6 +79,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
+                            <label>Gluten Free</label>
                             <CiWheat size={30} />
                             <input
                                 type='checkbox'
@@ -93,6 +97,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                     )}
                     {guest.vegan ? (
                         <IncludeTag>
+                            <label>Vegan Safe</label>
                             <RiPlantFill size={30} />
                             <input
                                 type='checkbox'
@@ -109,6 +114,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
+                            <label>Vegan Safe</label>
                             <RiPlantFill size={30} />
                             <input
                                 type='checkbox'
@@ -126,6 +132,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                     )}
                     {guest.vegetarian ? (
                         <IncludeTag>
+                            <label>Vegetarian Safe</label>
                             <RiPlantLine size={30} />
                             <input
                                 type='checkbox'
@@ -142,6 +149,7 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                         </IncludeTag>
                     ) : (
                         <ExcludeTag>
+                            <label>Vegetarian Safe</label>
                             <RiPlantLine size={30} />
                             <input
                                 type='checkbox'
