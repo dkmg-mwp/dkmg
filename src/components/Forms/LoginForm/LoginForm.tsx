@@ -1,6 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
-
 import {
     BoldLink,
     BoxContainer,
@@ -10,16 +9,37 @@ import {
     SubmitButton,
 } from './LoginForm.styles';
 
-const LoginForm = () => {
+type Props = {
+    handleLogin: (email: string, password: string) => void;
+};
+
+const LoginForm = ({ handleLogin }: Props) => {
     const { switchToSignUp } = useContext(AccountContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <BoxContainer>
-            <FormContainer>
-                <Input type='email' placeholder='Email' />
-                <Input type='password' placeholder='Password' />
+            <FormContainer
+                onSubmit={(e) => {
+                    handleLogin(email, password), e.preventDefault();
+                }}
+            >
+                <Input
+                    type='email'
+                    placeholder='Email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input
+                    type='password'
+                    placeholder='Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <SubmitButton type='submit'>Log in</SubmitButton>
             </FormContainer>
             <MutedLink>Forget your password?</MutedLink>
-            <SubmitButton type='submit'>Log in</SubmitButton>
             <MutedLink>
                 {' '}
                 Don&apos;t have an account?{' '}

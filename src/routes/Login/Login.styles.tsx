@@ -54,9 +54,7 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
 `;
 
-export const HeaderText = styled.h2`
-    font-size: 30px;
-    font-weight: 600;
+export const HeaderText = styled.h1`
     line-height: 1.24;
     z-index: 10;
     margin: 0;
@@ -64,7 +62,6 @@ export const HeaderText = styled.h2`
 
 export const SmallText = styled.h5`
     font-weight: 500;
-    font-size: 11px;
     z-index: 30;
     margin: 0;
     margin-top: 7px;
