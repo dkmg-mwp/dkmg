@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-    position: relative;
     min-width: 100vw;
     min-height: 100vh;
     top: 0px;
     background: #cce3c8;
+    padding-top: 50px;
 `;
 
 export const Wrapper = styled.div`
