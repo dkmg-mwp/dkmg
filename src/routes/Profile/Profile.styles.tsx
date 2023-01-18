@@ -5,6 +5,7 @@ export const Container = styled.section`
     min-height: 100vh;
     top: 0px;
     background: #cce3c8;
+    padding-top: 50px;
 `;
 
 export const Wrapper = styled.div`

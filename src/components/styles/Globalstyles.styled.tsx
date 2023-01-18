@@ -63,6 +63,7 @@ h4 {
 h5 {
     font-size: 1rem;
     margin: 0;
+    font-weight: 500;
 }
 
 p {

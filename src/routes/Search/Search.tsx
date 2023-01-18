@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import {
     Container,
-    H3,
+    H1,
     H4,
     InnerContainer,
     SearchContainer,
@@ -54,7 +54,7 @@ const Search = () => {
     return (
         <Container>
             <TextContainer>
-                <H3>Search recipes for your next gathering!</H3>
+                <H1>Search recipes for your next gathering!</H1>
             </TextContainer>
             <Wrapper>
                 {guests.map((guest) => (

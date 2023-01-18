@@ -2,12 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Container = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 0px;
 `;
 
 export const BoxContainer = styled.div`
@@ -18,6 +15,7 @@ export const BoxContainer = styled.div`
     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
     position: relative;
     overflow: hidden;
+    padding-top: 40px;
 `;
 
 export const TopContainer = styled.div`
@@ -26,8 +24,7 @@ export const TopContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 1.8em;
-    padding-bottom: 5em;
+    padding: 5em 1.8em;
 `;
 
 export const BackDrop = styled(motion.div)`
@@ -46,6 +43,9 @@ export const BackDrop = styled(motion.div)`
         rgba(183, 245, 198, 1) 0%,
         rgba(204, 227, 200) 100%
     );
+    @media screen and (min-width: 700px) {
+        display: none;
+    }
 `;
 
 export const HeaderContainer = styled.div`
@@ -55,13 +55,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderText = styled.h1`
-    line-height: 1.24;
     z-index: 10;
     margin: 0;
 `;
 
 export const SmallText = styled.h5`
-    font-weight: 500;
     z-index: 30;
     margin: 0;
     margin-top: 7px;
