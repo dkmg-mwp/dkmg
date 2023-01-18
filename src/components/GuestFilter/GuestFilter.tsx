@@ -1,3 +1,4 @@
+import { Checkbox } from '../Form/Form.styled';
 import { CardContainer, CardTitle } from './GuestFilter.styles';
 
 type Props = {
@@ -19,7 +20,7 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
     return (
         <CardContainer>
             <CardTitle>{guest.name}</CardTitle>
-            <input
+            <Checkbox
                 type='checkbox'
                 name='guest'
                 onChange={() => handleCheck(guest.id)}

@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
     backdrop-filter: blur(2px);
     border-radius: 15px;
     padding: 5px;
+    margin: 5px;
 `;
 
 export const CardTitle = styled.h5``;

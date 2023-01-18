@@ -43,5 +43,11 @@ export const Subtitle = styled.h4``;
 
 export const List = styled.ul``;
 export const ListItem = styled.li``;
-export const Checkbox = styled.input``;
+export const Checkbox = styled.input`
+    accent-color: orange;
+    border-radius: 0.15em;
+    background-color: #fff;
+    color: currentColor;
+    border: 0.15em solid currentColor;
+`;
 export const Label = styled.label``;
