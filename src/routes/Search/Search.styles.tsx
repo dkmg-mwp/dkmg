@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    margin-top: 10px;
+    min-width: 100vw;
+    min-height: 100vh;
+    top: 0px;
+    padding-top: 50px;
 `;
 
-export const H3 = styled.h1``;
+export const H1 = styled.h1``;
 
 export const TextContainer = styled.div`
     display: flex;
