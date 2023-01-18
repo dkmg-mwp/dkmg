@@ -6,17 +6,25 @@ import {
     updateGuest,
 } from '../../api/dkmg-api';
 import { api } from '../../api/glitch/guest-api';
+import { useLogin } from '../Login/Login.context';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
 export const ProfileProvider = ({ children }: ProviderProps) => {
-    const [users, setUsers] = useState<User[]>([]);
+    const [user, setUser] = useState<User | null>(null);
     const [guests, setGuests] = useState<Guest[]>([]);
+    const { token } = useLogin();
 
-    const handleAddProfile = async (data: Guest) => {
-        await api.guests.post(data)
-        setGuests([data])
-        await api.guests.list();
+    const handleAddGuest = async (data: Guest) => {
+        await api.guests.post(data, token);
+        setGuests((guests) => [...guests, data]);
+        console.log(guests);
+        await api.guests.list(token);
+    };
+
+    const handleAddUser = async (data: User) => {
+        setUser(data);
+        await api.guests.list(token);
     };
 
     const handleRemoveProfile = async (id: string) => {
@@ -34,17 +42,19 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     };
 
     useEffect(() => {
-        fetchGuests().then(setGuests);
+        if (token) {
+            api.guests.list(token).then(() => setGuests);
+        }
     }, []);
 
     return (
         <ProfileContext.Provider
             value={{
-                // users,
-                setUsers,
+                user,
+                setUser,
                 guests,
-                // setGuests,
-                handleAddProfile,
+                handleAddGuest,
+                handleAddUser,
                 handleRemoveProfile,
                 handleUpdateProfile,
             }}

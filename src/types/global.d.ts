@@ -6,13 +6,17 @@ interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
 }
-
+interface LoginContext {
+    token: Token;
+    setToken: React.Dispatch<React.SetStateAction>;
+}
 interface ProfileContext {
-    setUsers: React.Dispatch<React.SetStateAction>;
+    setUser: React.Dispatch<React.SetStateAction>;
     // setGuests: React.Dispatch<React.SetStateAction>;
-    // users: User[];
+    user: User | null;
     guests: Guest[];
-    handleAddProfile: (data: Guest) => Promise<uknown>;
+    handleAddGuest: (data: Guest) => Promise<uknown>;
+    handleAddUser: (data: User) => Promise<uknown>;
     handleRemoveProfile: (id: string) => Promise<uknown>;
     handleUpdateProfile: (
         id: string,
@@ -34,7 +38,7 @@ type Dish = {
 };
 
 type Guest = {
-    id?: string;
+    id: string;
     name: string;
     dairyFree: boolean;
     glutenFree: boolean;
@@ -48,7 +52,7 @@ interface GuestList {
 
 type User = {
     id: string;
-    name: string;
+    email: string;
     dairyFree?: boolean;
     glutenFree?: boolean;
     vegan?: boolean;

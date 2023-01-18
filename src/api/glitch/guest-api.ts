@@ -1,6 +1,8 @@
 import axios from 'axios';
+// import { useLogin } from '../../routes/Login/Login.context';
 const BASE_URL = 'https://dkmg.glitch.me';
 const validRoutes = ['guests'];
+// const { token } = useLogin();
 
 const createApiHandler = <T>(route: string) => {
     if (!validRoutes.includes(route)) {
@@ -10,16 +12,28 @@ const createApiHandler = <T>(route: string) => {
     }
     const URL = `${BASE_URL}/${route}`;
     return {
-        async list() {
-            const response = await axios.get<T[]>(URL);
+        async list(token: string) {
+            const response = await axios.request<T>({
+                method: 'GET',
+                url: URL,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data);
             return response.data;
         },
-        // async get(id: string) {
-        //     const response = await axios.get<T>(`${URL}/${id}`);
-        //     return response.data;
-        // },
-        async post(data: unknown) {
-            const response = await axios.post<T>(URL, data);
+
+        async post(data: unknown, token: string) {
+            const response = await axios.request<T>({
+                method: 'POST',
+                data,
+                url: URL,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data);
             return response.data;
         },
         // async patch(id: string, data: unknown) {
@@ -35,5 +49,5 @@ const createApiHandler = <T>(route: string) => {
     };
 };
 export const api = {
-    guests: createApiHandler<Guest>('guests')
+    guests: createApiHandler<Guest>('guests'),
 };

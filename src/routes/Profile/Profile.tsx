@@ -27,9 +27,9 @@ import { Form } from 'react-router-dom';
 import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
 import { AddButton } from '../../components/Buttons/Button.styles';
-
+import { v4 as uuidv4 } from 'uuid';
 const User = () => {
-    const { guests, handleAddProfile } = useProfile();
+    const { user, guests, handleAddGuest } = useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -39,13 +39,14 @@ const User = () => {
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
         const data = {
+            id: uuidv4(),
             name,
             dairyFree,
             glutenFree,
             vegan,
             vegetarian,
         };
-        await handleAddProfile(data);
+        await handleAddGuest(data);
         setInput('');
         setDairyFree(false);
         setGlutenFree(false);
@@ -56,6 +57,7 @@ const User = () => {
     const guestCreationRender = () => {
         return (
             <GuestContainer>
+                x
                 {
                     <Form onSubmit={(e) => e.preventDefault()}>
                         <InputSection>

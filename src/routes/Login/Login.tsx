@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
-import { AccountContext } from './Login.context';
+import { AccountContext, useLogin } from './Login.context';
 import {
     BackDrop,
     BoxContainer,
@@ -14,6 +14,7 @@ import {
 } from './Login.styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useProfile } from '../Profile/Profile.context';
 
 const backDropVariants = {
     expanded: {
@@ -37,9 +38,10 @@ const expandingTransition = {
 };
 
 const Login = () => {
+    const { setUser } = useProfile();
+    const { setToken, token } = useLogin();
     const [isExpanded, setExpanded] = useState(false);
     const [active, setActive] = useState('login');
-    const [token, setToken] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (email: string, password: string) => {
@@ -47,7 +49,10 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setToken(res.data);
+        console.log(res.data.data);
+        console.log(res.data.access_token);
+        setUser(res.data);
+        setToken(res.data.access_token);
         if (token) {
             navigate('/profile');
         } else {
@@ -60,7 +65,7 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setToken(res.data);
+        setToken(res.data.access_token);
         authentication();
     };
 
