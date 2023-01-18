@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
     line-height: 24px;
     font-weight: 400;
     color-scheme: light dark;
-    color: #2b8872;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -30,6 +29,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     background-color: #ffffff;
+    color: #2b8872;
 }
 
 h1 {
