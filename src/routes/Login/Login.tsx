@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
-import SignUpForm from '../../components/Forms/SignInForm/SignUp';
+import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
 import { AccountContext } from './Login.context';
-
 import {
     BackDrop,
     BoxContainer,
@@ -48,14 +47,12 @@ const Login = () => {
             email: email,
             password: password,
         });
-        console.log(res);
         setToken(res.data);
         if (token) {
             navigate('/profile');
         } else {
             navigate('/login');
         }
-        console.log(token);
     };
 
     const handleSubmit = async (email: string, password: string) => {
@@ -64,12 +61,11 @@ const Login = () => {
             password: password,
         });
         setToken(res.data);
-        if (!token) {
-            navigate('/profile');
-        } else {
-            navigate('/login');
-        }
-        console.log(token);
+        authentication();
+    };
+
+    const authentication = () => {
+        token ? navigate('/profile') : console.log('Cannot create User');
     };
 
     const playExpandedAnimation = () => {

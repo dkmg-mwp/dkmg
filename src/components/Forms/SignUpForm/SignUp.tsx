@@ -16,7 +16,6 @@ type Props = {
 
 const SignUpForm = ({ handleSubmit }: Props) => {
     const { switchToLogIn } = useContext(AccountContext);
-    // const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -27,11 +26,6 @@ const SignUpForm = ({ handleSubmit }: Props) => {
                     handleSubmit(email, password), e.preventDefault();
                 }}
             >
-                {/* <Input
-                    type='text'
-                    placeholder='Full Name'
-                    onChange={(e) => setFirstName(e.target.value)}
-                /> */}
                 <Input
                     type='email'
                     placeholder='Email'
