@@ -9,16 +9,10 @@ interface SearchContext {
 
 interface ProfileContext {
     setUsers: React.Dispatch<React.SetStateAction>;
-    setGuests: React.Dispatch<React.SetStateAction>;
-    users: User[];
+    // setGuests: React.Dispatch<React.SetStateAction>;
+    // users: User[];
     guests: Guest[];
-    handleAddProfile: (
-        name: string,
-        dairyFree: boolean,
-        glutenFree: boolean,
-        vegan: boolean,
-        vegetarian: boolean
-    ) => Promise<uknown>;
+    handleAddProfile: (data: Guest) => Promise<uknown>;
     handleRemoveProfile: (id: string) => Promise<uknown>;
     handleUpdateProfile: (
         id: string,
@@ -40,7 +34,7 @@ type Dish = {
 };
 
 type Guest = {
-    id: string;
+    id?: string;
     name: string;
     dairyFree: boolean;
     glutenFree: boolean;

@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import {
-    addGuest,
+    // addGuest,
     fetchGuests,
     removeGuest,
     updateGuest,
 } from '../../api/dkmg-api';
+import { api } from '../../api/glitch/guest-api';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
@@ -12,15 +13,10 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [users, setUsers] = useState<User[]>([]);
     const [guests, setGuests] = useState<Guest[]>([]);
 
-    const handleAddProfile = async (
-        name: string,
-        dairyFree: boolean,
-        glutenFree: boolean,
-        vegan: boolean,
-        vegetarian: boolean
-    ) => {
-        await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
-        await fetchGuests().then(setGuests);
+    const handleAddProfile = async (data: Guest) => {
+        await api.guests.post(data)
+        setGuests([data])
+        await api.guests.list();
     };
 
     const handleRemoveProfile = async (id: string) => {
@@ -44,10 +40,10 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     return (
         <ProfileContext.Provider
             value={{
-                users,
+                // users,
                 setUsers,
                 guests,
-                setGuests,
+                // setGuests,
                 handleAddProfile,
                 handleRemoveProfile,
                 handleUpdateProfile,

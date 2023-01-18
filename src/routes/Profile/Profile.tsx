@@ -38,7 +38,14 @@ const User = () => {
 
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
-        await handleAddProfile(name, dairyFree, glutenFree, vegan, vegetarian);
+        const data = {
+            name,
+            dairyFree,
+            glutenFree,
+            vegan,
+            vegetarian,
+        };
+        await handleAddProfile(data);
         setInput('');
         setDairyFree(false);
         setGlutenFree(false);
