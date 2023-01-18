@@ -1,41 +1,49 @@
 import Card from '../Card/Card';
 
 type Props = {
-    filteredGuest: Guest[];
+    guests: Guest[];
     dishes: Dish[];
 };
 
-const FilteredDishes = ({ filteredGuest, dishes }: Props) => {
-    const results = () => {
-        // filter guests by dietary restriction
-        const guestDietaryRestrictions = filteredGuest.map((guest) => {
-            return {
-                dairyFree: guest.dairyFree,
-                glutenFree: guest.glutenFree,
-                vegan: guest.vegan,
-                vegetarian: guest.vegetarian,
-            };
-        });
+const FilteredDishes = ({ guests, dishes }: Props) => {
+    let dairyFree = false;
+    let glutenFree = false;
+    let vegan = false;
+    let vegetarian = false;
 
-        // filter dishes by dietary restriction
-        const filteredDishes = dishes.filter((dish) => {
-            return guestDietaryRestrictions.some((restriction) => {
-                return (
-                    restriction.dairyFree === dish.dairyFree &&
-                    restriction.glutenFree === dish.glutenFree &&
-                    restriction.vegan === dish.vegan &&
-                    restriction.vegetarian === dish.vegetarian
-                );
-            });
-        });
-        return filteredDishes;
+    guests.forEach((guest) => {
+        dairyFree = dairyFree || guest.dairyFree;
+        glutenFree = glutenFree || guest.glutenFree;
+        vegan = vegan || guest.vegan;
+        vegetarian = vegetarian || guest.vegetarian;
+    });
+
+    const filteredDishes = dishes.filter((dish) => {
+        return (
+            (!dairyFree || dish.dairyFree) &&
+            (!glutenFree || dish.glutenFree) &&
+            (!vegan || dish.vegan) &&
+            (!vegetarian || dish.vegetarian)
+        );
+    });
+
+    const renderGuest = () => {
+        const allGuests = guests.map((guest) => guest.name);
+        for (let i = 0; i < allGuests.length; i++) {
+            return <>{allGuests[i]}</>;
+        }
     };
 
     return (
         <div>
-            {results().map((dish) => (
-                <Card key={dish.id} dish={dish} />
-            ))}
+            {filteredDishes.length !== 0 ? (
+                filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
+            ) : (
+                <h3>
+                    It seems {renderGuest()} cant eat anything! You sure you
+                    want to invite them?
+                </h3>
+            )}
         </div>
     );
 };
