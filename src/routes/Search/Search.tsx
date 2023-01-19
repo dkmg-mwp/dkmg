@@ -19,7 +19,7 @@ import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
-    const { guests } = useProfile();
+    const { guests, user } = useProfile();
     const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
     const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
@@ -57,13 +57,15 @@ const Search = () => {
                 <H3>Search recipes for your next gathering!</H3>
             </TextContainer>
             <Wrapper>
-                {guests.map((guest) => (
-                    <GuestFilter
-                        key={guest.id}
-                        guest={guest}
-                        setSelectedGuest={setSelectedGuest}
-                    />
-                ))}
+                {guests
+                    .filter((guest) => guest.userId === user.id)
+                    .map((guest) => (
+                        <GuestFilter
+                            key={guest.id}
+                            guest={guest}
+                            setSelectedGuest={setSelectedGuest}
+                        />
+                    ))}
             </Wrapper>
             <InnerContainer>
                 <SearchContainer>
