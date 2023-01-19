@@ -31,7 +31,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
 
 const User = () => {
-    const { user, guests, fetchGuests, handleAddGuest, handleRemoveGuest } =
+    const { user, guests, fetchGuests, handleAddGuest } =
         useProfile();
     const { token } = useLogin();
     const [input, setInput] = useState('');
