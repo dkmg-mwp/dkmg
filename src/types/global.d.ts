@@ -12,8 +12,9 @@ interface LoginContext {
 }
 interface ProfileContext {
     setUser: React.Dispatch<React.SetStateAction>;
-    user: User;
+    user: User[];
     guests: Guest[];
+    fetchUser: (token) => Promise<unkown>;
     fetchGuests: (token) => Promise<unkown>;
     handleAddGuest: (data: Guest) => Promise<uknown>;
     handleRemoveGuest: (id: string) => Promise<uknown>;
