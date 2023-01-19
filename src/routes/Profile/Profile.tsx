@@ -30,7 +30,7 @@ import { AddButton } from '../../components/Buttons/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 
 const User = () => {
-    const { guests, fetchGuests, handleAddGuest, handleRemoveGuest } =
+    const { user, guests, fetchGuests, handleAddGuest, handleRemoveGuest } =
         useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
@@ -41,12 +41,13 @@ const User = () => {
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
         const data = {
-            id: uuidv4(),
+            id: uuidv4(), // ID borde(?) komma från DB men kanske behöver vara så just nu, kanske fuckar med db poulation av guests?
             name,
             dairyFree,
             glutenFree,
             vegan,
             vegetarian,
+            userId: user.id,
         };
         await handleAddGuest(data);
         await fetchGuests();
@@ -155,9 +156,12 @@ const User = () => {
 
                     <Guests>
                         <SearchResult>
-                            {[...guests].reverse().map((guest) => (
-                                <GuestCard key={guest.id} guest={guest} />
-                            ))}
+                            {[...guests]
+                                .reverse()
+                                .filter((guest) => guest.userId === user.id)
+                                .map((guest) => (
+                                    <GuestCard key={guest.id} guest={guest} />
+                                ))}
                         </SearchResult>
                     </Guests>
                 </InnerContainer>
