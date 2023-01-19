@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { api } from '../../api/glitch/guest-api';
+import { apiUser } from '../../api/glitch/user-api';
 import { useLogin } from '../Login/Login.context';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
 export const ProfileProvider = ({ children }: ProviderProps) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User[]>([]);
     const [guests, setGuests] = useState<Guest[]>([]);
     const { token } = useLogin();
 
@@ -14,12 +15,18 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         setGuests(data);
     };
 
+    //behövs denna?
+    const fetchUser = async () => {
+        const data = await apiUser.user.list(token);
+        setUser(data);
+    };
+
     const handleAddGuest = async (data: Guest) => {
         await api.guests.post(data, token);
         await fetchGuests();
     };
 
-    const handleUpdateGuest = async (id: string, data) => {};
+    // const handleUpdateGuest = async (id: string, data) => {};
 
     const handleRemoveGuest = async (id: string) => {
         const deleted = await api.guests.delete(id, token);
@@ -30,6 +37,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     useEffect(() => {
         if (token) {
             api.guests.list(token).then(() => setGuests);
+            apiUser.user.list(token).then(() => setUser);
         }
     }, []);
 
@@ -37,6 +45,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         <ProfileContext.Provider
             value={{
                 user,
+                fetchUser,
                 setUser,
                 guests,
                 fetchGuests,
