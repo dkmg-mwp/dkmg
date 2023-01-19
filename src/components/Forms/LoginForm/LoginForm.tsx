@@ -14,7 +14,7 @@ type Props = {
 };
 
 const LoginForm = ({ handleLogin }: Props) => {
-    const { switchToSignUp } = useContext(AccountContext);
+    const { switchToSignUp, switchToProfile } = useContext(AccountContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -37,7 +37,9 @@ const LoginForm = ({ handleLogin }: Props) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <SubmitButton type='submit'>Log in</SubmitButton>
+                <SubmitButton type='submit' onClick={switchToProfile}>
+                    Log in
+                </SubmitButton>
             </FormContainer>
             <MutedLink>Forget your password?</MutedLink>
             <MutedLink>
