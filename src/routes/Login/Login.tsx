@@ -82,7 +82,14 @@ const Login = () => {
             setActive('login');
         }, 400);
     };
-    const contextValue = { switchToSignUp, switchToLogIn };
+
+    const switchToProfile = () => {
+        playExpandedAnimation();
+        setTimeout(() => {
+            navigate('/profile');
+        }, 1500);
+    };
+    const contextValue = { switchToSignUp, switchToLogIn, switchToProfile };
 
     useEffect(() => {
         if (token) {

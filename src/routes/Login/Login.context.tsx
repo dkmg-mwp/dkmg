@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from 'react';
 type AccountType = {
     switchToSignUp?: () => void;
     switchToLogIn?: () => void;
+    switchToProfile?: () => void;
 };
 
 const LoginContext = createContext<LoginContext | null>(null);

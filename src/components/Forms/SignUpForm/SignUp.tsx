@@ -15,7 +15,7 @@ type Props = {
 };
 
 const SignUpForm = ({ handleSubmit }: Props) => {
-    const { switchToLogIn } = useContext(AccountContext);
+    const { switchToLogIn, switchToProfile } = useContext(AccountContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -36,7 +36,9 @@ const SignUpForm = ({ handleSubmit }: Props) => {
                     placeholder='Password'
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <SubmitButton type='submit'>Sign up</SubmitButton>
+                <SubmitButton type='submit' onClick={switchToProfile}>
+                    Sign up
+                </SubmitButton>
             </FormContainer>
 
             <MutedLink>
