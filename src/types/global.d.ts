@@ -11,8 +11,8 @@ interface LoginContext {
     setToken: React.Dispatch<React.SetStateAction>;
 }
 interface ProfileContext {
-    setUser: React.Dispatch<React.SetStateAction>
-    user: User | null;
+    setUser: React.Dispatch<React.SetStateAction>;
+    user: User;
     guests: Guest[];
     fetchGuests: () => Promise<unkown>;
     handleAddGuest: (data: Guest) => Promise<uknown>;
@@ -38,6 +38,7 @@ type Guest = {
     glutenFree: boolean;
     vegan: boolean;
     vegetarian: boolean;
+    userId: string;
 };
 
 interface GuestList {
