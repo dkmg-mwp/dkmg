@@ -10,20 +10,20 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [guests, setGuests] = useState<Guest[]>([]);
     const { token } = useLogin();
 
-    const fetchGuests = async () => {
+    const fetchGuests = async (token: string) => {
         const data = await api.guests.list(token);
         setGuests(data);
     };
 
     //behövs denna?
-    const fetchUser = async () => {
+    const fetchUser = async (token: string) => {
         const data = await apiUser.user.list(token);
         setUser(data);
     };
 
     const handleAddGuest = async (data: Guest) => {
         await api.guests.post(data, token);
-        await fetchGuests();
+        await fetchGuests(token);
     };
 
     // const handleUpdateGuest = async (id: string, data) => {};
@@ -31,7 +31,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const handleRemoveGuest = async (id: string) => {
         const deleted = await api.guests.delete(id, token);
         if (!deleted) return;
-        await fetchGuests();
+        await fetchGuests(token);
     };
 
     useEffect(() => {
