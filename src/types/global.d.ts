@@ -7,9 +7,11 @@ interface SearchContext {
     dishes: Dish[];
 }
 interface LoginContext {
-    token: string;
+    token: Token;
     setToken: React.Dispatch<React.SetStateAction>;
 }
+
+type Token = string | null;
 interface ProfileContext {
     setUser: React.Dispatch<React.SetStateAction>;
     user: User | null;

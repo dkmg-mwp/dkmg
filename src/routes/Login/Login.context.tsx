@@ -8,7 +8,7 @@ type AccountType = {
 const LoginContext = createContext<LoginContext | null>(null);
 
 export const LoginProvider = ({ children }: ProviderProps) => {
-    const [token, setToken] = useState<string>();
+    const [token, setToken] = useState<Token>(null);
     return (
         <LoginContext.Provider value={{ setToken, token }}>
             {children}

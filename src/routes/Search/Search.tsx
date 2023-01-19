@@ -56,17 +56,19 @@ const Search = () => {
             <TextContainer>
                 <H1>Search recipes for your next gathering!</H1>
             </TextContainer>
-            <Wrapper>
-                {guests
-                    .filter((guest) => guest.userId === user.id)
-                    .map((guest) => (
-                        <GuestFilter
-                            key={guest.id}
-                            guest={guest}
-                            setSelectedGuest={setSelectedGuest}
-                        />
-                    ))}
-            </Wrapper>
+            {user && (
+                <Wrapper>
+                    {guests
+                        .filter((guest) => guest.userId === user.id)
+                        .map((guest) => (
+                            <GuestFilter
+                                key={guest.id}
+                                guest={guest}
+                                setSelectedGuest={setSelectedGuest}
+                            />
+                        ))}
+                </Wrapper>
+            )}
             <InnerContainer>
                 <SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
