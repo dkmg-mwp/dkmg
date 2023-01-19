@@ -38,7 +38,7 @@ const expandingTransition = {
 };
 
 const Login = () => {
-    const { setUser } = useProfile();
+    const { setUser, fetchGuests } = useProfile();
     const { setToken, token } = useLogin();
     const [isExpanded, setIsExpanded] = useState(false);
     const [active, setActive] = useState('login');
@@ -87,6 +87,7 @@ const Login = () => {
     useEffect(() => {
         if (token) {
             navigate('/profile');
+            fetchGuests(token);
         } else {
             navigate('/login');
         }
