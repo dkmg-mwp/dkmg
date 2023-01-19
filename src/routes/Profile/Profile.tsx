@@ -40,26 +40,26 @@ const User = () => {
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
 
-    const userId = user.id;
-
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
-        const data = {
-            id: uuidv4(), // ID borde(?) komma från DB men kanske behöver vara så just nu, kanske fuckar med db poulation av guests?
-            name,
-            dairyFree,
-            glutenFree,
-            vegan,
-            vegetarian,
-            userId: userId.toString(),
-        };
-        await handleAddGuest(data);
-        await fetchGuests(token);
-        setInput('');
-        setDairyFree(false);
-        setGlutenFree(false);
-        setVegan(false);
-        setVegetarian(false);
+        if (user !== null) {
+            const data = {
+                id: uuidv4(), // ID borde(?) komma från DB men kanske behöver vara så just nu, kanske fuckar med db poulation av guests?
+                name,
+                dairyFree,
+                glutenFree,
+                vegan,
+                vegetarian,
+                userId: user.id,
+            };
+            await handleAddGuest(data);
+            await fetchGuests();
+            setInput('');
+            setDairyFree(false);
+            setGlutenFree(false);
+            setVegan(false);
+            setVegetarian(false);
+        }
     };
 
     const guestCreationRender = () => {
@@ -161,14 +161,19 @@ const User = () => {
                     <SearchContainer>{guestCreationRender()}</SearchContainer>
 
                     <Guests>
-                        <SearchResult>
-                            {[...guests]
-                                .reverse()
-                                .filter((guest) => guest.userId === userId)
-                                .map((guest) => (
-                                    <GuestCard key={guest.id} guest={guest} />
-                                ))}
-                        </SearchResult>
+                        {user && (
+                            <SearchResult>
+                                {[...guests]
+                                    .reverse()
+                                    .filter((guest) => guest.userId === user.id)
+                                    .map((guest) => (
+                                        <GuestCard
+                                            key={guest.id}
+                                            guest={guest}
+                                        />
+                                    ))}
+                            </SearchResult>
+                        )}
                     </Guests>
                 </InnerContainer>
             </Wrapper>
