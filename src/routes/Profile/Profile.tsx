@@ -28,10 +28,12 @@ import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
 import { AddButton } from '../../components/Buttons/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
+import { useLogin } from '../Login/Login.context';
 
 const User = () => {
     const { user, guests, fetchGuests, handleAddGuest, handleRemoveGuest } =
         useProfile();
+    const { token } = useLogin();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -50,7 +52,7 @@ const User = () => {
             userId: user.id,
         };
         await handleAddGuest(data);
-        await fetchGuests();
+        await fetchGuests(token);
         setInput('');
         setDairyFree(false);
         setGlutenFree(false);
