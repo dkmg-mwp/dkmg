@@ -31,14 +31,17 @@ import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
 
 const User = () => {
-    const { user, guests, fetchGuests, handleAddGuest } =
-        useProfile();
+    const { user, guests, fetchGuests, handleAddGuest } = useProfile();
     const { token } = useLogin();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
+
+    const userId = user.map((u) => {
+        return u.id;
+    });
 
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
@@ -49,7 +52,7 @@ const User = () => {
             glutenFree,
             vegan,
             vegetarian,
-            userId: user.id,
+            userId: userId.toString(),
         };
         await handleAddGuest(data);
         await fetchGuests(token);
@@ -160,7 +163,7 @@ const User = () => {
                         <SearchResult>
                             {[...guests]
                                 .reverse()
-                                .filter((guest) => guest.userId === user.id)
+                                .filter((guest) => guest.userId === userId.toString())
                                 .map((guest) => (
                                     <GuestCard key={guest.id} guest={guest} />
                                 ))}
