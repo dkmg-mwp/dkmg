@@ -10,11 +10,13 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const { token } = useLogin();
 
     const fetchGuests = async () => {
+        if (!token) return;
         const data = await api.guests.list(token);
         setGuests(data);
     };
 
     const handleAddGuest = async (data: Guest) => {
+        if (!token) return;
         await api.guests.post(data, token);
         await fetchGuests();
     };
@@ -38,11 +40,13 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         if (choice === 'vegetarian') {
             foundGuest.vegetarian = !restriction;
         }
+        if (!token) return;
         await api.guests.patch(id, foundGuest, token);
         await fetchGuests();
     };
 
     const handleRemoveGuest = async (id: string) => {
+        if (!token) return;
         const deleted = await api.guests.delete(id, token);
         if (!deleted) return;
         await fetchGuests();
