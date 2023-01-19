@@ -40,8 +40,6 @@ const User = () => {
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
 
-    // const userId = user.id;
-
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
         if (user !== null) {
