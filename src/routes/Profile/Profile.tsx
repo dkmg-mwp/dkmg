@@ -65,7 +65,6 @@ const User = () => {
     const guestCreationRender = () => {
         return (
             <GuestContainer>
-                x
                 {
                     <Form onSubmit={(e) => e.preventDefault()}>
                         <InputSection>
