@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
-import { AccountContext } from './Login.context';
+import { AccountContext, useLogin } from './Login.context';
 import {
     BackDrop,
     BoxContainer,
@@ -14,6 +14,7 @@ import {
 } from './Login.styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useProfile } from '../Profile/Profile.context';
 
 const backDropVariants = {
     expanded: {
@@ -37,9 +38,10 @@ const expandingTransition = {
 };
 
 const Login = () => {
-    const [isExpanded, setExpanded] = useState(false);
+    const { setUser, fetchGuests } = useProfile();
+    const { setToken, token } = useLogin();
+    const [isExpanded, setIsExpanded] = useState(false);
     const [active, setActive] = useState('login');
-    const [token, setToken] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (email: string, password: string) => {
@@ -47,12 +49,8 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setToken(res.data);
-        if (token) {
-            navigate('/profile');
-        } else {
-            navigate('/login');
-        }
+        setUser(res.data.user);
+        setToken(res.data.access_token);
     };
 
     const handleSubmit = async (email: string, password: string) => {
@@ -60,18 +58,14 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setToken(res.data);
-        authentication();
-    };
-
-    const authentication = () => {
-        token ? navigate('/profile') : console.log('Cannot create User');
+        setUser(res.data.user);
+        setToken(res.data.access_token);
     };
 
     const playExpandedAnimation = () => {
-        setExpanded(true);
+        setIsExpanded(true);
         setTimeout(() => {
-            setExpanded(false);
+            setIsExpanded(false);
         }, expandingTransition.duration * 1000 - 1800);
     };
 
@@ -89,6 +83,15 @@ const Login = () => {
         }, 400);
     };
     const contextValue = { switchToSignUp, switchToLogIn };
+
+    useEffect(() => {
+        if (token) {
+            navigate('/profile');
+            fetchGuests(token);
+        } else {
+            navigate('/login');
+        }
+    }, [token]);
 
     useEffect(() => {
         if (active === 'login') {

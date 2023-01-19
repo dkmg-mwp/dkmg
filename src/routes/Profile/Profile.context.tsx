@@ -1,56 +1,47 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import {
-    addGuest,
-    fetchGuests,
-    removeGuest,
-    updateGuest,
-} from '../../api/dkmg-api';
+import { api } from '../../api/glitch/guest-api';
+import { useLogin } from '../Login/Login.context';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
 export const ProfileProvider = ({ children }: ProviderProps) => {
-    const [users, setUsers] = useState<User[]>([]);
+    const [user, setUser] = useState<User[]>([]);
     const [guests, setGuests] = useState<Guest[]>([]);
+    const { token } = useLogin();
 
-    const handleAddProfile = async (
-        name: string,
-        dairyFree: boolean,
-        glutenFree: boolean,
-        vegan: boolean,
-        vegetarian: boolean
-    ) => {
-        await addGuest(name, dairyFree, glutenFree, vegan, vegetarian);
-        await fetchGuests().then(setGuests);
+    const fetchGuests = async (token: string) => {
+        const data = await api.guests.list(token);
+        setGuests(data);
     };
 
-    const handleRemoveProfile = async (id: string) => {
-        await removeGuest(id).then(() => fetchGuests().then(setGuests));
+    const handleAddGuest = async (data: Guest) => {
+        await api.guests.post(data, token);
+        await fetchGuests(token);
     };
 
-    const handleUpdateProfile = async (
-        id: string,
-        restriction: boolean,
-        choice: string
-    ) => {
-        await updateGuest(id, restriction, choice).then(() =>
-            fetchGuests().then(setGuests)
-        );
+    // const handleUpdateGuest = async (id: string, data) => {};
+
+    const handleRemoveGuest = async (id: string) => {
+        const deleted = await api.guests.delete(id, token);
+        if (!deleted) return;
+        await fetchGuests(token);
     };
 
     useEffect(() => {
-        fetchGuests().then(setGuests);
+        if (token) {
+            api.guests.list(token).then(() => setGuests);
+        }
     }, []);
 
     return (
         <ProfileContext.Provider
             value={{
-                users,
-                setUsers,
+                user,
+                setUser,
                 guests,
-                setGuests,
-                handleAddProfile,
-                handleRemoveProfile,
-                handleUpdateProfile,
+                fetchGuests,
+                handleAddGuest,
+                handleRemoveGuest,
             }}
         >
             {children}

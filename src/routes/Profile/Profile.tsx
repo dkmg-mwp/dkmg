@@ -27,18 +27,34 @@ import { Form } from 'react-router-dom';
 import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
 import { AddButton } from '../../components/Buttons/Button.styles';
+import { v4 as uuidv4 } from 'uuid';
+import { useLogin } from '../Login/Login.context';
+import { Navigate } from 'react-router-dom';
 
 const User = () => {
-    const { guests, handleAddProfile } = useProfile();
+    const { user, guests, fetchGuests, handleAddGuest } = useProfile();
+    const { token } = useLogin();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
 
+    const userId = user.id;
+
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
-        await handleAddProfile(name, dairyFree, glutenFree, vegan, vegetarian);
+        const data = {
+            id: uuidv4(), // ID borde(?) komma från DB men kanske behöver vara så just nu, kanske fuckar med db poulation av guests?
+            name,
+            dairyFree,
+            glutenFree,
+            vegan,
+            vegetarian,
+            userId: userId.toString(),
+        };
+        await handleAddGuest(data);
+        await fetchGuests(token);
         setInput('');
         setDairyFree(false);
         setGlutenFree(false);
@@ -49,6 +65,7 @@ const User = () => {
     const guestCreationRender = () => {
         return (
             <GuestContainer>
+                x
                 {
                     <Form onSubmit={(e) => e.preventDefault()}>
                         <InputSection>
@@ -127,21 +144,13 @@ const User = () => {
         );
     };
 
-    const guestRender = () => {
-        return (
-            <SearchResult>
-                {[...guests].reverse().map((guest) => (
-                    <GuestCard key={guest.id} guest={guest} />
-                ))}
-            </SearchResult>
-        );
-    };
-
     useEffect(() => {
-        document.title = 'Profile';
+        document.title === 'Profile';
     }, []);
 
-    return (
+    return !token ? (
+        <Navigate to='/login' />
+    ) : (
         <Container>
             <Wrapper>
                 <TextContainer>
@@ -151,7 +160,16 @@ const User = () => {
                 <InnerContainer>
                     <SearchContainer>{guestCreationRender()}</SearchContainer>
 
-                    <Guests> {guestRender()}</Guests>
+                    <Guests>
+                        <SearchResult>
+                            {[...guests]
+                                .reverse()
+                                .filter((guest) => guest.userId === userId)
+                                .map((guest) => (
+                                    <GuestCard key={guest.id} guest={guest} />
+                                ))}
+                        </SearchResult>
+                    </Guests>
                 </InnerContainer>
             </Wrapper>
         </Container>
