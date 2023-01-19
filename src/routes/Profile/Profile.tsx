@@ -29,6 +29,7 @@ import { TbMilk } from 'react-icons/tb';
 import { AddButton } from '../../components/Buttons/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
+import { Navigate } from 'react-router-dom';
 
 const User = () => {
     const { user, guests, fetchGuests, handleAddGuest } = useProfile();
@@ -39,9 +40,7 @@ const User = () => {
     const [vegan, setVegan] = useState(false);
     const [vegetarian, setVegetarian] = useState(false);
 
-    const userId = user.map((u) => {
-        return u.id;
-    });
+    const userId = user.id;
 
     const handleAdd = async (name: string) => {
         if (input.length === 0) return;
@@ -149,7 +148,9 @@ const User = () => {
         document.title === 'Profile';
     }, []);
 
-    return (
+    return !token ? (
+        <Navigate to='/login' />
+    ) : (
         <Container>
             <Wrapper>
                 <TextContainer>
@@ -163,7 +164,7 @@ const User = () => {
                         <SearchResult>
                             {[...guests]
                                 .reverse()
-                                .filter((guest) => guest.userId === userId.toString())
+                                .filter((guest) => guest.userId === userId)
                                 .map((guest) => (
                                     <GuestCard key={guest.id} guest={guest} />
                                 ))}
