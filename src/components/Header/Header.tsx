@@ -14,7 +14,7 @@ const Header = () => {
         navigate('/login');
     };
 
-    const handlelogOut = () => {
+    const handleLogOut = () => {
         setToken(null);
     };
 
@@ -31,7 +31,7 @@ const Header = () => {
             {!token ? (
                 <button onClick={handleLogIn}>LogIn</button>
             ) : (
-                <button onClick={handlelogOut}>LogOut</button>
+                <button onClick={handleLogOut}>LogOut</button>
             )}
         </Styled.HeaderContainer>
     );
