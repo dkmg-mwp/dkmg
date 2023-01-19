@@ -28,8 +28,10 @@ import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
 import { AddButton } from '../../components/Buttons/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
+
 const User = () => {
-    const { user, guests, handleAddGuest } = useProfile();
+    const { guests, fetchGuests, handleAddGuest, handleRemoveGuest } =
+        useProfile();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -47,6 +49,7 @@ const User = () => {
             vegetarian,
         };
         await handleAddGuest(data);
+        await fetchGuests();
         setInput('');
         setDairyFree(false);
         setGlutenFree(false);
@@ -136,18 +139,8 @@ const User = () => {
         );
     };
 
-    const guestRender = () => {
-        return (
-            <SearchResult>
-                {[...guests].reverse().map((guest) => (
-                    <GuestCard key={guest.id} guest={guest} />
-                ))}
-            </SearchResult>
-        );
-    };
-
     useEffect(() => {
-        document.title = 'Profile';
+        document.title === 'Profile';
     }, []);
 
     return (
@@ -160,7 +153,13 @@ const User = () => {
                 <InnerContainer>
                     <SearchContainer>{guestCreationRender()}</SearchContainer>
 
-                    <Guests> {guestRender()}</Guests>
+                    <Guests>
+                        <SearchResult>
+                            {[...guests].reverse().map((guest) => (
+                                <GuestCard key={guest.id} guest={guest} />
+                            ))}
+                        </SearchResult>
+                    </Guests>
                 </InnerContainer>
             </Wrapper>
         </Container>

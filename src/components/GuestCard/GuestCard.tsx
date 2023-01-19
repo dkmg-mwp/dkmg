@@ -12,7 +12,7 @@ import { SmallButton } from '../Buttons/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
 
 const GuestCard = ({ guest }: GuestList) => {
-    const { handleRemoveProfile } = useProfile();
+    const { handleRemoveGuest } = useProfile();
     const [open, setOpen] = useState(false);
 
     const handleOnClick = () => {
@@ -25,7 +25,7 @@ const GuestCard = ({ guest }: GuestList) => {
                 <CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
                 <SmallButton
                     primary
-                    onClick={() => handleRemoveProfile(guest.id)}
+                    onClick={() => handleRemoveGuest(guest.id)}
                 >
                     Remove
                 </SmallButton>

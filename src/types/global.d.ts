@@ -7,22 +7,16 @@ interface SearchContext {
     dishes: Dish[];
 }
 interface LoginContext {
-    token: Token;
+    token: string;
     setToken: React.Dispatch<React.SetStateAction>;
 }
 interface ProfileContext {
-    setUser: React.Dispatch<React.SetStateAction>;
-    // setGuests: React.Dispatch<React.SetStateAction>;
+    setUser: React.Dispatch<React.SetStateAction>
     user: User | null;
     guests: Guest[];
+    fetchGuests: () => Promise<unkown>;
     handleAddGuest: (data: Guest) => Promise<uknown>;
-    handleAddUser: (data: User) => Promise<uknown>;
-    handleRemoveProfile: (id: string) => Promise<uknown>;
-    handleUpdateProfile: (
-        id: string,
-        restriction: boolean,
-        choice: string
-    ) => Promise<uknown>;
+    handleRemoveGuest: (id: string) => Promise<uknown>;
 }
 
 type Dish = {

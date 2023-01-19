@@ -13,7 +13,7 @@ const createApiHandler = <T>(route: string) => {
     const URL = `${BASE_URL}/${route}`;
     return {
         async list(token: string) {
-            const response = await axios.request<T>({
+            const response = await axios.request<T[]>({
                 method: 'GET',
                 url: URL,
                 headers: {
@@ -36,16 +36,28 @@ const createApiHandler = <T>(route: string) => {
             console.log(response.data);
             return response.data;
         },
-        // async patch(id: string, data: unknown) {
-        //     const response = await axios.patch<T>(`${URL}/${id}`, {
-        //         hourly_rate: data,
-        //     });
-        //     return response.data;
-        // },
-        // async delete(id: string) {
-        //     const response = await axios.delete(`${URL}/${id}`);
-        //     return response.status === 200;
-        // },
+        async patch(id: string, data: unknown, token: string) {
+            const response = await axios.request<T>({
+                method: 'PATCH',
+                url: `${URL}/${id}`,
+                data,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            return response.data;
+        },
+        async delete(id: string, token: string) {
+            const response = await axios.request<T>({
+                method: 'DELETE',
+                url: `${URL}/${id}`,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            return response.status === 200;
+        },
     };
 };
 export const api = {

@@ -40,7 +40,7 @@ const expandingTransition = {
 const Login = () => {
     const { setUser } = useProfile();
     const { setToken, token } = useLogin();
-    const [isExpanded, setExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
     const [active, setActive] = useState('login');
     const navigate = useNavigate();
 
@@ -49,15 +49,8 @@ const Login = () => {
             email: email,
             password: password,
         });
-        console.log(res.data.data);
-        console.log(res.data.access_token);
-        setUser(res.data);
+        setUser(res.data.user);
         setToken(res.data.access_token);
-        if (token) {
-            navigate('/profile');
-        } else {
-            navigate('/login');
-        }
     };
 
     const handleSubmit = async (email: string, password: string) => {
@@ -65,18 +58,14 @@ const Login = () => {
             email: email,
             password: password,
         });
+        setUser(res.data.user);
         setToken(res.data.access_token);
-        authentication();
-    };
-
-    const authentication = () => {
-        token ? navigate('/profile') : console.log('Cannot create User');
     };
 
     const playExpandedAnimation = () => {
-        setExpanded(true);
+        setIsExpanded(true);
         setTimeout(() => {
-            setExpanded(false);
+            setIsExpanded(false);
         }, expandingTransition.duration * 1000 - 1800);
     };
 
@@ -94,6 +83,14 @@ const Login = () => {
         }, 400);
     };
     const contextValue = { switchToSignUp, switchToLogIn };
+
+    useEffect(() => {
+        if (token) {
+            navigate('/profile');
+        } else {
+            navigate('/login');
+        }
+    }, [token]);
 
     useEffect(() => {
         if (active === 'login') {
