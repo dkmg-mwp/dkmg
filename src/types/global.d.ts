@@ -12,11 +12,16 @@ interface LoginContext {
 }
 interface ProfileContext {
     setUser: React.Dispatch<React.SetStateAction>;
-    user: User[];
+    user: User | null;
     guests: Guest[];
-    fetchGuests: (token) => Promise<unkown>;
-    handleAddGuest: (data: Guest) => Promise<uknown>;
-    handleRemoveGuest: (id: string) => Promise<uknown>;
+    fetchGuests: () => Promise<unknown>;
+    handleAddGuest: (data: Guest) => Promise<unknown>;
+    handleRemoveGuest: (id: string) => Promise<unknown>;
+    handleUpdateGuest: (
+        id: string,
+        restriction: boolean,
+        choice: string
+    ) => Promise<unknown>;
 }
 
 type Dish = {
@@ -33,12 +38,12 @@ type Dish = {
 
 type Guest = {
     id: string;
+    userId: string;
     name: string;
     dairyFree: boolean;
     glutenFree: boolean;
     vegan: boolean;
     vegetarian: boolean;
-    userId: string;
 };
 
 interface GuestList {

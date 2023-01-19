@@ -11,14 +11,14 @@ import {
 } from './GuestAllergyList.style';
 
 const GuestAllergyList = ({ guest }: GuestList) => {
-    const { handleUpdateProfile } = useProfile();
+    const { handleUpdateGuest } = useProfile();
 
     const handleUpdate = async (
         id: string,
         restriction: boolean,
         choice: string
     ) => {
-        await handleUpdateProfile(id, restriction, choice);
+        await handleUpdateGuest(id, restriction, choice);
     };
 
     return (

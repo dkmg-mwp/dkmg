@@ -5,26 +5,47 @@ import { useLogin } from '../Login/Login.context';
 const ProfileContext = createContext<ProfileContext | null>(null);
 
 export const ProfileProvider = ({ children }: ProviderProps) => {
-    const [user, setUser] = useState<User[]>([]);
+    const [user, setUser] = useState<User | null>(null);
     const [guests, setGuests] = useState<Guest[]>([]);
     const { token } = useLogin();
 
-    const fetchGuests = async (token: string) => {
+    const fetchGuests = async () => {
         const data = await api.guests.list(token);
         setGuests(data);
     };
 
     const handleAddGuest = async (data: Guest) => {
         await api.guests.post(data, token);
-        await fetchGuests(token);
+        await fetchGuests();
     };
 
-    // const handleUpdateGuest = async (id: string, data) => {};
+    const handleUpdateGuest = async (
+        id: string,
+        restriction: boolean,
+        choice: string
+    ) => {
+        const foundGuest = guests.find((guest) => guest.id === id);
+        if (!foundGuest) return;
+        if (choice === 'dairyFree') {
+            foundGuest.dairyFree = !restriction;
+        }
+        if (choice === 'glutenFree') {
+            foundGuest.glutenFree = !restriction;
+        }
+        if (choice === 'vegan') {
+            foundGuest.vegan = !restriction;
+        }
+        if (choice === 'vegetarian') {
+            foundGuest.vegetarian = !restriction;
+        }
+        await api.guests.patch(id, foundGuest, token);
+        await fetchGuests();
+    };
 
     const handleRemoveGuest = async (id: string) => {
         const deleted = await api.guests.delete(id, token);
         if (!deleted) return;
-        await fetchGuests(token);
+        await fetchGuests();
     };
 
     useEffect(() => {
@@ -42,6 +63,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
                 fetchGuests,
                 handleAddGuest,
                 handleRemoveGuest,
+                handleUpdateGuest,
             }}
         >
             {children}

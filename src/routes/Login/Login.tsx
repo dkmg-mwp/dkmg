@@ -94,7 +94,7 @@ const Login = () => {
     useEffect(() => {
         if (token) {
             navigate('/profile');
-            fetchGuests(token);
+            fetchGuests();
         } else {
             navigate('/login');
         }
