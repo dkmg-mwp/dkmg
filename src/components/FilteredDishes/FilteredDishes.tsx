@@ -1,3 +1,4 @@
+import { SearchResult } from '../../routes/Search/Search.styles';
 import Card from '../Card/Card';
 
 type Props = {
@@ -35,7 +36,7 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
     };
 
     return (
-        <div>
+        <SearchResult>
             {filteredDishes.length !== 0 ? (
                 filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
             ) : (
@@ -44,7 +45,7 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
                     want to invite them?
                 </h3>
             )}
-        </div>
+        </SearchResult>
     );
 };
 
