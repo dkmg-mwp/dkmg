@@ -35,11 +35,11 @@ const GuestCard = ({ guest }: GuestList) => {
                 <CardTitle>{guest.name}</CardTitle>
                 {!open ? (
                     <SmallButton primary onClick={() => handleOnClick()}>
-                        Allergies <RiArrowDownSLine size={20}/>
+                        Allergies <RiArrowDownSLine size={20} />
                     </SmallButton>
                 ) : (
                     <SmallButton onClick={() => handleOnClick()}>
-                        See Less <RiArrowUpSLine size={20}/>
+                        See Less <RiArrowUpSLine size={20} />
                     </SmallButton>
                 )}
             </CardColumnInfo>
