@@ -10,7 +10,7 @@ export const SmallButton = styled.button<{ primary?: boolean }>`
     justify-content: center;
     align-items: center;
     letter-spacing: 0.025em;
-    min-height: 30px;
+    height: 37px;
 `;
 
 export const AddButton = styled.button`
@@ -23,7 +23,6 @@ export const AddButton = styled.button`
     align-items: center;
     align-content: center;
     letter-spacing: 0.025em;
-
     border-radius: 20px;
     padding: 10px 15px;
     width: 100%;

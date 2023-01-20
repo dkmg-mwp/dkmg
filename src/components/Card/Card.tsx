@@ -4,8 +4,9 @@ import {
     CardImage,
     CardTitle,
     CardContainer,
-    CardColumn,
     CardSection,
+    CardColumnInfo,
+    CardColumnImage,
 } from './Card.styles';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../Buttons/Button.styles';
@@ -23,22 +24,21 @@ const Card = ({ dish }: Props) => {
 
     return (
         <CardContainer>
-            <CardColumn>
+            <CardColumnImage>
                 <CardImage src={dish.image} />
-            </CardColumn>
-            <CardColumn>
+            </CardColumnImage>
+            <CardColumnInfo>
                 <CardTitle>{dish.title}</CardTitle>
                 {!open ? (
                     <SmallButton primary onClick={() => handleOnClick()}>
-                        Allergies <RiArrowDownSLine />
+                        Allergies <RiArrowDownSLine size={20} />
                     </SmallButton>
                 ) : (
                     <SmallButton onClick={() => handleOnClick()}>
-                        See Less <RiArrowUpSLine />
+                        See Less <RiArrowUpSLine size={20} />
                     </SmallButton>
                 )}
-            </CardColumn>
-
+            </CardColumnInfo>
             <CardSection>
                 {open && <AllergyList key={dish.id} dish={dish} />}
             </CardSection>

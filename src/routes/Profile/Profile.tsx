@@ -155,7 +155,6 @@ const User = () => {
                 <TextContainer>
                     <Title>Who’s your annoying friend?</Title>
                 </TextContainer>
-
                 <InnerContainer>
                     <SearchContainer>{guestCreationRender()}</SearchContainer>{' '}
                     {/* Search container??? Vi skapar i den, söker ej  */}
