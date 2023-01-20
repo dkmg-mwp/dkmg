@@ -29,11 +29,13 @@ const SignUpForm = ({ handleSubmit }: Props) => {
                 <Input
                     type='email'
                     placeholder='Email'
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
                     type='password'
                     placeholder='Password'
+                    required
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <SubmitButton type='submit' onClick={switchToProfile}>

@@ -46,6 +46,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = async (email: string, password: string) => {
+        if (!email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/login`, {
             email: email,
             password: password,
@@ -56,6 +57,7 @@ const Login = () => {
     };
 
     const handleSubmit = async (email: string, password: string) => {
+        if (!email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
             email: email,
             password: password,
