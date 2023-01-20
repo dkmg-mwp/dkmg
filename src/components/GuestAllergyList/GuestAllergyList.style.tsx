@@ -11,10 +11,8 @@ export const CardAccordionBox = styled.div`
     align-items: flex-start;
 `;
 export const CardAccordionInfo = styled.div`
-    display: flex;
-    // padding: 10px;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1fr);
 `;
 export const IncludeTag = styled.p`
     display: flex;
