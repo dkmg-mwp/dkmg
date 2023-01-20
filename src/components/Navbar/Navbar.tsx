@@ -1,3 +1,4 @@
+import { useLogin } from '../../routes/Login/Login.context';
 import {
     NavbarContainer,
     Footer,
@@ -8,6 +9,7 @@ import {
 } from './Navbar.styles';
 
 const Navbar = () => {
+    const { token } = useLogin();
     return (
         <Footer>
             <NavbarContainer>
@@ -17,9 +19,15 @@ const Navbar = () => {
                 <NavLinks to='/search'>
                     <SearchIcon></SearchIcon>
                 </NavLinks>
-                <NavLinks to='/profile'>
-                    <UserIcon></UserIcon>
-                </NavLinks>
+                {token ? (
+                    <NavLinks to='/profile'>
+                        <UserIcon></UserIcon>
+                    </NavLinks>
+                ) : (
+                    <NavLinks to='/login'>
+                        <UserIcon></UserIcon>
+                    </NavLinks>
+                )}
             </NavbarContainer>
         </Footer>
     );
