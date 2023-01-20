@@ -47,4 +47,5 @@ export const SearchResult = styled.div`
     display: grid;
     gap: 1.5rem;
     margin: 1rem 1rem;
+    padding-bottom: 75px;
 `;
