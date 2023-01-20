@@ -16,10 +16,12 @@ import axios from 'axios';
 import GuestFilter from '../../components/GuestFilter/GuestFilter';
 import { useProfile } from '../Profile/Profile.context';
 import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
+import { useLogin } from '../Login/Login.context';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
     const { guests, user } = useProfile();
+    const { token } = useLogin();
     const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
     const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
@@ -49,6 +51,9 @@ const Search = () => {
 
     useEffect(() => {
         handleFiltredGuest();
+        if (selectedGuest.length === 0) {
+            setFilteredGuest([]);
+        }
     }, [selectedGuest]);
 
     return (
@@ -58,15 +63,16 @@ const Search = () => {
             </TextContainer>
             {user && (
                 <Wrapper>
-                    {guests
-                        .filter((guest) => guest.userId === user.id)
-                        .map((guest) => (
-                            <GuestFilter
-                                key={guest.id}
-                                guest={guest}
-                                setSelectedGuest={setSelectedGuest}
-                            />
-                        ))}
+                    {token &&
+                        guests
+                            .filter((guest) => guest.userId === user.id)
+                            .map((guest) => (
+                                <GuestFilter
+                                    key={guest.id}
+                                    guest={guest}
+                                    setSelectedGuest={setSelectedGuest}
+                                />
+                            ))}
                 </Wrapper>
             )}
             <InnerContainer>

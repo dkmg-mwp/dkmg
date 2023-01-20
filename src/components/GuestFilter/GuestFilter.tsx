@@ -23,7 +23,9 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
             <Checkbox
                 type='checkbox'
                 name='guest'
-                onChange={() => handleCheck(guest.id)}
+                onChange={() => {
+                    handleCheck(guest.id);
+                }}
             />
         </CardContainer>
     );
