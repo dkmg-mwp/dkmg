@@ -6,8 +6,8 @@ import {
     FormContainer,
     Input,
     MutedLink,
-    SubmitButton,
 } from './LoginForm.styles';
+import * as StyledButton from './../../Buttons/Button.styles';
 
 type Props = {
     handleLogin: (email: string, password: string) => void;
@@ -39,9 +39,12 @@ const LoginForm = ({ handleLogin }: Props) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <SubmitButton type='submit' onClick={switchToProfile}>
+                <StyledButton.LogInPageButton
+                    type='submit'
+                    onClick={switchToProfile}
+                >
                     Log in
-                </SubmitButton>
+                </StyledButton.LogInPageButton>
             </FormContainer>
             <MutedLink>Forget your password?</MutedLink>
             <MutedLink>

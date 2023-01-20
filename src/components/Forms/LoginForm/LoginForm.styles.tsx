@@ -62,23 +62,4 @@ export const Input = styled.input`
     }
 `;
 
-export const SubmitButton = styled.button`
-    width: 100%;
-    padding: 11px 40%;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    border-radius: 100px 100px 100px 100px;
-    cursor: pointer;
-    transition: all, 240ms ease-in-out;
-    background: rgb(239, 138, 98);
-    background: linear-gradient(
-        58deg,
-        rgb(239, 138, 98) 20%,
-        rgb(239, 138, 98) 100%
-    );
-    &:hover {
-        filter: brightness(1.03);
-    }
-`;
+
