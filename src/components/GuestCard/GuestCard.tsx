@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import GuestAllergyList from '../GuestAllergyList/GuestAllergyList';
 import {
-    CardColumn,
+    CardColumnIcon,
+    CardColumnInfo,
     CardContainer,
     CardImage,
     CardSection,
@@ -21,7 +22,7 @@ const GuestCard = ({ guest }: GuestList) => {
 
     return (
         <CardContainer>
-            <CardColumn>
+            <CardColumnIcon>
                 <CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
                 <SmallButton
                     primary
@@ -29,19 +30,19 @@ const GuestCard = ({ guest }: GuestList) => {
                 >
                     Remove
                 </SmallButton>
-            </CardColumn>
-            <CardColumn>
+            </CardColumnIcon>
+            <CardColumnInfo>
                 <CardTitle>{guest.name}</CardTitle>
                 {!open ? (
                     <SmallButton primary onClick={() => handleOnClick()}>
-                        Allergies <RiArrowDownSLine />
+                        Allergies <RiArrowDownSLine size={20}/>
                     </SmallButton>
                 ) : (
                     <SmallButton onClick={() => handleOnClick()}>
-                        See Less <RiArrowUpSLine />
+                        See Less <RiArrowUpSLine size={20}/>
                     </SmallButton>
                 )}
-            </CardColumn>
+            </CardColumnInfo>
 
             <CardSection>
                 {open && <GuestAllergyList key={guest.id} guest={guest} />}
