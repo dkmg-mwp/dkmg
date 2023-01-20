@@ -1,6 +1,7 @@
 import { useLogin } from '../../routes/Login/Login.context';
 import * as Styled from './Header.styles';
 import { useNavigate } from 'react-router-dom';
+import { removeToken } from '../../api/LocalStorage/token-api';
 
 const Header = () => {
     const { token, setToken } = useLogin();
@@ -15,6 +16,7 @@ const Header = () => {
     };
 
     const handleLogOut = () => {
+        removeToken();
         setToken(null);
     };
 

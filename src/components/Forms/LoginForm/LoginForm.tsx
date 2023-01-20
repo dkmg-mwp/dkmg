@@ -28,12 +28,14 @@ const LoginForm = ({ handleLogin }: Props) => {
                 <Input
                     type='email'
                     placeholder='Email'
+                    required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
                     type='password'
                     placeholder='Password'
+                    required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />

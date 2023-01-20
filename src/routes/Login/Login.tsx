@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
+import { addToken } from '../../api/LocalStorage/token-api';
 
 const backDropVariants = {
     expanded: {
@@ -45,21 +46,25 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = async (email: string, password: string) => {
+        if (!email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/login`, {
             email: email,
             password: password,
         });
         setUser(res.data.user);
         setToken(res.data.access_token);
+        addToken(res.data.access_token);
     };
 
     const handleSubmit = async (email: string, password: string) => {
+        if (!email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
             email: email,
             password: password,
         });
         setUser(res.data.user);
         setToken(res.data.access_token);
+        addToken(res.data.access_token);
     };
 
     const playExpandedAnimation = () => {

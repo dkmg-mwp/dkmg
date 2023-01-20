@@ -17,6 +17,7 @@ interface ProfileContext {
     user: User | null;
     guests: Guest[];
     fetchGuests: () => Promise<unknown>;
+    fetchToken: () => Promise<unknown>;
     handleAddGuest: (data: Guest) => Promise<unknown>;
     handleRemoveGuest: (id: string) => Promise<unknown>;
     handleUpdateGuest: (
