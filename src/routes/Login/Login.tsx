@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
+import { addToken } from '../../api/LocalStorage/token-api';
 
 const backDropVariants = {
     expanded: {
@@ -51,6 +52,7 @@ const Login = () => {
         });
         setUser(res.data.user);
         setToken(res.data.access_token);
+        addToken(res.data.access_token);
     };
 
     const handleSubmit = async (email: string, password: string) => {
@@ -60,6 +62,7 @@ const Login = () => {
         });
         setUser(res.data.user);
         setToken(res.data.access_token);
+        addToken(res.data.access_token);
     };
 
     const playExpandedAnimation = () => {
