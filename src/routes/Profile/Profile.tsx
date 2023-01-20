@@ -157,8 +157,7 @@ const User = () => {
                 </TextContainer>
 
                 <InnerContainer>
-                    <SearchContainer>{guestCreationRender()}</SearchContainer>
-
+                    <SearchContainer>{guestCreationRender()}</SearchContainer> {/* Search container??? Vi skapar i den, söker ej  */} 
                     <Guests>
                         {user && (
                             <SearchResult>
