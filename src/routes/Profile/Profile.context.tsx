@@ -21,6 +21,8 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         setToken(data);
     };
 
+    //Need to create a fetchUsers from glitch 
+
     const handleAddGuest = async (data: Guest) => {
         if (!token) return;
         await api.guests.post(data, token);
