@@ -16,10 +16,16 @@ export const CardImage = styled.img`
     border-radius: 15px;
 `;
 
-export const CardColumn = styled.div`
+export const CardColumnIcon = styled.div`
     padding: 15px 10px;
     display: grid;
     gap: 10px;
+`;
+export const CardColumnInfo = styled.div`
+    padding: 15px 10px;
+    display: grid;
+    gap: 10px;
+    align-content: space-between;
 `;
 
 export const CardTitle = styled.h5``;
