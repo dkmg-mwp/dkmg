@@ -34,15 +34,21 @@ const Header = () => {
             </Styled.HeaderWrapper>
             <Styled.HeaderWrapper>
                 {!token ? (
-                    <StyledButton.LogInButton onClick={handleLogIn}>
+                    <StyledButton.MediumButton
+                        bgColor='#2b8872'
+                        onClick={handleLogIn}
+                    >
                         <RiLoginCircleLine />
                         Log In
-                    </StyledButton.LogInButton>
+                    </StyledButton.MediumButton>
                 ) : (
-                    <StyledButton.LogOutButton onClick={handleLogOut}>
+                    <StyledButton.MediumButton
+                        bgColor='#ef8a62'
+                        onClick={handleLogOut}
+                    >
                         <RiLogoutCircleLine />
                         Log Out
-                    </StyledButton.LogOutButton>
+                    </StyledButton.MediumButton>
                 )}
             </Styled.HeaderWrapper>
         </Styled.HeaderContainer>
