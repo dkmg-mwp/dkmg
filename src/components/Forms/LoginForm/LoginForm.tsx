@@ -39,12 +39,13 @@ const LoginForm = ({ handleLogin }: Props) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <StyledButton.LogInPageButton
+                <StyledButton.LargeButton
+                    bgColor='#2b8872'
                     type='submit'
                     onClick={switchToProfile}
                 >
                     Log in
-                </StyledButton.LogInPageButton>
+                </StyledButton.LargeButton>
             </FormContainer>
             <MutedLink>Forget your password?</MutedLink>
             <MutedLink>
