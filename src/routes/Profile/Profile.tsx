@@ -26,7 +26,7 @@ import GuestCard from '../../components/GuestCard/GuestCard';
 import { Form } from 'react-router-dom';
 import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
-import { AddButton } from '../../components/Buttons/Button.styles';
+import { MediumButton } from '../../components/Buttons/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
 import { Navigate } from 'react-router-dom';
@@ -74,13 +74,14 @@ const User = () => {
                                 placeholder='Enter name'
                                 onChange={(e) => setInput(e.target.value)}
                             />
-                            <AddButton
+                            <MediumButton
                                 onClick={() => handleAdd(input)}
                                 type='submit'
+                                bgColor='#2b8872'
                             >
                                 {'Add guest'}
-                                <RiUserAddFill size={15} />
-                            </AddButton>
+                                <RiUserAddFill />
+                            </MediumButton>
                         </InputSection>
                         {input.length !== 0 && (
                             <ListSection>
