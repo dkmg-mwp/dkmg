@@ -18,7 +18,6 @@ export const IncludeTag = styled.p`
     display: flex;
     padding: 10px;
     justify-content: stretch;
-    // gap: 1em;
     align-items: center;
     color: green;
 `;

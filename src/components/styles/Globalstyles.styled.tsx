@@ -38,6 +38,7 @@ h1 {
     margin: 0.5em 0em;
     line-height: 1.5em;
     letter-spacing: 0.01em;
+    z-index: 10;
 }
 
 h2 {
@@ -64,6 +65,7 @@ h5 {
     font-size: 1rem;
     margin: 0;
     font-weight: 500;
+    z-index: 30;
 }
 
 p {

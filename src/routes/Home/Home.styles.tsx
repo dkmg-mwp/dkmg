@@ -7,6 +7,12 @@ export const Container = styled.section`
     background: #cce3c8;
     padding-top: 50px;
 `;
+export const TextContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+`;
 
 export const Wrapper = styled.div`
     display: flex;
@@ -20,11 +26,4 @@ export const InnerContainer = styled.div`
     min-height: 600px;
     background: #cce3c8;
     border-radius: 26px 26px 0px 0px;
-`;
-
-export const TextContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
 `;

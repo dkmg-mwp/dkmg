@@ -1,13 +1,6 @@
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { useState } from 'react';
-import {
-    CardImage,
-    CardTitle,
-    CardContainer,
-    CardSection,
-    CardColumnInfo,
-    CardColumnImage,
-} from './Card.styles';
+import * as Styled from './Card.styles';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../Buttons/Button.styles';
 
@@ -23,12 +16,12 @@ const Card = ({ dish }: Props) => {
     };
 
     return (
-        <CardContainer>
-            <CardColumnImage>
-                <CardImage src={dish.image} />
-            </CardColumnImage>
-            <CardColumnInfo>
-                <CardTitle>{dish.title}</CardTitle>
+        <Styled.CardContainer>
+            <Styled.CardColumnImage>
+                <Styled.CardImage src={dish.image} />
+            </Styled.CardColumnImage>
+            <Styled.CardColumnInfo>
+                <h5>{dish.title}</h5>
                 {!open ? (
                     <SmallButton primary onClick={() => handleOnClick()}>
                         Allergies <RiArrowDownSLine size={20} />
@@ -38,11 +31,11 @@ const Card = ({ dish }: Props) => {
                         See Less <RiArrowUpSLine size={20} />
                     </SmallButton>
                 )}
-            </CardColumnInfo>
-            <CardSection>
+            </Styled.CardColumnInfo>
+            <Styled.CardSection>
                 {open && <AllergyList key={dish.id} dish={dish} />}
-            </CardSection>
-        </CardContainer>
+            </Styled.CardSection>
+        </Styled.CardContainer>
     );
 };
 

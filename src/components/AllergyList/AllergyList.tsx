@@ -1,14 +1,7 @@
 import { CiWheat } from 'react-icons/ci';
 import { RiPlantFill, RiPlantLine } from 'react-icons/ri';
 import { TbMilk } from 'react-icons/tb';
-
-import {
-    CardAccordion,
-    CardAccordionBox,
-    CardAccordionInfo,
-    ExcludeTag,
-    IncludeTag,
-} from './AllergyList.styles';
+import * as Styled from './AllergyList.styles';
 
 type Props = {
     dish: Dish;
@@ -16,65 +9,65 @@ type Props = {
 
 const AllergyList = ({ dish }: Props) => {
     return (
-        <CardAccordion>
-            <CardAccordionBox>
-                <CardAccordionInfo>
+        <Styled.CardAccordion>
+            <Styled.CardAccordionBox>
+                <Styled.CardAccordionInfo>
                     {dish.dairyFree ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             {' '}
                             <TbMilk size={30} />
                             Dairy Free: Yes
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             {' '}
                             <TbMilk size={30} /> Dairy Free: No{' '}
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
-                </CardAccordionInfo>
-                <CardAccordionInfo>
+                </Styled.CardAccordionInfo>
+                <Styled.CardAccordionInfo>
                     {dish.glutenFree ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             {' '}
                             <CiWheat size={30} /> Gluten Free: Yes
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             {' '}
                             <CiWheat size={30} />
                             Gluten Free: No
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
-                </CardAccordionInfo>
-                <CardAccordionInfo>
+                </Styled.CardAccordionInfo>
+                <Styled.CardAccordionInfo>
                     {dish.vegan ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             {' '}
                             <RiPlantFill size={30} /> Vegan Safe: Yes
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             {' '}
                             <RiPlantFill size={30} /> Vegan Safe: No
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
-                </CardAccordionInfo>
-                <CardAccordionInfo>
+                </Styled.CardAccordionInfo>
+                <Styled.CardAccordionInfo>
                     {dish.vegetarian ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             {' '}
                             <RiPlantLine size={30} />
                             Vegetarian Safe: Yes
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             {' '}
                             <RiPlantLine size={30} /> Vegetarian Safe: No
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
-                </CardAccordionInfo>
-            </CardAccordionBox>
-        </CardAccordion>
+                </Styled.CardAccordionInfo>
+            </Styled.CardAccordionBox>
+        </Styled.CardAccordion>
     );
 };
 

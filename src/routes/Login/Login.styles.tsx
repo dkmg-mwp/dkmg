@@ -71,16 +71,16 @@ export const HeaderContainer = styled.div`
     flex-direction: column;
 `;
 
-export const HeaderText = styled.h1`
-    z-index: 10;
-    margin: 0;
-`;
+// export const HeaderText = styled.h1`
+//     z-index: 10;
+//     margin: 0;
+// `;
 
-export const SmallText = styled.h5`
-    z-index: 30;
-    margin: 0;
-    margin-top: 7px;
-`;
+// export const SmallText = styled.h5`
+//     z-index: 30;
+//     margin: 0;
+//     margin-top: 7px;
+// `;
 
 export const InnerContainer = styled.div`
     width: 100%;

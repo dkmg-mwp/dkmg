@@ -29,7 +29,4 @@ export const CardColumnInfo = styled.div`
     align-content: space-between;
 `;
 
-export const CardRatings = styled.div``;
-export const CardTitle = styled.h5``;
-
 export const CardSection = styled.div``;

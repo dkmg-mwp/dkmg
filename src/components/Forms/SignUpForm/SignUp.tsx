@@ -1,14 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
-
-import {
-    BoldLink,
-    BoxContainer,
-    FormContainer,
-    Input,
-    MutedLink,
-} from '../LoginForm/LoginForm.styles';
-import * as StyledButton from './../../Buttons/Button.styles';
+import { LargeButton } from '../../Buttons/Button.styles';
+import * as Styled from '../LoginForm/LoginForm.styles';
 
 type Props = {
     handleSubmit: (email: string, password: string) => void;
@@ -20,40 +13,40 @@ const SignUpForm = ({ handleSubmit }: Props) => {
     const [password, setPassword] = useState('');
 
     return (
-        <BoxContainer>
-            <FormContainer
+        <Styled.BoxContainer>
+            <Styled.FormContainer
                 onSubmit={(e) => {
                     handleSubmit(email, password), e.preventDefault();
                 }}
             >
-                <Input
+                <Styled.Input
                     type='email'
                     placeholder='Email'
                     required
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <Input
+                <Styled.Input
                     type='password'
                     placeholder='Password'
                     required
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <StyledButton.LargeButton
+                <LargeButton
                     bgColor='#ef8a62'
                     type='submit'
                     onClick={switchToProfile}
                 >
                     Sign up
-                </StyledButton.LargeButton>
-            </FormContainer>
+                </LargeButton>
+            </Styled.FormContainer>
 
-            <MutedLink>
+            <Styled.MutedLink>
                 Already have an account?
-                <BoldLink href='#' onClick={switchToLogIn}>
+                <Styled.BoldLink href='#' onClick={switchToLogIn}>
                     Log in
-                </BoldLink>
-            </MutedLink>
-        </BoxContainer>
+                </Styled.BoldLink>
+            </Styled.MutedLink>
+        </Styled.BoxContainer>
     );
 };
 

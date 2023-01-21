@@ -1,16 +1,7 @@
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
-import {
-    Container,
-    H1,
-    H4,
-    InnerContainer,
-    SearchContainer,
-    SearchResult,
-    TextContainer,
-    Wrapper,
-} from './Search.styles';
+import * as Styled from './Search.styles';
 import { useSearch } from './Search.context';
 import axios from 'axios';
 import GuestFilter from '../../components/GuestFilter/GuestFilter';
@@ -57,12 +48,12 @@ const Search = () => {
     }, [selectedGuest]);
 
     return (
-        <Container>
-            <TextContainer>
-                <H1>Search recipes for your next gathering!</H1>
-            </TextContainer>
+        <Styled.Container>
+            <Styled.TextContainer>
+                <h1>Search recipes for your next gathering!</h1>
+            </Styled.TextContainer>
             {user && (
-                <Wrapper>
+                <Styled.Wrapper>
                     {token &&
                         guests
                             .filter((guest) => guest.userId === user.id)
@@ -73,14 +64,14 @@ const Search = () => {
                                     setSelectedGuest={setSelectedGuest}
                                 />
                             ))}
-                </Wrapper>
+                </Styled.Wrapper>
             )}
-            <InnerContainer>
-                <SearchContainer>
+            <Styled.InnerContainer>
+                <Styled.SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
-                    <H4>Results for:</H4>
-                </SearchContainer>
-                <SearchResult>
+                    <h4>Results for:</h4>
+                </Styled.SearchContainer>
+                <Styled.SearchResult>
                     {!filteredGuest ? (
                         dishes.map((dish) => <Card key={dish.id} dish={dish} />)
                     ) : (
@@ -89,9 +80,9 @@ const Search = () => {
                             dishes={dishes}
                         />
                     )}
-                </SearchResult>
-            </InnerContainer>
-        </Container>
+                </Styled.SearchResult>
+            </Styled.InnerContainer>
+        </Styled.Container>
     );
 };
 

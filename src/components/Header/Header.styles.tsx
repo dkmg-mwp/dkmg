@@ -10,13 +10,7 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     padding: 10px;
     align-items: center;
-
 `;
 
-export const HeaderWrapper = styled.div`
-   
- 
-`;
+export const HeaderWrapper = styled.div``;
 export const Logo = styled.img``;
-
-

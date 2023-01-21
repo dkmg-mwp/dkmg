@@ -2,13 +2,7 @@ import { CiWheat } from 'react-icons/ci';
 import { RiPlantFill, RiPlantLine } from 'react-icons/ri';
 import { TbMilk } from 'react-icons/tb';
 import { useProfile } from '../../routes/Profile/Profile.context';
-import {
-    CardAccordion,
-    CardAccordionBox,
-    CardAccordionInfo,
-    ExcludeTag,
-    IncludeTag,
-} from './GuestAllergyList.style';
+import * as Styled from './GuestAllergyList.style';
 
 const GuestAllergyList = ({ guest }: GuestList) => {
     const { handleUpdateGuest } = useProfile();
@@ -22,11 +16,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
     };
 
     return (
-        <CardAccordion>
-            <CardAccordionBox>
-                <CardAccordionInfo>
+        <Styled.CardAccordion>
+            <Styled.CardAccordionBox>
+                <Styled.CardAccordionInfo>
                     {guest.dairyFree ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             <label>Dairy Free</label>
                             <TbMilk size={30} />
                             <input
@@ -41,9 +35,9 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             <label>Dairy Free</label>
                             <TbMilk size={30} />
                             <input
@@ -58,10 +52,10 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
                     {guest.glutenFree ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             <label>Gluten Free</label>
                             <CiWheat size={30} />
                             <input
@@ -76,9 +70,9 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             <label>Gluten Free</label>
                             <CiWheat size={30} />
                             <input
@@ -93,10 +87,10 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
                     {guest.vegan ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             <label>Vegan Safe</label>
                             <RiPlantFill size={30} />
                             <input
@@ -111,9 +105,9 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             <label>Vegan Safe</label>
                             <RiPlantFill size={30} />
                             <input
@@ -128,10 +122,10 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
                     {guest.vegetarian ? (
-                        <IncludeTag>
+                        <Styled.IncludeTag>
                             <label>Vegetarian Safe</label>
                             <RiPlantLine size={30} />
                             <input
@@ -146,9 +140,9 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </IncludeTag>
+                        </Styled.IncludeTag>
                     ) : (
-                        <ExcludeTag>
+                        <Styled.ExcludeTag>
                             <label>Vegetarian Safe</label>
                             <RiPlantLine size={30} />
                             <input
@@ -163,11 +157,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                                     );
                                 }}
                             />
-                        </ExcludeTag>
+                        </Styled.ExcludeTag>
                     )}
-                </CardAccordionInfo>
-            </CardAccordionBox>
-        </CardAccordion>
+                </Styled.CardAccordionInfo>
+            </Styled.CardAccordionBox>
+        </Styled.CardAccordion>
     );
 };
 

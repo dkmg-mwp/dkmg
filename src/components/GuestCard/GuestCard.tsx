@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import GuestAllergyList from '../GuestAllergyList/GuestAllergyList';
-import {
-    CardColumnIcon,
-    CardColumnInfo,
-    CardContainer,
-    CardImage,
-    CardSection,
-    CardTitle,
-} from './GuestCard.style';
+import * as Styled from './GuestCard.style';
 import { SmallButton } from '../Buttons/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
 
@@ -21,18 +14,18 @@ const GuestCard = ({ guest }: GuestList) => {
     };
 
     return (
-        <CardContainer>
-            <CardColumnIcon>
-                <CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
+        <Styled.CardContainer>
+            <Styled.CardColumnIcon>
+                <Styled.CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
                 <SmallButton
                     primary
                     onClick={() => handleRemoveGuest(guest.id)}
                 >
                     Remove
                 </SmallButton>
-            </CardColumnIcon>
-            <CardColumnInfo>
-                <CardTitle>{guest.name}</CardTitle>
+            </Styled.CardColumnIcon>
+            <Styled.CardColumnInfo>
+                <Styled.CardTitle>{guest.name}</Styled.CardTitle>
                 {!open ? (
                     <SmallButton primary onClick={() => handleOnClick()}>
                         Allergies <RiArrowDownSLine size={20} />
@@ -42,12 +35,12 @@ const GuestCard = ({ guest }: GuestList) => {
                         See Less <RiArrowUpSLine size={20} />
                     </SmallButton>
                 )}
-            </CardColumnInfo>
+            </Styled.CardColumnInfo>
 
-            <CardSection>
+            <Styled.CardSection>
                 {open && <GuestAllergyList key={guest.id} guest={guest} />}
-            </CardSection>
-        </CardContainer>
+            </Styled.CardSection>
+        </Styled.CardContainer>
     );
 };
 

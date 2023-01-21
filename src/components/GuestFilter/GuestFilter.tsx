@@ -1,5 +1,5 @@
 import { Checkbox } from '../Form/Form.styled';
-import { CardContainer, CardTitle } from './GuestFilter.styles';
+import * as Styled from './GuestFilter.styles';
 
 type Props = {
     guest: Guest;
@@ -18,8 +18,8 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
     };
 
     return (
-        <CardContainer>
-            <CardTitle>{guest.name}</CardTitle>
+        <Styled.CardContainer>
+            <Styled.CardTitle>{guest.name}</Styled.CardTitle>
             <Checkbox
                 type='checkbox'
                 name='guest'
@@ -27,7 +27,7 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
                     handleCheck(guest.id);
                 }}
             />
-        </CardContainer>
+        </Styled.CardContainer>
     );
 };
 

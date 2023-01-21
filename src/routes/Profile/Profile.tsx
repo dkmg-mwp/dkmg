@@ -6,21 +6,7 @@ import {
     SearchResult,
     TextContainer,
 } from '../Search/Search.styles';
-import {
-    Checkbox,
-    Container,
-    GuestContainer,
-    Guests,
-    Input,
-    InputSection,
-    Label,
-    List,
-    ListItem,
-    ListSection,
-    Subtitle,
-    Title,
-    Wrapper,
-} from './Profile.styles';
+import * as Styled from './Profile.styles';
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
 import { Form } from 'react-router-dom';
@@ -64,11 +50,11 @@ const User = () => {
 
     const guestCreationRender = () => {
         return (
-            <GuestContainer>
+            <Styled.GuestContainer>
                 {
                     <Form onSubmit={(e) => e.preventDefault()}>
-                        <InputSection>
-                            <Input
+                        <Styled.InputSection>
+                            <Styled.Input
                                 type='text'
                                 value={input}
                                 placeholder='Enter name'
@@ -82,14 +68,14 @@ const User = () => {
                                 {'Add guest'}
                                 <RiUserAddFill />
                             </MediumButton>
-                        </InputSection>
+                        </Styled.InputSection>
                         {input.length !== 0 && (
-                            <ListSection>
-                                <Subtitle>Restrictions:</Subtitle>
-                                <List>
-                                    <ListItem>
+                            <Styled.ListSection>
+                                <Styled.Subtitle>Restrictions:</Styled.Subtitle>
+                                <Styled.List>
+                                    <Styled.ListItem>
                                         <TbMilk size={30} />
-                                        <Checkbox
+                                        <Styled.Checkbox
                                             type='checkbox'
                                             name='Dairy Free'
                                             checked={dairyFree}
@@ -97,11 +83,11 @@ const User = () => {
                                                 setDairyFree((prev) => !prev)
                                             }
                                         />
-                                        <Label>Dairy Free</Label>
-                                    </ListItem>
-                                    <ListItem>
+                                        <Styled.Label>Dairy Free</Styled.Label>
+                                    </Styled.ListItem>
+                                    <Styled.ListItem>
                                         <CiWheat size={30} />
-                                        <Checkbox
+                                        <Styled.Checkbox
                                             type='checkbox'
                                             name='Gluten Free'
                                             checked={glutenFree}
@@ -109,11 +95,11 @@ const User = () => {
                                                 setGlutenFree((prev) => !prev)
                                             }
                                         />
-                                        <Label>Gluten Free</Label>
-                                    </ListItem>
-                                    <ListItem>
+                                        <Styled.Label>Gluten Free</Styled.Label>
+                                    </Styled.ListItem>
+                                    <Styled.ListItem>
                                         <RiPlantFill size={30} />
-                                        <Checkbox
+                                        <Styled.Checkbox
                                             type='checkbox'
                                             name='Vegan'
                                             checked={vegan}
@@ -121,11 +107,11 @@ const User = () => {
                                                 setVegan((prev) => !prev)
                                             }
                                         />
-                                        <Label>Vegan Safe</Label>
-                                    </ListItem>
-                                    <ListItem>
+                                        <Styled.Label>Vegan Safe</Styled.Label>
+                                    </Styled.ListItem>
+                                    <Styled.ListItem>
                                         <RiPlantLine size={30} />
-                                        <Checkbox
+                                        <Styled.Checkbox
                                             type='checkbox'
                                             name='Vegetarian'
                                             checked={vegetarian}
@@ -133,14 +119,16 @@ const User = () => {
                                                 setVegetarian((prev) => !prev)
                                             }
                                         />
-                                        <Label>Vegetarian Safe</Label>
-                                    </ListItem>
-                                </List>
-                            </ListSection>
+                                        <Styled.Label>
+                                            Vegetarian Safe
+                                        </Styled.Label>
+                                    </Styled.ListItem>
+                                </Styled.List>
+                            </Styled.ListSection>
                         )}
                     </Form>
                 }
-            </GuestContainer>
+            </Styled.GuestContainer>
         );
     };
 
@@ -151,15 +139,15 @@ const User = () => {
     return !token ? (
         <Navigate to='/login' />
     ) : (
-        <Container>
-            <Wrapper>
+        <Styled.Container>
+            <Styled.Wrapper>
                 <TextContainer>
-                    <Title>Who’s your annoying friend?</Title>
+                    <Styled.Title>Who’s your annoying friend?</Styled.Title>
                 </TextContainer>
                 <InnerContainer>
                     <SearchContainer>{guestCreationRender()}</SearchContainer>{' '}
                     {/* Search container??? Vi skapar i den, söker ej  */}
-                    <Guests>
+                    <Styled.Guests>
                         {user && (
                             <SearchResult>
                                 {[...guests]
@@ -173,10 +161,10 @@ const User = () => {
                                     ))}
                             </SearchResult>
                         )}
-                    </Guests>
+                    </Styled.Guests>
                 </InnerContainer>
-            </Wrapper>
-        </Container>
+            </Styled.Wrapper>
+        </Styled.Container>
     );
 };
 
