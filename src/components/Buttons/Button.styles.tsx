@@ -29,7 +29,7 @@ export const MediumButton = styled.button<{ bgColor?: string }>`
     width: 100%;
 `;
 
-export const BigButton = styled.button<{ bgColor?: string }>`
+export const LargeButton = styled.button<{ bgColor?: string }>`
     background: ${(props) =>
         props.bgColor === '#2b8872' ? '#2b8872' : '#ef8a62'};
     width: 100%;
