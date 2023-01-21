@@ -38,12 +38,13 @@ const SignUpForm = ({ handleSubmit }: Props) => {
                     required
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <StyledButton.SignUpPageButton
+                <StyledButton.LargeButton
+                    bgColor='#ef8a62'
                     type='submit'
                     onClick={switchToProfile}
                 >
                     Sign up
-                </StyledButton.SignUpPageButton>
+                </StyledButton.LargeButton>
             </FormContainer>
 
             <MutedLink>
