@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
-import { LargeButton } from '../../Buttons/Button.styles';
-import * as Styled from '../LoginForm/LoginForm.styles';
+import { LargeButton } from '../../styles/Button.styles';
+import * as Styled from '../LoginForm/Form.styles';
 
 type Props = {
     handleSubmit: (email: string, password: string) => void;
