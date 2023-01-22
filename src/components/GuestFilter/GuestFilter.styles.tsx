@@ -11,6 +11,11 @@ export const CardContainer = styled.div`
     margin: 5px;
 `;
 
-export const CardTitle = styled.h5``;
 
-export const CardSection = styled.div``;
+export const Checkbox = styled.input`
+    accent-color: orange;
+    border-radius: 0.15em;
+    background-color: #fff;
+    color: currentColor;
+    border: 0.15em solid currentColor;
+`;
