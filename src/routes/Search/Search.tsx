@@ -8,6 +8,7 @@ import GuestFilter from '../../components/GuestFilter/GuestFilter';
 import { useProfile } from '../Profile/Profile.context';
 import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 import { useLogin } from '../Login/Login.context';
+import Heading from '../../components/styles/Heading.styles';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
@@ -50,7 +51,7 @@ const Search = () => {
     return (
         <Styled.Container>
             <Styled.TextContainer>
-                <h1>Search recipes for your next gathering!</h1>
+                <Heading variant='h1'>Search recipes for your next gathering!</Heading>
             </Styled.TextContainer>
             {user && (
                 <Styled.Wrapper>
@@ -69,7 +70,7 @@ const Search = () => {
             <Styled.InnerContainer>
                 <Styled.SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
-                    <h4>Results for:</h4>
+                    <Heading variant='h3'>Results for:</Heading>
                 </Styled.SearchContainer>
                 <Styled.SearchResult>
                     {!filteredGuest ? (
