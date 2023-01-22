@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
-import { LargeButton } from '../../Buttons/Button.styles';
-import * as Styled from './LoginForm.styles';
+import { LargeButton } from '../../styles/Button.styles';
+import * as Styled from './Form.styles';
 
 
 type Props = {
