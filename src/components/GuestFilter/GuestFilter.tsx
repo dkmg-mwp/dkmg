@@ -1,4 +1,4 @@
-import { Checkbox } from '../Form/Form.styled';
+import Heading from '../styles/Heading.styles';
 import * as Styled from './GuestFilter.styles';
 
 type Props = {
@@ -19,8 +19,8 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
 
     return (
         <Styled.CardContainer>
-            <Styled.CardTitle>{guest.name}</Styled.CardTitle>
-            <Checkbox
+            <Heading variant={'h5'}>{guest.name}</Heading>
+            <Styled.Checkbox
                 type='checkbox'
                 name='guest'
                 onChange={() => {
