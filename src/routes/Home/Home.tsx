@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Heading from '../../components/styles/Heading.styles';
 import * as Styled from './Home.styles';
 
 const Home = () => {
@@ -10,10 +11,10 @@ const Home = () => {
         <Styled.Container>
             <Styled.Wrapper>
                 <Styled.TextContainer>
-                    <h1>
-                        Friends with allergies? No worries, we’ll help you not
+                    <Heading variant={'h1'}>
+                        Friends with allergies? <br/>No worries, we’ll help you not
                         to get them killed...
-                    </h1>
+                    </Heading>
                 </Styled.TextContainer>
                 <Styled.Container></Styled.Container>
             </Styled.Wrapper>
