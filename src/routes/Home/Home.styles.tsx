@@ -11,7 +11,8 @@ export const TextContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px;
+    padding: 30px 40px 10px 40px;
+    flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
