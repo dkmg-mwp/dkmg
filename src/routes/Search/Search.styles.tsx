@@ -11,7 +11,7 @@ export const TextContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px;
+    padding: 30px 40px 10px 40px;
 `;
 
 export const InnerContainer = styled.div`
@@ -33,8 +33,9 @@ export const SearchContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
-    padding: 0px 20px;
-    gap: 10px;
+    padding: 20px 20px;
+    gap: 40px;
+
 `;
 
 export const SearchResult = styled.div`
