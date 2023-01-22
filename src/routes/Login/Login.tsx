@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
 import { addToken } from '../../api/LocalStorage/token-api';
+import Heading from '../../components/styles/Heading.styles';
 
 const backDropVariants = {
     expanded: {
@@ -117,20 +118,20 @@ const Login = () => {
                         />
                         {active === 'login' && (
                             <Styled.HeaderContainer>
-                                <h1>
+                                <Heading variant='h1'>
                                     Welcome <br /> Back Foodie!
-                                </h1>
-                                <h5>Please log in to continue</h5>
+                                </Heading>
+                                <Heading variant='h5'>Please log in to continue</Heading>
                             </Styled.HeaderContainer>
                         )}
                         {active === 'signup' && (
                             <Styled.HeaderContainer>
-                                <h1>
+                                <Heading variant='h1'>
                                     Create An
                                     <br />
                                     Account
-                                </h1>
-                                <h5>Sign up & help your guests!</h5>
+                                </Heading>
+                                <Heading variant='h5'>Sign up & help your guests!</Heading>
                             </Styled.HeaderContainer>
                         )}
                     </Styled.TopContainer>
