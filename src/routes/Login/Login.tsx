@@ -121,7 +121,9 @@ const Login = () => {
                                 <Heading variant='h1'>
                                     Welcome <br /> Back Foodie!
                                 </Heading>
-                                <Heading variant='h5'>Please log in to continue</Heading>
+                                <Heading variant='h5'>
+                                    Please log in to continue
+                                </Heading>
                             </Styled.HeaderContainer>
                         )}
                         {active === 'signup' && (
@@ -131,7 +133,9 @@ const Login = () => {
                                     <br />
                                     Account
                                 </Heading>
-                                <Heading variant='h5'>Sign up & help your guests!</Heading>
+                                <Heading variant='h5'>
+                                    Sign up & help your guests!
+                                </Heading>
                             </Styled.HeaderContainer>
                         )}
                     </Styled.TopContainer>

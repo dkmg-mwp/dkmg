@@ -41,18 +41,18 @@ const AllergyList = ({ dish }: Props) => {
     ];
 
     return (
-            <Styled.CardAccordionBox>
-                {allergies.map((allergy) => (
-                    <Styled.CardAccordionInfo key={allergy.name}>
-                        <Tag type={allergy.prop}>
-                            {allergy.icon}
-                            {allergy.prop
-                                ? `Is ${allergy.name}`
-                                : `Not ${allergy.name}`}
-                        </Tag>
-                    </Styled.CardAccordionInfo>
-                ))}
-            </Styled.CardAccordionBox>
+        <Styled.CardAccordionBox>
+            {allergies.map((allergy) => (
+                <Styled.CardAccordionInfo key={allergy.name}>
+                    <Tag type={allergy.prop}>
+                        {allergy.icon}
+                        {allergy.prop
+                            ? `Is ${allergy.name}`
+                            : `Not ${allergy.name}`}
+                    </Tag>
+                </Styled.CardAccordionInfo>
+            ))}
+        </Styled.CardAccordionBox>
     );
 };
 

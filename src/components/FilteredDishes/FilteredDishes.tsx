@@ -1,4 +1,4 @@
-import * as Styled from './FilteredDishes.styles'
+import * as Styled from './FilteredDishes.styles';
 import Card from '../Card/Card';
 import Heading from '../styles/Heading.styles';
 

@@ -11,7 +11,6 @@ export const CardContainer = styled.div`
     margin: 5px;
 `;
 
-
 export const Checkbox = styled.input`
     accent-color: orange;
     border-radius: 0.15em;

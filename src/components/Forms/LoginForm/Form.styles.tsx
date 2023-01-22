@@ -61,5 +61,3 @@ export const Input = styled.input`
         background-color: #cce3c8;
     }
 `;
-
-

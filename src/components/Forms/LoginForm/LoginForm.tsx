@@ -3,7 +3,6 @@ import { AccountContext } from '../../../routes/Login/Login.context';
 import { LargeButton } from '../../styles/Button.styles';
 import * as Styled from './Form.styles';
 
-
 type Props = {
     handleLogin: (email: string, password: string) => void;
 };

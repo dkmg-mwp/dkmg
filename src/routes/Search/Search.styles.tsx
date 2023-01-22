@@ -35,7 +35,6 @@ export const SearchContainer = styled.div`
     margin-bottom: 20px;
     padding: 20px 20px;
     gap: 40px;
-
 `;
 
 export const SearchResult = styled.div`

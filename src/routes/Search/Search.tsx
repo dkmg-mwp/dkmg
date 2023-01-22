@@ -51,7 +51,9 @@ const Search = () => {
     return (
         <Styled.Container>
             <Styled.TextContainer>
-                <Heading variant='h1'>Search recipes for your next gathering!</Heading>
+                <Heading variant='h1'>
+                    Search recipes for your next gathering!
+                </Heading>
             </Styled.TextContainer>
             {user && (
                 <Styled.Wrapper>

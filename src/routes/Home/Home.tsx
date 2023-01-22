@@ -12,8 +12,8 @@ const Home = () => {
             <Styled.Wrapper>
                 <Styled.TextContainer>
                     <Heading variant={'h1'}>
-                        Friends with allergies? <br/>No worries, we’ll help you not
-                        to get them killed...
+                        Friends with allergies? <br />
+                        No worries, we’ll help you not to get them killed...
                     </Heading>
                 </Styled.TextContainer>
                 <Styled.Container></Styled.Container>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const FilteredResults = styled.div`
     display: grid;
     gap: 1.5rem;

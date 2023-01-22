@@ -14,7 +14,7 @@ export const CardContainer = styled.div`
     border-radius: 15px;
     height: auto;
 `;
-export const CardWrapper= styled.div`
+export const CardWrapper = styled.div`
     display: flex;
     align-items: stretch;
     justify-content: space-between;

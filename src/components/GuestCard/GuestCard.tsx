@@ -30,7 +30,7 @@ const GuestCard = ({ guest }: GuestList) => {
                     <Heading variant={'h5'}>{guest.name}</Heading>
                     {!open ? (
                         <SmallButton primary onClick={() => handleOnClick()}>
-                            Allergies <RiArrowDownSLine  />
+                            Allergies <RiArrowDownSLine />
                         </SmallButton>
                     ) : (
                         <SmallButton onClick={() => handleOnClick()}>
