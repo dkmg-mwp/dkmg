@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react';
 import { RiPlantFill, RiPlantLine, RiUserAddFill } from 'react-icons/ri';
-import {
-    InnerContainer,
-    SearchContainer,
-    SearchResult,
-    TextContainer,
-} from '../Search/Search.styles';
 import * as Styled from './Profile.styles';
 import { useProfile } from './Profile.context';
 import GuestCard from '../../components/GuestCard/GuestCard';
 import { Form } from 'react-router-dom';
 import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
-import { MediumButton } from '../../components/Buttons/Button.styles';
+import { MediumButton } from '../../components/styles/Button.styles';
 import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
 import { Navigate } from 'react-router-dom';
+import Heading from '../../components/styles/Heading.styles';
 
 const User = () => {
     const { user, guests, fetchGuests, handleAddGuest } = useProfile();
@@ -63,7 +58,9 @@ const User = () => {
                             <MediumButton
                                 onClick={() => handleAdd(input)}
                                 type='submit'
-                                bgColor='#2b8872'
+                                bgColor={`${
+                                    input.length !== 0 ? '#ef8a62' : '#2b8872'
+                                }`}
                             >
                                 {'Add guest'}
                                 <RiUserAddFill />
@@ -71,7 +68,7 @@ const User = () => {
                         </Styled.InputSection>
                         {input.length !== 0 && (
                             <Styled.ListSection>
-                                <Styled.Subtitle>Restrictions:</Styled.Subtitle>
+                                <Heading variant={'h4'}>Restrictions:</Heading>
                                 <Styled.List>
                                     <Styled.ListItem>
                                         <TbMilk size={30} />
@@ -83,7 +80,9 @@ const User = () => {
                                                 setDairyFree((prev) => !prev)
                                             }
                                         />
-                                        <Styled.Label>Dairy Free</Styled.Label>
+                                        <Styled.Label>
+                                            Dairy sensitive?
+                                        </Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
                                         <CiWheat size={30} />
@@ -95,7 +94,9 @@ const User = () => {
                                                 setGlutenFree((prev) => !prev)
                                             }
                                         />
-                                        <Styled.Label>Gluten Free</Styled.Label>
+                                        <Styled.Label>
+                                            Glutenintolerant?
+                                        </Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
                                         <RiPlantFill size={30} />
@@ -107,7 +108,7 @@ const User = () => {
                                                 setVegan((prev) => !prev)
                                             }
                                         />
-                                        <Styled.Label>Vegan Safe</Styled.Label>
+                                        <Styled.Label>Vegan?</Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
                                         <RiPlantLine size={30} />
@@ -119,9 +120,7 @@ const User = () => {
                                                 setVegetarian((prev) => !prev)
                                             }
                                         />
-                                        <Styled.Label>
-                                            Vegetarian Safe
-                                        </Styled.Label>
+                                        <Styled.Label>Vegetarian?</Styled.Label>
                                     </Styled.ListItem>
                                 </Styled.List>
                             </Styled.ListSection>
@@ -141,28 +140,24 @@ const User = () => {
     ) : (
         <Styled.Container>
             <Styled.Wrapper>
-                <TextContainer>
-                    <Styled.Title>Who’s your annoying friend?</Styled.Title>
-                </TextContainer>
-                <InnerContainer>
-                    <SearchContainer>{guestCreationRender()}</SearchContainer>{' '}
-                    {/* Search container??? Vi skapar i den, söker ej  */}
-                    <Styled.Guests>
-                        {user && (
-                            <SearchResult>
-                                {[...guests]
-                                    .reverse()
-                                    .filter((guest) => guest.userId === user.id)
-                                    .map((guest) => (
-                                        <GuestCard
-                                            key={guest.id}
-                                            guest={guest}
-                                        />
-                                    ))}
-                            </SearchResult>
-                        )}
-                    </Styled.Guests>
-                </InnerContainer>
+                <Styled.TextContainer>
+                    <Heading variant={'h1'}>
+                        Who’s your annoying friend?
+                    </Heading>
+                </Styled.TextContainer>
+                <Styled.GuestCreateContainer>
+                    {guestCreationRender()}
+                </Styled.GuestCreateContainer>
+                {user && (
+                    <Styled.AllGuest>
+                        {[...guests]
+                            .reverse()
+                            .filter((guest) => guest.userId === user.id)
+                            .map((guest) => (
+                                <GuestCard key={guest.id} guest={guest} />
+                            ))}
+                    </Styled.AllGuest>
+                )}
             </Styled.Wrapper>
         </Styled.Container>
     );
