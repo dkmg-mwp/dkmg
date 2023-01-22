@@ -1,9 +1,9 @@
 import { useLogin } from '../../routes/Login/Login.context';
 import * as Styled from './Header.styles';
-import * as StyledButton from './../Buttons/Button.styles';
 import { useNavigate } from 'react-router-dom';
 import { removeToken } from '../../api/LocalStorage/token-api';
 import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
+import { MediumButton } from '../styles/Button.styles';
 
 const Header = () => {
     const { token, setToken } = useLogin();
@@ -34,21 +34,15 @@ const Header = () => {
             </Styled.HeaderWrapper>
             <Styled.HeaderWrapper>
                 {!token ? (
-                    <StyledButton.MediumButton
-                        bgColor='#2b8872'
-                        onClick={handleLogIn}
-                    >
+                    <MediumButton bgColor='#2b8872' onClick={handleLogIn}>
                         <RiLoginCircleLine />
                         Log In
-                    </StyledButton.MediumButton>
+                    </MediumButton>
                 ) : (
-                    <StyledButton.MediumButton
-                        bgColor='#ef8a62'
-                        onClick={handleLogOut}
-                    >
+                    <MediumButton bgColor='#ef8a62' onClick={handleLogOut}>
                         <RiLogoutCircleLine />
                         Log Out
-                    </StyledButton.MediumButton>
+                    </MediumButton>
                 )}
             </Styled.HeaderWrapper>
         </Styled.HeaderContainer>
