@@ -1,30 +1,40 @@
 import styled from 'styled-components';
 
-export const CardAccordion = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-`;
-export const CardAccordionBox = styled.div`
+export const ListSection = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
 `;
-export const CardAccordionInfo = styled.div`
-    display: grid;
-    grid-template-columns: repeat(1fr);
-`;
-export const IncludeTag = styled.p`
+
+export const List = styled.ul`
+    list-style-type: none;
     display: flex;
-    padding: 10px;
-    justify-content: stretch;
-    align-items: center;
-    color: green;
-`;
-export const ExcludeTag = styled.p`
-    display: flex;
-    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 1rem;
+`;
+export const ListItem = styled.li`
+    display: flex;
+    justify-content: center;
     align-items: center;
-    color: red;
+    gap: 1rem;
+`;
+
+export const AllergyTag = styled.div<{ include?: boolean }>`
+    color: ${(props) => (props.include ? 'green' : 'red')};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+`;
+export const Label = styled.label``;
+
+export const Checkbox = styled.input`
+    accent-color: orange;
+    border-radius: 0.15em;
+    background-color: #fff;
+    color: currentColor;
+    border: 0.15em solid currentColor;
 `;
