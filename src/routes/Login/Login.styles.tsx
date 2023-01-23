@@ -3,13 +3,12 @@ import { motion } from 'framer-motion';
 
 export const Container = styled.div`
     min-width: 100vw;
-    min-height: 100vh;
     top: 0px;
 `;
 
 export const BoxContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
