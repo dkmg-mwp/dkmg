@@ -135,7 +135,7 @@ const User = () => {
     useEffect(() => {
         document.title === 'Profile';
     }, []);
-console.log(user)
+
     return !token ? (
         <Navigate to='/login' />
     ) : (
