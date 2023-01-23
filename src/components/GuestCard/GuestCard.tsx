@@ -1,16 +1,10 @@
 import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import GuestAllergyList from '../GuestAllergyList/GuestAllergyList';
-import {
-    CardColumnIcon,
-    CardColumnInfo,
-    CardContainer,
-    CardImage,
-    CardSection,
-    CardTitle,
-} from './GuestCard.style';
-import { SmallButton } from '../Buttons/Button.styles';
+import * as Styled from './GuestCard.style';
+import { SmallButton } from '../styles/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
+import Heading from '../styles/Heading.styles';
 
 const GuestCard = ({ guest }: GuestList) => {
     const { handleRemoveGuest } = useProfile();
@@ -21,33 +15,33 @@ const GuestCard = ({ guest }: GuestList) => {
     };
 
     return (
-        <CardContainer>
-            <CardColumnIcon>
-                <CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
-                <SmallButton
-                    primary
-                    onClick={() => handleRemoveGuest(guest.id)}
-                >
-                    Remove
-                </SmallButton>
-            </CardColumnIcon>
-            <CardColumnInfo>
-                <CardTitle>{guest.name}</CardTitle>
-                {!open ? (
-                    <SmallButton primary onClick={() => handleOnClick()}>
-                        Allergies <RiArrowDownSLine size={20} />
+        <Styled.CardContainer>
+            <Styled.CardWrapper>
+                <Styled.CardColumnLeft>
+                    <Styled.CardImage src='https://i.ibb.co/2gzZF42/darkgreen-orange.png' />
+                    <SmallButton
+                        primary
+                        onClick={() => handleRemoveGuest(guest.id)}
+                    >
+                        Remove
                     </SmallButton>
-                ) : (
-                    <SmallButton onClick={() => handleOnClick()}>
-                        See Less <RiArrowUpSLine size={20} />
-                    </SmallButton>
-                )}
-            </CardColumnInfo>
+                </Styled.CardColumnLeft>
+                <Styled.CardColumnRight>
+                    <Heading variant={'h5'}>{guest.name}</Heading>
+                    {!open ? (
+                        <SmallButton primary onClick={() => handleOnClick()}>
+                            Allergies <RiArrowDownSLine />
+                        </SmallButton>
+                    ) : (
+                        <SmallButton onClick={() => handleOnClick()}>
+                            See Less <RiArrowUpSLine size={20} />
+                        </SmallButton>
+                    )}
+                </Styled.CardColumnRight>
+            </Styled.CardWrapper>
 
-            <CardSection>
-                {open && <GuestAllergyList key={guest.id} guest={guest} />}
-            </CardSection>
-        </CardContainer>
+            {open && <GuestAllergyList key={guest.id} guest={guest} />}
+        </Styled.CardContainer>
     );
 };
 

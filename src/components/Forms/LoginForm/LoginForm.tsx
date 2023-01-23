@@ -1,13 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
-import {
-    BoldLink,
-    BoxContainer,
-    FormContainer,
-    Input,
-    MutedLink,
-    SubmitButton,
-} from './LoginForm.styles';
+import { LargeButton } from '../../styles/Button.styles';
+import * as Styled from './Form.styles';
 
 type Props = {
     handleLogin: (email: string, password: string) => void;
@@ -19,39 +13,43 @@ const LoginForm = ({ handleLogin }: Props) => {
     const [password, setPassword] = useState('');
 
     return (
-        <BoxContainer>
-            <FormContainer
+        <Styled.BoxContainer>
+            <Styled.FormContainer
                 onSubmit={(e) => {
                     handleLogin(email, password), e.preventDefault();
                 }}
             >
-                <Input
+                <Styled.Input
                     type='email'
                     placeholder='Email'
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <Input
+                <Styled.Input
                     type='password'
                     placeholder='Password'
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <SubmitButton type='submit' onClick={switchToProfile}>
+                <LargeButton
+                    bgColor='#2b8872'
+                    type='submit'
+                    onClick={switchToProfile}
+                >
                     Log in
-                </SubmitButton>
-            </FormContainer>
-            <MutedLink>Forget your password?</MutedLink>
-            <MutedLink>
+                </LargeButton>
+            </Styled.FormContainer>
+            <Styled.MutedLink>Forget your password?</Styled.MutedLink>
+            <Styled.MutedLink>
                 {' '}
                 Don&apos;t have an account?{' '}
-                <BoldLink href='#' onClick={switchToSignUp}>
+                <Styled.BoldLink href='#' onClick={switchToSignUp}>
                     Sign Up
-                </BoldLink>
-            </MutedLink>
-        </BoxContainer>
+                </Styled.BoldLink>
+            </Styled.MutedLink>
+        </Styled.BoxContainer>
     );
 };
 

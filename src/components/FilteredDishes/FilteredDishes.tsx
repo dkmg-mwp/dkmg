@@ -1,5 +1,6 @@
-import { SearchResult } from '../../routes/Search/Search.styles';
+import * as Styled from './FilteredDishes.styles';
 import Card from '../Card/Card';
+import Heading from '../styles/Heading.styles';
 
 type Props = {
     guests: Guest[];
@@ -36,16 +37,16 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
     };
 
     return (
-        <SearchResult>
+        <Styled.FilteredResults>
             {filteredDishes.length !== 0 ? (
                 filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
             ) : (
-                <h3>
+                <Heading variant={'h3'}>
                     It seems {renderGuest()} cant eat anything! You sure you
                     want to invite them?
-                </h3>
+                </Heading>
             )}
-        </SearchResult>
+        </Styled.FilteredResults>
     );
 };
 

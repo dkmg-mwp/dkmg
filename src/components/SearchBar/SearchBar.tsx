@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
-import { SearchBarContainer, SearchBarInput } from './SearchBar.styles';
+import * as Styled from './SearchBar.styles';
 
 type Props = {
     handleSearch: (search: string) => void;
@@ -16,8 +16,8 @@ const SearchBar = ({ handleSearch }: Props) => {
     };
 
     return (
-        <SearchBarContainer>
-            <SearchBarInput
+        <Styled.SearchBarContainer>
+            <Styled.SearchBarInput
                 type='text'
                 value={input}
                 placeholder='Search recipe'
@@ -25,7 +25,7 @@ const SearchBar = ({ handleSearch }: Props) => {
                 onKeyDown={(e) => handleKey(e)}
             />
             <RiSearchLine onClick={() => handleSearch(input)} size={25} />
-        </SearchBarContainer>
+        </Styled.SearchBarContainer>
     );
 };
 

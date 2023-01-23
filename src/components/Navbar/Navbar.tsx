@@ -1,35 +1,28 @@
 import { useLogin } from '../../routes/Login/Login.context';
-import {
-    NavbarContainer,
-    Footer,
-    NavLinks,
-    HomeIcon,
-    SearchIcon,
-    UserIcon,
-} from './Navbar.styles';
+import * as Styled from './Navbar.styles';
 
 const Navbar = () => {
     const { token } = useLogin();
     return (
-        <Footer>
-            <NavbarContainer>
-                <NavLinks to='/'>
-                    <HomeIcon></HomeIcon>
-                </NavLinks>
-                <NavLinks to='/search'>
-                    <SearchIcon></SearchIcon>
-                </NavLinks>
+        <Styled.Footer>
+            <Styled.NavbarContainer>
+                <Styled.NavLinks to='/'>
+                    <Styled.HomeIcon />
+                </Styled.NavLinks>
+                <Styled.NavLinks to='/search'>
+                    <Styled.SearchIcon />
+                </Styled.NavLinks>
                 {token ? (
-                    <NavLinks to='/profile'>
-                        <UserIcon></UserIcon>
-                    </NavLinks>
+                    <Styled.NavLinks to='/profile'>
+                        <Styled.UserIcon />
+                    </Styled.NavLinks>
                 ) : (
-                    <NavLinks to='/login'>
-                        <UserIcon></UserIcon>
-                    </NavLinks>
+                    <Styled.NavLinks to='/login'>
+                        <Styled.UserIcon />
+                    </Styled.NavLinks>
                 )}
-            </NavbarContainer>
-        </Footer>
+            </Styled.NavbarContainer>
+        </Styled.Footer>
     );
 };
 

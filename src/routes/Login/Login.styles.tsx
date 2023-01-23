@@ -28,6 +28,7 @@ export const TopContainer = styled.div`
 `;
 
 export const BackDrop = styled(motion.div)`
+    z-index: 10;
     width: 100%;
     height: 350px;
     position: absolute;
@@ -47,39 +48,11 @@ export const BackDrop = styled(motion.div)`
         display: none;
     }
 `;
-export const BackDropTransition = styled(motion.div)`
-    width: 100%;
-    z-index: 1100;
-    height: 350px;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border-radius: 50%;
-    transform: rotate(20deg);
-    top: -190px;
-    left: -140px;
-    background: rgb(239, 138, 98);
-    background: linear-gradient(90deg, #ef8a62 0%, rgba(239, 138, 98) 100%);
-    @media screen and (min-width: 700px) {
-        display: none;
-    }
-`;
 
 export const HeaderContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-`;
-
-export const HeaderText = styled.h1`
-    z-index: 10;
-    margin: 0;
-`;
-
-export const SmallText = styled.h5`
-    z-index: 30;
-    margin: 0;
-    margin-top: 7px;
 `;
 
 export const InnerContainer = styled.div`

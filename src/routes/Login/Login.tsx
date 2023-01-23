@@ -2,20 +2,12 @@ import { useEffect, useState } from 'react';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
 import { AccountContext, useLogin } from './Login.context';
-import {
-    BackDrop,
-    BoxContainer,
-    Container,
-    HeaderContainer,
-    HeaderText,
-    InnerContainer,
-    SmallText,
-    TopContainer,
-} from './Login.styles';
+import * as Styled from './Login.styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
 import { addToken } from '../../api/LocalStorage/token-api';
+import Heading from '../../components/styles/Heading.styles';
 
 const backDropVariants = {
     expanded: {
@@ -115,42 +107,48 @@ const Login = () => {
 
     return (
         <AccountContext.Provider value={contextValue}>
-            <Container>
-                <BoxContainer>
-                    <TopContainer>
-                        <BackDrop
+            <Styled.Container>
+                <Styled.BoxContainer>
+                    <Styled.TopContainer>
+                        <Styled.BackDrop
                             initial={false}
                             animate={isExpanded ? 'expanded' : 'collapsed'}
                             variants={backDropVariants}
                             transition={expandingTransition}
                         />
                         {active === 'login' && (
-                            <HeaderContainer>
-                                <HeaderText>Welcome</HeaderText>
-                                <HeaderText>Back Foodie!</HeaderText>
-                                <SmallText>Please log in to continue</SmallText>
-                            </HeaderContainer>
+                            <Styled.HeaderContainer>
+                                <Heading variant='h1'>
+                                    Welcome <br /> Back Foodie!
+                                </Heading>
+                                <Heading variant='h5'>
+                                    Please log in to continue
+                                </Heading>
+                            </Styled.HeaderContainer>
                         )}
                         {active === 'signup' && (
-                            <HeaderContainer>
-                                <HeaderText>Create</HeaderText>
-                                <HeaderText>Account</HeaderText>
-                                <SmallText>
+                            <Styled.HeaderContainer>
+                                <Heading variant='h1'>
+                                    Create An
+                                    <br />
+                                    Account
+                                </Heading>
+                                <Heading variant='h5'>
                                     Sign up & help your guests!
-                                </SmallText>
-                            </HeaderContainer>
+                                </Heading>
+                            </Styled.HeaderContainer>
                         )}
-                    </TopContainer>
-                    <InnerContainer>
+                    </Styled.TopContainer>
+                    <Styled.InnerContainer>
                         {active === 'login' && (
                             <LoginForm handleLogin={handleLogin} />
                         )}
                         {active === 'signup' && (
                             <SignUpForm handleSubmit={handleSubmit} />
                         )}
-                    </InnerContainer>
-                </BoxContainer>
-            </Container>
+                    </Styled.InnerContainer>
+                </Styled.BoxContainer>
+            </Styled.Container>
         </AccountContext.Provider>
     );
 };
