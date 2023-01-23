@@ -6,7 +6,7 @@ import * as Styled from './Login.styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
-import { addToken } from '../../api/LocalStorage/token-api';
+import { addToken, addUser } from '../../api/LocalStorage/token-api';
 import Heading from '../../components/styles/Heading.styles';
 
 const backDropVariants = {
@@ -31,7 +31,7 @@ const expandingTransition = {
 };
 
 const Login = () => {
-    const { setUser, fetchGuests } = useProfile();
+    const { setUser, fetchGuests, setUsername } = useProfile();
     const { setToken, token } = useLogin();
     const [isExpanded, setIsExpanded] = useState(false);
     const [active, setActive] = useState('login');
@@ -43,9 +43,11 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setUser(res.data.user);
+        setUser(res.data.user.id);
         setToken(res.data.access_token);
         addToken(res.data.access_token);
+        setUsername(res.data.user.username);
+        addUser(res.data.user.id, res.data.user.username);
     };
 
     const handleSubmit = async (email: string, password: string) => {
@@ -54,9 +56,11 @@ const Login = () => {
             email: email,
             password: password,
         });
-        setUser(res.data.user);
+        setUser(res.data.user.id);
         setToken(res.data.access_token);
         addToken(res.data.access_token);
+        setUsername(res.data.user.username);
+        addUser(res.data.user.id, res.data.user.username);
     };
 
     const playExpandedAnimation = () => {

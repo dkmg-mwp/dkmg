@@ -1,27 +1,20 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { api } from '../../api/glitch/guest-api';
-import { getToken } from '../../api/LocalStorage/token-api';
 import { useLogin } from '../Login/Login.context';
 
 const ProfileContext = createContext<ProfileContext | null>(null);
 
 export const ProfileProvider = ({ children }: ProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
+    const [username, setUsername] = useState<Username>(null);
     const [guests, setGuests] = useState<Guest[]>([]);
-    const { token, setToken } = useLogin();
+    const { token } = useLogin();
 
     const fetchGuests = async () => {
         if (!token) return;
         const data = await api.guests.list(token);
         setGuests(data);
     };
-
-    const fetchToken = async () => {
-        const data = await getToken();
-        setToken(data);
-    };
-
-    //Need to create a fetchUsers from glitch
 
     const handleAddGuest = async (data: Guest) => {
         if (!token) return;
@@ -71,9 +64,10 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
             value={{
                 user,
                 setUser,
+                username,
+                setUsername,
                 guests,
                 fetchGuests,
-                fetchToken,
                 handleAddGuest,
                 handleRemoveGuest,
                 handleUpdateGuest,
