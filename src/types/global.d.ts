@@ -12,12 +12,14 @@ interface LoginContext {
 }
 
 type Token = string | null;
+type Username = string | null;
 interface ProfileContext {
     setUser: React.Dispatch<React.SetStateAction>;
     user: User | null;
+    username: Username;
+    setUsername: React.Dispatch<React.SetStateAction>;
     guests: Guest[];
     fetchGuests: () => Promise<unknown>;
-    fetchToken: () => Promise<unknown>;
     handleAddGuest: (data: Guest) => Promise<unknown>;
     handleRemoveGuest: (id: string) => Promise<unknown>;
     handleUpdateGuest: (
@@ -41,7 +43,7 @@ type Dish = {
 
 type Guest = {
     id: string;
-    userId: string;
+    userId: number;
     name: string;
     dairyFree: boolean;
     glutenFree: boolean;
@@ -53,11 +55,4 @@ interface GuestList {
     guest: Guest;
 }
 
-type User = {
-    id: string;
-    email: string;
-    dairyFree?: boolean;
-    glutenFree?: boolean;
-    vegan?: boolean;
-    vegetarian?: boolean;
-};
+type User = number;

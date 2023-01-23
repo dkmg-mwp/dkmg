@@ -59,7 +59,7 @@ const Search = () => {
                 <Styled.Wrapper>
                     {token &&
                         guests
-                            .filter((guest) => guest.userId === user.id)
+                            .filter((guest) => guest.userId === user)
                             .map((guest) => (
                                 <GuestFilter
                                     key={guest.id}

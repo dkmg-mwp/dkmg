@@ -13,7 +13,8 @@ import { Navigate } from 'react-router-dom';
 import Heading from '../../components/styles/Heading.styles';
 
 const User = () => {
-    const { user, guests, fetchGuests, handleAddGuest } = useProfile();
+    const { user, guests, fetchGuests, handleAddGuest, username } =
+        useProfile();
     const { token } = useLogin();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
@@ -31,7 +32,7 @@ const User = () => {
                 glutenFree,
                 vegan,
                 vegetarian,
-                userId: user.id,
+                userId: user,
             };
             await handleAddGuest(data);
             await fetchGuests();
@@ -134,16 +135,18 @@ const User = () => {
     useEffect(() => {
         document.title === 'Profile';
     }, []);
-
+console.log(user)
     return !token ? (
         <Navigate to='/login' />
     ) : (
         <Styled.Container>
             <Styled.Wrapper>
                 <Styled.TextContainer>
-                    <Heading variant={'h1'}>
-                        Who’s your annoying friend?
-                    </Heading>
+                    {username && (
+                        <Heading variant={'h1'}>
+                            Who’s your annoying friend {username} ?
+                        </Heading>
+                    )}
                 </Styled.TextContainer>
                 <Styled.GuestCreateContainer>
                     {guestCreationRender()}
@@ -152,7 +155,7 @@ const User = () => {
                     <Styled.AllGuest>
                         {[...guests]
                             .reverse()
-                            .filter((guest) => guest.userId === user.id)
+                            .filter((guest) => guest.userId === user)
                             .map((guest) => (
                                 <GuestCard key={guest.id} guest={guest} />
                             ))}
