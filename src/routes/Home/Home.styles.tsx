@@ -19,12 +19,35 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 `;
 
 export const InnerContainer = styled.div`
-    padding: 24px 10px;
+    padding: 20px 40px;
     min-height: 600px;
     background: #cce3c8;
     border-radius: 26px 26px 0px 0px;
+
+`;
+
+export const ListSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+`;
+
+export const List = styled.ul`
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+`;
+export const ListItem = styled.li`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 `;
