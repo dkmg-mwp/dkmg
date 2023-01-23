@@ -6,48 +6,40 @@ export const Container = styled.section`
     top: 0px;
     background: #cce3c8;
     padding-top: 50px;
+    overflow-x: clip;
 `;
 export const TextContainer = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 30px 40px 10px 40px;
-    flex-direction: column;
-`;
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
+    padding: 20px 0px 10px 20px;
+    flex-direction: column;
 `;
 
-export const InnerContainer = styled.div`
+
+
+export const SliderSection = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
     padding: 20px 40px;
-    min-height: 600px;
-    background: #cce3c8;
-    border-radius: 26px 26px 0px 0px;
 
+ 
 `;
 
-export const ListSection = styled.div`
+export const Slider = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-`;
+    overflow-x: auto;
+    scroll-margin: 0px;
+    white-space: nowrap;
+    gap: 2rem;
 
-export const List = styled.ul`
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
 `;
-export const ListItem = styled.li`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+export const SliderItem = styled.div`
+    display: inline-block;
+    padding: 2px;
+    cursor: pointer;
+    :hover {
+
+    }
 `;

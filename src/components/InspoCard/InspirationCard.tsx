@@ -7,16 +7,16 @@ const InspirationCard = () => {
     return (
         <Styled.CardContainer>
             <Styled.CardWrapper>
-                <Styled.CardColumnLeft>
+                <Styled.CardColumnTop>
                     <Styled.CardImage src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg' />
-                </Styled.CardColumnLeft>
-                <Styled.CardColumnRight>
-                    <Heading variant={'h5'}>Title</Heading>
+                </Styled.CardColumnTop>
+                <Styled.CardColumnBottom>
+                    <Heading variant={'h5'}>LAsagne with meatsaus</Heading>
                     <SmallButton primary>
                         See recipe
                         <RiArrowRightLine />
                     </SmallButton>
-                </Styled.CardColumnRight>
+                </Styled.CardColumnBottom>
             </Styled.CardWrapper>
         </Styled.CardContainer>
     );
