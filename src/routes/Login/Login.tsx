@@ -50,9 +50,14 @@ const Login = () => {
         addUser(res.data.user.id, res.data.user.username);
     };
 
-    const handleSubmit = async (email: string, password: string) => {
+    const handleSubmit = async (
+        username: string,
+        email: string,
+        password: string
+    ) => {
         if (!email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
+            username: username,
             email: email,
             password: password,
         });
