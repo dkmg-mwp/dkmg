@@ -5,7 +5,6 @@ import Heading from '../styles/Heading.styles';
 type Props = {
     guests: Guest[];
     dishes: Dish[];
-    hej: hej; 
 };
 
 const FilteredDishes = ({ guests, dishes }: Props) => {
