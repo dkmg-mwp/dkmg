@@ -6,7 +6,7 @@ export const Container = styled.section`
     top: 0px;
     background: #cce3c8;
     padding-top: 50px;
-    overflow-x: clip;
+   
 `;
 export const TextContainer = styled.div`
     display: flex;
@@ -20,20 +20,14 @@ export const SliderSection = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    padding: 20px 40px;
+    padding: 20px 0px 20px 20px;
 `;
 
 export const Slider = styled.div`
     display: flex;
     overflow-x: auto;
-    scroll-margin: 0px;
-    white-space: nowrap;
+
+    
     gap: 2rem;
 `;
-export const SliderItem = styled.div`
-    display: inline-block;
-    padding: 2px;
-    cursor: pointer;
-    :hover {
-    }
-`;
+
