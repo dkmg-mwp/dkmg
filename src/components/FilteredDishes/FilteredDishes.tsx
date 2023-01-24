@@ -1,7 +1,6 @@
 import * as Styled from './FilteredDishes.styles';
 import Card from '../Card/Card';
 import Heading from '../styles/Heading.styles';
-import { AllGuest } from '../../routes/Profile/Profile.styles';
 
 type Props = {
     guests: Guest[];
