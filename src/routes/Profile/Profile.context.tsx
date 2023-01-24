@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { api } from '../../api/glitch/guest-api';
 import { useLogin } from '../Login/Login.context';
 
