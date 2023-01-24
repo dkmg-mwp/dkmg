@@ -54,12 +54,6 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
         await fetchGuests();
     };
 
-    // useEffect(() => {
-    //     if (token) {
-    //         fetchGuests();
-    //     }
-    // }, []);
-
     return (
         <ProfileContext.Provider
             value={{
