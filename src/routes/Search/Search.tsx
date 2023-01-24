@@ -55,10 +55,6 @@ const Search = () => {
         }
     }, [selectedGuest]);
 
-    // if (loading) {
-    //     return <LoadingOverlay />;
-    // }
-
     return (
         <Styled.Container>
             <Styled.TextContainer>
