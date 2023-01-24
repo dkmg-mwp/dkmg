@@ -4,6 +4,7 @@ const SearchContex = createContext<SearchContext | null>(null);
 
 export const SearchProvider = ({ children }: ProviderProps) => {
     const [dishes, setDishes] = useState<Dish[]>([]);
+
     return (
         <SearchContex.Provider value={{ dishes, setDishes }}>
             {children}

@@ -19,6 +19,8 @@ interface ProfileContext {
     username: Username;
     setUsername: React.Dispatch<React.SetStateAction>;
     guests: Guest[];
+    loading: boolean;
+    setLoading: React.Dispatch<React.SetStateAction>;
     fetchGuests: () => Promise<unknown>;
     handleAddGuest: (data: Guest) => Promise<unknown>;
     handleRemoveGuest: (id: string) => Promise<unknown>;

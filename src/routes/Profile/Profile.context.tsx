@@ -9,11 +9,18 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [username, setUsername] = useState<Username>(null);
     const [guests, setGuests] = useState<Guest[]>([]);
     const { token } = useLogin();
+    const [loading, setLoading] = useState(true);
 
     const fetchGuests = async () => {
         if (!token) return;
-        const data = await api.guests.list(token);
-        setGuests(data);
+        setLoading(true);
+        try {
+            const data = await api.guests.list(token);
+            setGuests(data);
+        } catch (error) {
+            console.error(error);
+        }
+        setLoading(false);
     };
 
     const handleAddGuest = async (data: Guest) => {
@@ -55,13 +62,15 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
 
     useEffect(() => {
         if (token) {
-            api.guests.list(token).then(() => setGuests);
+            fetchGuests();
         }
     }, []);
 
     return (
         <ProfileContext.Provider
             value={{
+                loading,
+                setLoading,
                 user,
                 setUser,
                 username,

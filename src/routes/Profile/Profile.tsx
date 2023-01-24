@@ -11,9 +11,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useLogin } from '../Login/Login.context';
 import { Navigate } from 'react-router-dom';
 import Heading from '../../components/styles/Heading.styles';
+import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
 
 const User = () => {
-    const { user, guests, fetchGuests, handleAddGuest, username } =
+    const { user, guests, fetchGuests, handleAddGuest, username, loading } =
         useProfile();
     const { token } = useLogin();
     const [input, setInput] = useState('');
@@ -136,9 +137,15 @@ const User = () => {
         document.title === 'Profile';
     }, []);
 
-    return !token ? (
-        <Navigate to='/login' />
-    ) : (
+    if (!token) {
+        return <Navigate to='/login' />;
+    }
+
+    if (loading) {
+        return <LoadingOverlay />;
+    }
+
+    return (
         <Styled.Container>
             <Styled.Wrapper>
                 <Styled.TextContainer>

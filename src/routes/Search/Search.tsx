@@ -9,24 +9,31 @@ import { useProfile } from '../Profile/Profile.context';
 import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
 import { useLogin } from '../Login/Login.context';
 import Heading from '../../components/styles/Heading.styles';
+import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
-    const { guests, user } = useProfile();
+    const { guests, user, setLoading, loading } = useProfile();
     const { token } = useLogin();
     const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
     const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
     const handleSearch = async (search: string) => {
-        const res = await axios.get(
-            `${
-                import.meta.env.VITE_URL_KEY
-            }recipes/complexSearch?addRecipeInformation=true&apiKey=${
-                import.meta.env.VITE_API_KEY
-            }&query=${search}`
-        );
-        setDishes(res.data.results);
-        return res.data;
+        setLoading(true);
+        try {
+            const res = await axios.get(
+                `${
+                    import.meta.env.VITE_URL_KEY
+                }recipes/complexSearch?addRecipeInformation=true&apiKey=${
+                    import.meta.env.VITE_API_KEY
+                }&query=${search}`
+            );
+            setDishes(res.data.results);
+            setLoading(false);
+            return res.data;
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const handleFiltredGuest = () => {
@@ -74,16 +81,22 @@ const Search = () => {
                     <SearchBar handleSearch={handleSearch} />
                     <Heading variant='h3'>Results for:</Heading>
                 </Styled.SearchContainer>
-                <Styled.SearchResult>
-                    {!filteredGuest ? (
-                        dishes.map((dish) => <Card key={dish.id} dish={dish} />)
-                    ) : (
-                        <FilteredDishes
-                            guests={filteredGuest}
-                            dishes={dishes}
-                        />
-                    )}
-                </Styled.SearchResult>
+                {loading ? (
+                    <LoadingOverlay />
+                ) : (
+                    <Styled.SearchResult>
+                        {!filteredGuest ? (
+                            dishes.map((dish) => (
+                                <Card key={dish.id} dish={dish} />
+                            ))
+                        ) : (
+                            <FilteredDishes
+                                guests={filteredGuest}
+                                dishes={dishes}
+                            />
+                        )}
+                    </Styled.SearchResult>
+                )}
             </Styled.InnerContainer>
         </Styled.Container>
     );
