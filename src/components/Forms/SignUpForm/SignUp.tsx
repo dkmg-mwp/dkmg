@@ -5,7 +5,7 @@ import { LargeButton } from '../../styles/Button.styles';
 import * as Styled from '../LoginForm/Form.styles';
 
 type Props = {
-    handleSubmit: (username: Username , email: string, password: string) => void;
+    handleSubmit: (username: Username, email: string, password: string) => void;
 };
 
 const SignUpForm = ({ handleSubmit }: Props) => {

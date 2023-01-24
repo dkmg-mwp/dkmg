@@ -55,7 +55,7 @@ const Login = () => {
         email: string,
         password: string
     ) => {
-        if (!email && !password) return;
+        if (!username && !email && !password) return;
         const res = await axios.post(`https://dkmg.glitch.me/auth/register`, {
             username: username,
             email: email,
