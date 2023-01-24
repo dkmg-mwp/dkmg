@@ -158,7 +158,7 @@ const User = () => {
     if (!token) {
         return <Navigate to='/login' />;
     }
-    console.log(loading);
+   
     if (loading) {
         return <LoadingOverlay />;
     }
