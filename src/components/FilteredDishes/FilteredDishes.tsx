@@ -6,7 +6,7 @@ import { AllGuest } from '../../routes/Profile/Profile.styles';
 type Props = {
     guests: Guest[];
     dishes: Dish[];
-    selectedGuest: string[]
+    selectedGuest: string[];
 };
 
 const FilteredDishes = ({ guests, dishes, selectedGuest }: Props) => {
@@ -34,8 +34,8 @@ const FilteredDishes = ({ guests, dishes, selectedGuest }: Props) => {
     const renderGuest = () => {
         const allGuests = guests.map((guest) => guest.name);
         for (let i = 0; i < allGuests.length; i++) {
-            console.log(allGuests)
-            return allGuests[i]
+            console.log(allGuests);
+            return allGuests[i];
         }
     };
 
