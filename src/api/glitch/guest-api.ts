@@ -1,8 +1,6 @@
 import axios from 'axios';
-// import { useLogin } from '../../routes/Login/Login.context';
 const BASE_URL = 'https://dkmg.glitch.me';
 const validRoutes = ['guests'];
-// const { token } = useLogin();
 
 const createApiHandler = <T>(route: string) => {
     if (!validRoutes.includes(route)) {
@@ -20,7 +18,7 @@ const createApiHandler = <T>(route: string) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response.data);
+            // console.log(response.data);
             return response.data;
         },
 
@@ -33,7 +31,7 @@ const createApiHandler = <T>(route: string) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response.data);
+            // console.log(response.data);
             return response.data;
         },
         async patch(id: string, data: unknown, token: string) {
