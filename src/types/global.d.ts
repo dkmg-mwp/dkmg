@@ -53,6 +53,15 @@ type Guest = {
     vegetarian: boolean;
 };
 
+type Recipe = {
+    id: number,
+    title: string,
+    image: string,
+    servings: number,
+    readyInMinutes: number,
+    instructions: string,
+}
+
 interface GuestList {
     guest: Guest;
 }
