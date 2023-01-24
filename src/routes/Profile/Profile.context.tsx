@@ -10,7 +10,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [guests, setGuests] = useState<Guest[]>([]);
     const { token } = useLogin();
     const [loading, setLoading] = useState(true);
-    
+
     const fetchGuests = async () => {
         if (!token) return;
         setLoading(true);
@@ -62,7 +62,7 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
 
     useEffect(() => {
         if (token) {
-            fetchGuests()
+            fetchGuests();
         }
     }, []);
 

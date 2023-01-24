@@ -1,7 +1,7 @@
-import { useLoader } from './LoaderContext';
+import { useProfile } from '../../routes/Profile/Profile.context';
 
-const LoadingOverlay = () => {
-    const { loading } = useLoader();
+export const LoadingOverlay = () => {
+    const { loading } = useProfile();
 
     return !loading ? null : (
         <div
@@ -21,5 +21,3 @@ const LoadingOverlay = () => {
         </div>
     );
 };
-
-export default LoadingOverlay;
