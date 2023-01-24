@@ -14,8 +14,15 @@ import Heading from '../../components/styles/Heading.styles';
 import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
 
 const User = () => {
-    const { user, guests, fetchGuests, handleAddGuest, username, loading } =
-        useProfile();
+    const {
+        user,
+        guests,
+        fetchGuests,
+        handleAddGuest,
+        username,
+        loading,
+        setLoading,
+    } = useProfile();
     const { token } = useLogin();
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
@@ -135,12 +142,23 @@ const User = () => {
 
     useEffect(() => {
         document.title === 'Profile';
+        setLoading(true);
+        try {
+            fetchGuests();
+            setLoading(false);
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
+    useEffect(() => {
+        setLoading(true);
+        fetchGuests().then(() => setLoading(false));
     }, []);
 
     if (!token) {
         return <Navigate to='/login' />;
     }
-
+   
     if (loading) {
         return <LoadingOverlay />;
     }
