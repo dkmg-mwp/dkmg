@@ -1,17 +1,18 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
+import { useProfile } from '../../../routes/Profile/Profile.context';
 import { LargeButton } from '../../styles/Button.styles';
 import * as Styled from '../LoginForm/Form.styles';
 
 type Props = {
-    handleSubmit: (username: string, email: string, password: string) => void;
+    handleSubmit: (username: Username , email: string, password: string) => void;
 };
 
 const SignUpForm = ({ handleSubmit }: Props) => {
     const { switchToLogIn, switchToProfile } = useContext(AccountContext);
-    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const { username, setUsername } = useProfile();
 
     return (
         <Styled.BoxContainer>

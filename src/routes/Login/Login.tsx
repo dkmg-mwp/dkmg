@@ -51,7 +51,7 @@ const Login = () => {
     };
 
     const handleSubmit = async (
-        username: string,
+        username: Username,
         email: string,
         password: string
     ) => {
