@@ -8,6 +8,7 @@ import Search from './routes/Search/Search';
 import User from './routes/Profile/Profile';
 import { ContextWrapper } from './utils/ContextWrapper';
 import Login from './routes/Login/Login';
+import Recipe from './routes/Recipe/Recipe';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login />,
+            },
+            {
+                path: 'recipe/id',
+                element: <Recipe />,
             },
         ],
     },
