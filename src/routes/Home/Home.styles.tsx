@@ -16,15 +16,11 @@ export const TextContainer = styled.div`
     flex-direction: column;
 `;
 
-
-
 export const SliderSection = styled.div`
     position: relative;
     display: flex;
     align-items: center;
     padding: 20px 40px;
-
- 
 `;
 
 export const Slider = styled.div`
@@ -33,13 +29,11 @@ export const Slider = styled.div`
     scroll-margin: 0px;
     white-space: nowrap;
     gap: 2rem;
-
 `;
 export const SliderItem = styled.div`
     display: inline-block;
     padding: 2px;
     cursor: pointer;
     :hover {
-
     }
 `;

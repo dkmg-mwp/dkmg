@@ -18,13 +18,11 @@ export const CardWrapper = styled.div`
     align-items: stretch;
     justify-content: space-between;
 `;
-export const CardColumnTop = styled.div`
-  
-`;
+export const CardColumnTop = styled.div``;
 export const CardImage = styled.img`
     max-width: 100%;
     object-fit: cover;
-    border-radius:  15px 15px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
 `;
 
 export const CardColumnBottom = styled.div`
