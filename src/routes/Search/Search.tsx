@@ -93,6 +93,7 @@ const Search = () => {
                             <FilteredDishes
                                 guests={filteredGuest}
                                 dishes={dishes}
+                                selectedGuest={selectedGuest}
                             />
                         )}
                     </Styled.SearchResult>
