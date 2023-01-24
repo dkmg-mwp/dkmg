@@ -5,9 +5,10 @@ import Heading from '../styles/Heading.styles';
 type Props = {
     guests: Guest[];
     dishes: Dish[];
+    selectedGuest: string[];
 };
 
-const FilteredDishes = ({ guests, dishes }: Props) => {
+const FilteredDishes = ({ guests, dishes, selectedGuest }: Props) => {
     let dairyFree = false;
     let glutenFree = false;
     let vegan = false;
@@ -32,20 +33,25 @@ const FilteredDishes = ({ guests, dishes }: Props) => {
     const renderGuest = () => {
         const allGuests = guests.map((guest) => guest.name);
         for (let i = 0; i < allGuests.length; i++) {
-            return <>{allGuests[i]}</>;
+            console.log(allGuests);
+            return allGuests[i];
         }
     };
 
+    if (filteredDishes.length === 0 && selectedGuest.length !== 0) {
+        return (
+            <Heading variant={'h3'}>
+                It seems {renderGuest()} cant eat anything! You sure you want to
+                invite them?
+            </Heading>
+        );
+    }
+
     return (
         <Styled.FilteredResults>
-            {filteredDishes.length !== 0 ? (
-                filteredDishes.map((dish) => <Card key={dish.id} dish={dish} />)
-            ) : (
-                <Heading variant={'h3'}>
-                    It seems {renderGuest()} cant eat anything! You sure you
-                    want to invite them?
-                </Heading>
-            )}
+            {filteredDishes.map((dish) => (
+                <Card key={dish.id} dish={dish} />
+            ))}
         </Styled.FilteredResults>
     );
 };
