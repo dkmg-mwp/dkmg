@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import { SmallButton } from '../styles/Button.styles';
