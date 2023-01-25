@@ -1,6 +1,6 @@
 import Heading from '../../components/styles/Heading.styles';
 import * as Styled from './Recipe.styles';
-
+import { useRecipe } from './Recipe.context';
 const RecipeCard = () => {
     const { recipe } = useRecipe();
     return (
