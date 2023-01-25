@@ -5,7 +5,7 @@ import { useRecipe } from './Recipe.context';
 const RecipeCard = () => {
     const { recipe } = useRecipe();
 
-    return (
+    return recipe ? (
         <Styled.Container>
             <Styled.Wrapper key='4'>
                 <Styled.Image src={recipe.image} />
@@ -58,7 +58,7 @@ const RecipeCard = () => {
                 </Styled.Recipe>
             </Styled.Wrapper>
         </Styled.Container>
-    );
+    ): (<p>No recipe here</p>);
 };
 
 export default RecipeCard;
