@@ -20,10 +20,9 @@ export const CardWrapper = styled.div`
     justify-content: space-between;
     gap: 2rem;
 `;
-export const CardColumnLeft = styled.div`
-`;
+export const CardColumnLeft = styled.div``;
 export const CardImage = styled.img`
-   max-width: 150px;
+    max-width: 150px;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;

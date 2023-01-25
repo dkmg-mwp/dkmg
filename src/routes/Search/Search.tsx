@@ -28,7 +28,7 @@ const Search = () => {
                     import.meta.env.VITE_API_KEY
                 }&query=${search}`
             );
-            console.log(res.data.results)
+            console.log(res.data.results);
             setDishes(res.data.results);
             setLoading(false);
             return res.data;

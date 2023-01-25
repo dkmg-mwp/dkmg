@@ -55,7 +55,6 @@ const AllergyList = ({ dish }: Props) => {
         <Styled.ListSection>
             {allergies.map((allergy) => (
                 <Styled.List key={allergy.name}>
-
                     <Styled.ListItem>
                         <Tag type={allergy.prop}>
                             {allergy.icon}
