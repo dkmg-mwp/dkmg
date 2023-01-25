@@ -1,3 +1,4 @@
+import { RiCheckboxBlankCircleLine, RiCheckboxCircleFill } from 'react-icons/ri';
 import Heading from '../../components/styles/Heading.styles';
 import { useRecipe } from './Recipe.context';
 import * as Styled from './Recipe.styles';
@@ -11,37 +12,45 @@ const RecipeCard = () => {
                 <Styled.Image src={recipe.image} />
                 <Styled.Recipe>
                     <Heading variant='h2'>{recipe.title}</Heading>
-                    <Styled.InfoContainer>
-                        <Styled.Time>
-                            <Styled.TimeIcon />
-                            <Heading variant='h6'>
-                                {recipe.readyInMinutes}
-                            </Heading>
-                        </Styled.Time>
-                        <Styled.Servings>
-                            <Styled.ServingIcon />
-                            <Heading variant='h6'>{recipe.servings}</Heading>
-                        </Styled.Servings>
-                    </Styled.InfoContainer>
-                    <Heading variant='h4'>Ingredients :</Heading>
-                    <Styled.Ingredients>
-                        {recipe.extendedIngredients.map(
-                            (ingredient: ExtendedIngredients) => (
-                                <Styled.Ingredient key={ingredient.id}>
-                                    {/* Change color for amount */}
-                                    <Heading variant='h6'>
-                                        {ingredient.amount}
-                                    </Heading>
-                                    <Heading variant='h6'>
-                                        {ingredient.unit}
-                                    </Heading>
-                                    <Heading variant='h6'>
-                                        {ingredient.name}
-                                    </Heading>
-                                </Styled.Ingredient>
-                            )
-                        )}
-                    </Styled.Ingredients>
+                    <Styled.FirstSection>
+                        <Styled.InfoContainer>
+                            <Styled.Time>
+                                <Styled.TimeIcon />
+                                <Heading variant='h6'>
+                                    {recipe.readyInMinutes} min
+                                </Heading>
+                            </Styled.Time>
+                            <Styled.Servings>
+                                <Styled.ServingIcon />
+                                <Heading variant='h6'>
+                                    {recipe.servings} servings
+                                </Heading>
+                            </Styled.Servings>
+                        </Styled.InfoContainer>
+                        <Heading variant='h4'>Ingredients:</Heading>
+                        <Styled.Ingredients>
+                            {recipe.extendedIngredients.map(
+                                (ingredient: ExtendedIngredients) => (
+                                    <Styled.Ingredient key={ingredient.id}>
+                                        {/* Change color for amount */}
+                                        <Styled.Amount  color='#2b8872'><RiCheckboxBlankCircleLine/></Styled.Amount>
+                                        <Styled.Amount weight={800} >
+                                        
+                                            {ingredient.amount}
+                                        </Styled.Amount>
+                                        <Styled.Amount weight={800}color='#2b8872'>
+                                            {' '}
+                                            {ingredient.unit}
+                                        </Styled.Amount>
+                                 
+                                        <Styled.Amount color='#2b8872'>
+                                            {ingredient.name}
+                                        </Styled.Amount>
+                                    </Styled.Ingredient>
+                                )
+                            )}
+                        </Styled.Ingredients>
+                    </Styled.FirstSection>
                     <Heading variant='h4'>How To Do It Step-By-Step</Heading>
                     <Styled.Instructions>
                         {recipe.analyzedInstructions.map(

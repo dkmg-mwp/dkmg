@@ -10,9 +10,8 @@ export const Container = styled.section`
 `;
 export const TextContainer = styled.div`
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    padding: 20px 0px 10px 20px;
+    padding: 20px 40px 20px 20px;
     flex-direction: column;
 `;
 
