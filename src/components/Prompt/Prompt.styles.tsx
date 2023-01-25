@@ -1,26 +1,48 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    color: #2b8872;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    font-family: Mulish, Arial;
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 21px;
+export const Container = styled.div<{show?: string}>`
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: ${(props) => (props.show ? "visible" : 'hidden')};
+  
 `;
+.modal .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #7080af;
+    clip-path: polygon(0 10%, 10% 0, 50% 40%, 89% 0, 100% 10%, 60% 50%, 100% 90%, 90% 100%, 50% 60%, 10% 100%, 0 89%, 40% 50%);
+  }
+  
+  .modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .modal.open .content {
+    transform: scale(1);
+  }
 
 export const Wrapper = styled.div`
-    width: 95%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
+    position: relative;
+    padding: 10px;
+    width: 400px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: rgba(112, 128, 175, 0.2) 0px 16px 24px 0px;
+    transform: scale(0);
+    transition: transform 300ms cubic-bezier(0.57, 0.21, 0.69, 1.25);
 `;
 
 export const Logo = styled.img`
