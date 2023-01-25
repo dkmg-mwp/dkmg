@@ -52,22 +52,24 @@ const AllergyList = ({ dish }: Props) => {
     ];
 
     return (
-        <Styled.CardAccordionBox>
+        <Styled.ListSection>
             {allergies.map((allergy) => (
-                <Styled.CardAccordionInfo key={allergy.name}>
-                    <Tag type={allergy.prop}>
-                        {allergy.icon}
-                        {allergy.prop
-                            ? `Is ${allergy.name}`
-                            : `Not ${allergy.name}`}
-                    </Tag>
-                </Styled.CardAccordionInfo>
+                <Styled.List key={allergy.name}>
+                    <Styled.ListItem>
+                        <Tag type={allergy.prop}>
+                            {allergy.icon}
+                            {allergy.prop
+                                ? `Is ${allergy.name}`
+                                : `Not ${allergy.name}`}
+                        </Tag>
+                    </Styled.ListItem>
+                </Styled.List>
             ))}
             <SmallButton primary onClick={() => handleClick(dish.id)}>
                 See recipe
                 <RiArrowRightLine />
             </SmallButton>
-        </Styled.CardAccordionBox>
+        </Styled.ListSection>
     );
 };
 

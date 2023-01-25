@@ -18,21 +18,23 @@ const Card = ({ dish }: Props) => {
 
     return (
         <Styled.CardContainer>
-            <Styled.CardColumnImage>
-                <Styled.CardImage src={dish.image} />
-            </Styled.CardColumnImage>
-            <Styled.CardColumnInfo>
-                <Heading variant={'h5'}>{dish.title}</Heading>
-                {!open ? (
-                    <SmallButton primary onClick={() => handleOnClick()}>
-                        Allergies <RiArrowDownSLine size={20} />
-                    </SmallButton>
-                ) : (
-                    <SmallButton onClick={() => handleOnClick()}>
-                        See Less <RiArrowUpSLine size={20} />
-                    </SmallButton>
-                )}
-            </Styled.CardColumnInfo>
+            <Styled.CardWrapper>
+                <Styled.CardColumnLeft>
+                    <Styled.CardImage src={dish.image} />
+                </Styled.CardColumnLeft>
+                <Styled.CardColumnRight>
+                    <Heading variant={'h5'}>{dish.title}</Heading>
+                    {!open ? (
+                        <SmallButton primary onClick={() => handleOnClick()}>
+                            Allergies <RiArrowDownSLine size={20} />
+                        </SmallButton>
+                    ) : (
+                        <SmallButton onClick={() => handleOnClick()}>
+                            See Less <RiArrowUpSLine size={20} />
+                        </SmallButton>
+                    )}
+                </Styled.CardColumnRight>
+            </Styled.CardWrapper>
             {open && <AllergyList key={dish.id} dish={dish} />}
         </Styled.CardContainer>
     );
