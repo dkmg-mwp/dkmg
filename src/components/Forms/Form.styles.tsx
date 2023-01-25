@@ -17,18 +17,18 @@ export const FormContainer = styled.form`
 `;
 
 export const MutedLink = styled.p`
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    margin-bottom: 10px;
+    margin: 16px 8px;
 `;
 
 export const BoldLink = styled.a`
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(239, 138, 98);
-    font-weight: 500;
+    font-weight: 800;
     text-decoration: none;
-    margin: 0 8px;
+    margin: 16px 8px;
 `;
 
 export const Input = styled.input`

@@ -42,11 +42,13 @@ const LoginForm = ({ handleLogin }: Props) => {
                     Log in
                 </LargeButton>
             </Styled.FormContainer>
-            <Styled.MutedLink>Forget your password?</Styled.MutedLink>{' '}
-            Don&apos;t have an account?{' '}
-            <Styled.BoldLink href='#' onClick={switchToSignUp}>
-                Sign Up
-            </Styled.BoldLink>
+            <Styled.MutedLink>
+                {' '}
+                Don&apos;t have an account?{' '}
+                <Styled.BoldLink href='#' onClick={switchToSignUp}>
+                    Sign Up
+                </Styled.BoldLink>
+            </Styled.MutedLink>{' '}
             <Styled.MutedLink />
         </Styled.BoxContainer>
     );
