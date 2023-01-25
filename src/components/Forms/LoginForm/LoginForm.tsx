@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
 import { LargeButton } from '../../styles/Button.styles';
-import * as Styled from './Form.styles';
+import * as Styled from '../Form.styles';
 
 type Props = {
     handleLogin: (email: string, password: string) => void;
@@ -9,6 +9,7 @@ type Props = {
 
 const LoginForm = ({ handleLogin }: Props) => {
     const { switchToSignUp, switchToProfile } = useContext(AccountContext);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 

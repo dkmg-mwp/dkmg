@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
 import { RiPlantFill, RiPlantLine, RiUserAddFill } from 'react-icons/ri';
-import * as Styled from './Profile.styles';
-import { useProfile } from './Profile.context';
-import GuestCard from '../../components/GuestCard/GuestCard';
-import { Form } from 'react-router-dom';
 import { CiWheat } from 'react-icons/ci';
 import { TbMilk } from 'react-icons/tb';
-import { MediumButton } from '../../components/styles/Button.styles';
+import { Navigate, Form } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { useLogin } from '../Login/Login.context';
-import { Navigate } from 'react-router-dom';
-import Heading from '../../components/styles/Heading.styles';
+import GuestCard from '../../components/GuestCard/GuestCard';
+import { MediumButton } from '../../components/styles/Button.styles';
 import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
+import { useLogin } from '../Login/Login.context';
+import { useProfile } from './Profile.context';
+import Heading from '../../components/styles/Heading.styles';
+import * as Styled from './Profile.styles';
 
 const User = () => {
     const {
@@ -24,6 +23,7 @@ const User = () => {
         setLoading,
     } = useProfile();
     const { token } = useLogin();
+
     const [input, setInput] = useState('');
     const [dairyFree, setDairyFree] = useState(false);
     const [glutenFree, setGlutenFree] = useState(false);
@@ -34,7 +34,7 @@ const User = () => {
         if (input.length === 0) return;
         if (user !== null) {
             const data = {
-                id: uuidv4(), // ID borde(?) komma från DB men kanske behöver vara så just nu, kanske fuckar med db poulation av guests?
+                id: uuidv4(),
                 name,
                 dairyFree,
                 glutenFree,
@@ -150,6 +150,7 @@ const User = () => {
             console.error(error);
         }
     }, []);
+    
     useEffect(() => {
         setLoading(true);
         fetchGuests().then(() => setLoading(false));

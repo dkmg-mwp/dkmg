@@ -6,9 +6,9 @@ import ErrorPage from './ErrorPage';
 import Home from './routes/Home/Home';
 import Search from './routes/Search/Search';
 import User from './routes/Profile/Profile';
-import { ContextWrapper } from './utils/ContextWrapper';
 import Login from './routes/Login/Login';
 import Recipe from './routes/Recipe/Recipe';
+import { ContextWrapper } from './utils/ContextWrapper';
 
 const router = createBrowserRouter([
     {

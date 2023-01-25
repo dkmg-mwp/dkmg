@@ -10,3 +10,5 @@ const myTheme: DefaultTheme = {
 };
 
 export { myTheme };
+
+//Do we need this file? If not, remove it. 

@@ -1,12 +1,13 @@
-import { useLogin } from '../../routes/Login/Login.context';
-import * as Styled from './Header.styles';
 import { useNavigate } from 'react-router-dom';
-import { removeToken } from '../../api/LocalStorage/token-api';
 import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
+import { useLogin } from '../../routes/Login/Login.context';
+import { removeToken } from '../../api/LocalStorage/token-api';
 import { MediumButton } from '../styles/Button.styles';
+import * as Styled from './Header.styles';
 
 const Header = () => {
     const { token, setToken } = useLogin();
+    
     const navigate = useNavigate();
 
     const handleLogo = () => {

@@ -8,8 +8,8 @@ export const ProfileProvider = ({ children }: ProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [username, setUsername] = useState<Username>(null);
     const [guests, setGuests] = useState<Guest[]>([]);
-    const { token } = useLogin();
     const [loading, setLoading] = useState(false);
+    const { token } = useLogin();
 
     const fetchGuests = async () => {
         if (!token) return;

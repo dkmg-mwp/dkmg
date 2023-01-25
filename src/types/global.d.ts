@@ -10,8 +10,8 @@ interface RecipeContext {
 }
 
 interface SearchContext {
-    setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
+    setDishes: React.Dispatch<React.SetStateAction>;
 }
 interface LoginContext {
     token: Token;
@@ -19,13 +19,13 @@ interface LoginContext {
 }
 
 interface ProfileContext {
-    setUser: React.Dispatch<React.SetStateAction>;
     user: User | null;
+    setUser: React.Dispatch<React.SetStateAction>;
     username: Username;
     setUsername: React.Dispatch<React.SetStateAction>;
-    guests: Guest[];
     loading: boolean;
     setLoading: React.Dispatch<React.SetStateAction>;
+    guests: Guest[];
     fetchGuests: () => Promise<unknown>;
     handleAddGuest: (data: Guest) => Promise<unknown>;
     handleRemoveGuest: (id: string) => Promise<unknown>;
@@ -56,10 +56,6 @@ type Dish = {
     vegan: boolean;
     vegetarian: boolean;
     title: string;
-    servings: number;
-    readyInMinutes: number;
-    // extendedIngredients: ExtendedIngredients[];
-    analyzedInstructions: AnalyzedInstructions[];
 };
 
 type Guest = {

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const BASE_URL = 'https://dkmg.glitch.me';
 const validRoutes = ['guests'];
 
@@ -8,7 +9,9 @@ const createApiHandler = <T>(route: string) => {
             .map((route) => `"${route}"`)
             .join(' | ')}`;
     }
+
     const URL = `${BASE_URL}/${route}`;
+
     return {
         async list(token: string) {
             const response = await axios.request<T[]>({
@@ -18,7 +21,6 @@ const createApiHandler = <T>(route: string) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            // console.log(response.data);
             return response.data;
         },
 
@@ -31,7 +33,6 @@ const createApiHandler = <T>(route: string) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            // console.log(response.data);
             return response.data;
         },
         async patch(id: string, data: unknown, token: string) {
@@ -43,7 +44,6 @@ const createApiHandler = <T>(route: string) => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
             return response.data;
         },
         async delete(id: string, token: string) {
@@ -58,6 +58,7 @@ const createApiHandler = <T>(route: string) => {
         },
     };
 };
+
 export const api = {
     guests: createApiHandler<Guest>('guests'),
 };
