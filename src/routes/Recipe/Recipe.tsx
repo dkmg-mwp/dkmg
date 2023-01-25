@@ -5,6 +5,7 @@ import * as Styled from './Recipe.styles';
 
 const RecipeCard = () => {
     const { recipe } = useRecipe();
+
     return recipe ? (
         <Styled.Container>
             <Styled.Wrapper key='4'>
@@ -34,11 +35,9 @@ const RecipeCard = () => {
                                         {/* Change color for amount */}
                                         <Styled.Amount  color='#2b8872'><RiCheckboxBlankCircleLine/></Styled.Amount>
                                         <Styled.Amount weight={800} >
-                                        
                                             {ingredient.amount}
                                         </Styled.Amount>
                                         <Styled.Amount weight={800}color='#2b8872'>
-                                            {' '}
                                             {ingredient.unit}
                                         </Styled.Amount>
                                         <Styled.Amount color='#2b8872'>
