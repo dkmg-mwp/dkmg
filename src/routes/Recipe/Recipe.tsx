@@ -4,7 +4,7 @@ import { useRecipe } from './Recipe.context';
 
 const RecipeCard = () => {
     const { recipe } = useRecipe();
-    
+
     if (!recipe) return;
 
     return (
