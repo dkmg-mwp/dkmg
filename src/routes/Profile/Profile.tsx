@@ -150,7 +150,7 @@ const User = () => {
             console.error(error);
         }
     }, []);
-    
+
     useEffect(() => {
         setLoading(true);
         fetchGuests().then(() => setLoading(false));

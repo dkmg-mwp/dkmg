@@ -13,7 +13,7 @@ const SliderItem = ({ recipe }: Props) => {
     const { setRecipe } = useRecipe();
 
     const navigate = useNavigate();
-    
+
     const handleOnClick = (id: number) => {
         setRecipe(recipe);
         navigate(`recipe/${id}`);

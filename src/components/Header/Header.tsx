@@ -7,7 +7,7 @@ import * as Styled from './Header.styles';
 
 const Header = () => {
     const { token, setToken } = useLogin();
-    
+
     const navigate = useNavigate();
 
     const handleLogo = () => {
