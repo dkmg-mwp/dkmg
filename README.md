@@ -25,7 +25,7 @@ Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/
 
 ## Screenshots
 
-`![DKMG](https://user-images.githubusercontent.com/92317124/214716115-8ebe1d67-7ff2-4ab4-9625-b4266263508b.png)`
+<img src="https://user-images.githubusercontent.com/92317124/214716115-8ebe1d67-7ff2-4ab4-9625-b4266263508b.png" width="300" height="500"/>
 
 Picture by [DKMG](https://github.com/dkmg-mwp)
 
