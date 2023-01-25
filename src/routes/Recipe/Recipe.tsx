@@ -58,7 +58,9 @@ const RecipeCard = () => {
                 </Styled.Recipe>
             </Styled.Wrapper>
         </Styled.Container>
-    ): (<p>No recipe here</p>);
+    ) : (
+        <p>No recipe here</p>
+    );
 };
 
 export default RecipeCard;
