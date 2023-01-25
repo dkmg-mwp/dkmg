@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.div<{ zIndex?: number }>`
+    z-index: ${(props) => (props.zIndex ? -190 : 180)};
     display: flex;
     flex-direction: column;
     background: #e8f6e385;
@@ -32,3 +33,4 @@ export const CardColumnBottom = styled.div`
     width: 100%;
     padding: 0rem 0rem 1rem 1rem;
 `;
+

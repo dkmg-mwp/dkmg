@@ -21,7 +21,6 @@ const Home = () => {
 
     console.log(randomRecipe);
 
-
     useEffect(() => {
         document.title = 'Home';
     }, []);
