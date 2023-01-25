@@ -7,7 +7,7 @@ const H1 = styled.h1`
     margin: 0.5em 0em;
     line-height: 1.5em;
     letter-spacing: 0.01em;
-    z-index: 10;
+    z-index: 1;
 `;
 const H2 = styled.h2`
     font-size: 1.9rem;
@@ -29,7 +29,7 @@ const H5 = styled.h5`
     font-size: 1.4rem;
     margin: 0;
     font-weight: 500;
-    z-index: 30;
+    z-index: 1;
 `;
 
 const H6 = styled.h6`

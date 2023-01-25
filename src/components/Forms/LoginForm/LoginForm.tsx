@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
 import { LargeButton } from '../../styles/Button.styles';
+import Heading from '../../styles/Heading.styles';
 import * as Styled from './Form.styles';
 
 type Props = {
@@ -41,14 +42,12 @@ const LoginForm = ({ handleLogin }: Props) => {
                     Log in
                 </LargeButton>
             </Styled.FormContainer>
-            <Styled.MutedLink>Forget your password?</Styled.MutedLink>
-            <Styled.MutedLink>
-                {' '}
-                Don&apos;t have an account?{' '}
-                <Styled.BoldLink href='#' onClick={switchToSignUp}>
-                    Sign Up
-                </Styled.BoldLink>
-            </Styled.MutedLink>
+            <Styled.MutedLink>Forget your password?</Styled.MutedLink>{' '}
+            Don&apos;t have an account?{' '}
+            <Styled.BoldLink href='#' onClick={switchToSignUp}>
+                Sign Up
+            </Styled.BoldLink>
+            <Styled.MutedLink />
         </Styled.BoxContainer>
     );
 };

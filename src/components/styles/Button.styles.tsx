@@ -19,7 +19,7 @@ export const MediumButton = styled.button<{ bgColor?: string }>`
         props.bgColor === '#2b8872' ? '#2b8872' : '#ef8a62'};
     color: white;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 10px;
     align-items: center;
     align-content: center;
