@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { AccountContext } from '../../../routes/Login/Login.context';
 import { useProfile } from '../../../routes/Profile/Profile.context';
 import { LargeButton } from '../../styles/Button.styles';
-import * as Styled from '../LoginForm/Form.styles';
+import * as Styled from '../Form.styles';
 
 type Props = {
     handleSubmit: (username: Username, email: string, password: string) => void;
@@ -10,9 +10,10 @@ type Props = {
 
 const SignUpForm = ({ handleSubmit }: Props) => {
     const { switchToLogIn, switchToProfile } = useContext(AccountContext);
+    const { username, setUsername } = useProfile();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { username, setUsername } = useProfile();
 
     return (
         <Styled.BoxContainer>
@@ -47,7 +48,6 @@ const SignUpForm = ({ handleSubmit }: Props) => {
                     Sign up
                 </LargeButton>
             </Styled.FormContainer>
-
             <Styled.MutedLink>
                 Already have an account?
                 <Styled.BoldLink href='#' onClick={switchToLogIn}>

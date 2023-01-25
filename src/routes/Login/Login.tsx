@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
-import { AccountContext, useLogin } from './Login.context';
-import * as Styled from './Login.styles';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { useProfile } from '../Profile/Profile.context';
+import { AccountContext, useLogin } from './Login.context';
 import { addToken, addUser } from '../../api/LocalStorage/token-api';
 import Heading from '../../components/styles/Heading.styles';
+import * as Styled from './Login.styles';
 
 const backDropVariants = {
     expanded: {
@@ -33,8 +33,10 @@ const expandingTransition = {
 const Login = () => {
     const { setUser, fetchGuests, setUsername } = useProfile();
     const { setToken, token } = useLogin();
+
     const [isExpanded, setIsExpanded] = useState(false);
     const [active, setActive] = useState('login');
+
     const navigate = useNavigate();
 
     const handleLogin = async (email: string, password: string) => {
@@ -95,6 +97,7 @@ const Login = () => {
             navigate('/profile');
         }, 1500);
     };
+
     const contextValue = { switchToSignUp, switchToLogIn, switchToProfile };
 
     useEffect(() => {

@@ -1,20 +1,21 @@
-import SearchBar from '../../components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
-import Card from '../../components/Card/Card';
-import * as Styled from './Search.styles';
-import { useSearch } from './Search.context';
 import axios from 'axios';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import Card from '../../components/Card/Card';
 import GuestFilter from '../../components/GuestFilter/GuestFilter';
-import { useProfile } from '../Profile/Profile.context';
 import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
-import { useLogin } from '../Login/Login.context';
-import Heading from '../../components/styles/Heading.styles';
 import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
+import Heading from '../../components/styles/Heading.styles';
+import { useSearch } from './Search.context';
+import { useProfile } from '../Profile/Profile.context';
+import { useLogin } from '../Login/Login.context';
+import * as Styled from './Search.styles';
 
 const Search = () => {
     const { dishes, setDishes } = useSearch();
     const { guests, user, setLoading, loading } = useProfile();
     const { token } = useLogin();
+
     const [selectedGuest, setSelectedGuest] = useState<string[]>([]);
     const [filteredGuest, setFilteredGuest] = useState<Guest[]>();
 
@@ -28,7 +29,6 @@ const Search = () => {
                     import.meta.env.VITE_API_KEY
                 }&query=${search}`
             );
-            console.log(res.data.results);
             setDishes(res.data.results);
             setLoading(false);
             return res.data;

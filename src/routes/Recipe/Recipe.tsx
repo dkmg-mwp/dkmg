@@ -1,6 +1,6 @@
 import Heading from '../../components/styles/Heading.styles';
-import * as Styled from './Recipe.styles';
 import { useRecipe } from './Recipe.context';
+import * as Styled from './Recipe.styles';
 
 const RecipeCard = () => {
     const { recipe } = useRecipe();
@@ -59,7 +59,7 @@ const RecipeCard = () => {
             </Styled.Wrapper>
         </Styled.Container>
     ) : (
-        <p>No recipe here</p>
+        <Heading variant='p'>No recipe here</Heading>
     );
 };
 

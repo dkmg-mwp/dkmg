@@ -15,7 +15,7 @@ export const SearchProvider = ({ children }: ProviderProps) => {
 export const useSearch = () => {
     const contextValue = useContext(SearchContex);
     if (!contextValue) {
-        throw new Error('useSearch is outside InvoiceProvider');
+        throw new Error('useSearch is outside SearchProvider');
     }
     return contextValue;
 };

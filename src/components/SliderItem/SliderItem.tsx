@@ -1,16 +1,19 @@
 import { RiArrowRightLine } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
 import * as Styled from './Slideritem.styles';
-import { useNavigate } from 'react-router-dom';
+
 type Props = {
     recipe: Recipe;
 };
 
 const SliderItem = ({ recipe }: Props) => {
-    const navigate = useNavigate();
     const { setRecipe } = useRecipe();
+
+    const navigate = useNavigate();
+
     const handleOnClick = (id: number) => {
         setRecipe(recipe);
         navigate(`recipe/${id}`);
