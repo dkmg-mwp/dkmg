@@ -1,33 +1,15 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import SliderItem from '../../components/SliderItem/SliderItem';
 import Heading from '../../components/styles/Heading.styles';
+import { useRecipe } from '../Recipe/Recipe.context';
 import * as Styled from './Home.styles';
 
 const Home = () => {
-    const [randomRecipe, setRandomRecipe] = useState<Recipe[]>();
-
-    const handleGetRandomRecipes = async () => {
-        const res = await axios.get(
-            `${
-                import.meta.env.VITE_URL_KEY
-            }recipes/random?number=5&RecipeInformation=true&apiKey=${
-                import.meta.env.VITE_API_KEY
-            }`
-        );
-        setRandomRecipe(res.data.recipes);
-        return res.data;
-    };
-
-    console.log(randomRecipe);
+    const { randomRecipe } = useRecipe();
 
     useEffect(() => {
         document.title = 'Home';
     }, []);
-
-    useEffect(() => {
-        handleGetRandomRecipes();
-    }, [setRandomRecipe]);
 
     return (
         <Styled.Container>
