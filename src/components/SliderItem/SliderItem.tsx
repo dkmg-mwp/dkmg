@@ -1,18 +1,19 @@
-import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
+import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
 import * as Styled from './Slideritem.styles';
-
+import { useNavigate } from 'react-router-dom';
 type Props = {
     recipe: Recipe;
 };
 
 const SliderItem = ({ recipe }: Props) => {
-    const [open, setOpen] = useState(false);
-
-    const handleOnClick = () => {
-        setOpen((prev) => !prev);
+    const navigate = useNavigate();
+    const { setRecipe } = useRecipe();
+    const handleOnClick = (id: number) => {
+        setRecipe(recipe);
+        navigate(`recipe/${id}`);
     };
 
     return (
@@ -22,7 +23,7 @@ const SliderItem = ({ recipe }: Props) => {
                 <Heading variant='h6'>{recipe.title}</Heading>
             </Styled.CardColumnTop>
             <Styled.CardColumnBottom>
-                <SmallButton primary onClick={() => handleOnClick()}>
+                <SmallButton primary onClick={() => handleOnClick(recipe.id)}>
                     See recipe
                     <RiArrowRightLine />
                 </SmallButton>

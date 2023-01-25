@@ -1,9 +1,10 @@
-import axios from 'axios';
 import { CiWheat } from 'react-icons/ci';
-import { RiPlantFill, RiPlantLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiPlantFill, RiPlantLine } from 'react-icons/ri';
 import { TbMilk } from 'react-icons/tb';
 import * as Styled from './AllergyList.styles';
 import { useNavigate } from 'react-router';
+import { useRecipe } from '../../routes/Recipe/Recipe.context';
+import { SmallButton } from '../styles/Button.styles';
 
 type TagProps = {
     type: boolean;
@@ -20,17 +21,11 @@ type Props = {
 
 const AllergyList = ({ dish }: Props) => {
     const navigate = useNavigate();
+    const { setRecipe } = useRecipe();
 
     const handleClick = async (id: number) => {
-        const res = await axios.get(
-            `${import.meta.env.VITE_URL_KEY}recipes/${id}/information?apiKey=${
-                import.meta.env.VITE_API_KEY
-            }`
-        );
+        setRecipe(dish);
         navigate(`/recipe/${id}`);
-        console.log(res.data);
-        // Put some kind of state/contex here?
-        return res.data;
     };
 
     const allergies = [
@@ -68,7 +63,10 @@ const AllergyList = ({ dish }: Props) => {
                     </Tag>
                 </Styled.CardAccordionInfo>
             ))}
-            <button onClick={() => handleClick(dish.id)}>Recipe</button>
+            <SmallButton primary onClick={() => handleClick(dish.id)}>
+                See recipe
+                <RiArrowRightLine />
+            </SmallButton>
         </Styled.CardAccordionBox>
     );
 };

@@ -33,11 +33,3 @@ export const CardColumnBottom = styled.div`
     padding: 0rem 0rem 1rem 1rem;
 `;
 
-export const CardLabel = styled.label`
-    display: flex;
-    justify-content: start;
-    align-items: stretch;
-    width: 100%;
-    padding: 0rem 0rem 1rem 1rem;
-`;
-
