@@ -1,11 +1,10 @@
-import { RiCheckboxBlankCircleLine, RiCheckboxCircleFill } from 'react-icons/ri';
+import { RiCheckboxBlankCircleLine } from 'react-icons/ri';
 import Heading from '../../components/styles/Heading.styles';
 import { useRecipe } from './Recipe.context';
 import * as Styled from './Recipe.styles';
 
 const RecipeCard = () => {
     const { recipe } = useRecipe();
-
     return recipe ? (
         <Styled.Container>
             <Styled.Wrapper key='4'>
@@ -30,8 +29,8 @@ const RecipeCard = () => {
                         <Heading variant='h4'>Ingredients:</Heading>
                         <Styled.Ingredients>
                             {recipe.extendedIngredients.map(
-                                (ingredient: ExtendedIngredients) => (
-                                    <Styled.Ingredient key={ingredient.id}>
+                                (ingredient: ExtendedIngredients, index: number) => (
+                                    <Styled.Ingredient key={index}>
                                         {/* Change color for amount */}
                                         <Styled.Amount  color='#2b8872'><RiCheckboxBlankCircleLine/></Styled.Amount>
                                         <Styled.Amount weight={800} >
@@ -42,7 +41,6 @@ const RecipeCard = () => {
                                             {' '}
                                             {ingredient.unit}
                                         </Styled.Amount>
-                                 
                                         <Styled.Amount color='#2b8872'>
                                             {ingredient.name}
                                         </Styled.Amount>
