@@ -30,14 +30,22 @@ const RecipeCard = () => {
                         <Heading variant='h4'>Ingredients:</Heading>
                         <Styled.Ingredients>
                             {recipe.extendedIngredients.map(
-                                (ingredient: ExtendedIngredients, index: number) => (
+                                (
+                                    ingredient: ExtendedIngredients,
+                                    index: number
+                                ) => (
                                     <Styled.Ingredient key={index}>
                                         {/* Change color for amount */}
-                                        <Styled.Amount  color='#2b8872'><RiCheckboxBlankCircleLine/></Styled.Amount>
-                                        <Styled.Amount weight={800} >
+                                        <Styled.Amount color='#2b8872'>
+                                            <RiCheckboxBlankCircleLine />
+                                        </Styled.Amount>
+                                        <Styled.Amount weight={800}>
                                             {ingredient.amount}
                                         </Styled.Amount>
-                                        <Styled.Amount weight={800}color='#2b8872'>
+                                        <Styled.Amount
+                                            weight={800}
+                                            color='#2b8872'
+                                        >
                                             {ingredient.unit}
                                         </Styled.Amount>
                                         <Styled.Amount color='#2b8872'>

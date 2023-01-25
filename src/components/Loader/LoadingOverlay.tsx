@@ -1,5 +1,5 @@
 import { useProfile } from '../../routes/Profile/Profile.context';
-import * as Styled from './LoadingOverlay.style';
+import * as Styled from './LoadingOverlay.styles';
 
 export const LoadingOverlay = () => {
     const { loading } = useProfile();

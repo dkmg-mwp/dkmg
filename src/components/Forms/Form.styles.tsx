@@ -61,4 +61,3 @@ export const BoldLink = styled.a`
     font-weight: 500;
     text-decoration: none;
 `;
-

@@ -9,7 +9,7 @@ import {
 } from '../../routes/Profile/Profile.styles';
 
 import Heading from '../styles/Heading.styles';
-import * as Styled from './GuestAllergyList.style';
+import * as Styled from './GuestAllergyList.styles';
 
 const GuestAllergyList = ({ guest }: GuestList) => {
     const { handleUpdateGuest } = useProfile();

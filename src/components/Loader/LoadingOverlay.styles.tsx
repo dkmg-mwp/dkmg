@@ -9,7 +9,7 @@ export const LoadingContainer = styled.div`
     min-width: 100vw;
     z-index: 1000;
     inset: 0 0 0 0;
-    background-color: #CCE3C8;
+    background-color: #cce3c8;
 `;
 
 const rotate360 = keyframes`
@@ -26,5 +26,4 @@ export const Circle = styled.img`
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    `;
-
+`;
