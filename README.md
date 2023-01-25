@@ -18,7 +18,6 @@ Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/
   - [Approach](#approach)
   - [Status](#status)
   - [Credits](#credits)
-  - [License](#license)
 
 ## About The App
 
@@ -26,24 +25,21 @@ Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/
 
 ## Screenshots
 
-`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
+`![DKMG](https://github.com/dkmg-mwp/dkmg/tree/main/public/../../../../../../../public/homepage.png)`
 
-Picture by [John Doe](https://Johndoedoedoe.com)
+Picture by [DKMG](https://github.com/dkmg-mwp)
 
 ## Technologies
 
-`react`, `typescript`, `styled-components`, `axios`, `vite`...
+`react`, `typescript`, `styled-components`, `axios`, `vite`, `eslint`...
 
 ## Setup
 
--   download or clone the repository
--   run `npm install`
--   You will need your own `api key`
+-   Download or clone the repository
+-   Run `npm install`
 
 ## Approach
-
-I adopted the `BEM` naming style for my css class names and ...
-
+..
 ## Status
 
 [Dont Kill My Guest] is still in progress.
@@ -56,6 +52,5 @@ List of contriubutors:
 -   [Sandy Congreve](https://www.linkedin.com/in/sandycongreve/)
 -   [Marcus Piri](https://www.linkedin.com/in/marcus-piri-968a61221/)
 
-## License
 
-MIT license @ [author](author.com)
+
