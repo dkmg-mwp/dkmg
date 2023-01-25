@@ -20,7 +20,7 @@ const SliderItem = ({ recipe }: Props) => {
         <Styled.CardContainer>
             <Styled.CardImage src={recipe.image} />
             <Styled.CardColumnTop>
-                <Heading variant='h5'>{recipe.title}</Heading>
+                <Heading variant='h6'>{recipe.title}</Heading>
             </Styled.CardColumnTop>
             <Styled.CardColumnBottom>
                 <SmallButton primary onClick={() => handleOnClick(recipe.id)}>

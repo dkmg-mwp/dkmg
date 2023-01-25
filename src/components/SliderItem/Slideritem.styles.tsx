@@ -32,3 +32,4 @@ export const CardColumnBottom = styled.div`
     width: 100%;
     padding: 0rem 0rem 1rem 1rem;
 `;
+

@@ -10,32 +10,40 @@ const H1 = styled.h1`
     z-index: 10;
 `;
 const H2 = styled.h2`
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     font-weight: medium;
     margin: 0.5em 0em;
 `;
 const H3 = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-bottom: 0.3em;
     margin-left: 5px;
 `;
 const H4 = styled.h4`
-    font-size: 1.25rem;
-    font-weight: normal;
-    margin-top: 2px;
+    font-size: 1.5rem;
+    font-weight: 800;
     margin-bottom: 2px;
 `;
 const H5 = styled.h5`
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0;
     font-weight: 500;
     z-index: 30;
 `;
-const Paragraph = styled.p`
-    padding-top: 0.5em;
-    font-size: 0.875;
+
+const H6 = styled.h6`
+    font-size: 1.3rem;
     margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+`;
+const Paragraph = styled.p`
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.2px;
 `;
 
 const headings = {
@@ -44,6 +52,7 @@ const headings = {
     h3: H3,
     h4: H4,
     h5: H5,
+    h6: H6,
     p: Paragraph,
 };
 
