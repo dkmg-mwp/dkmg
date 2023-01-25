@@ -27,30 +27,35 @@ const RecipeCard = () => {
                     </Styled.InfoContainer>
                     <Heading variant='h4'>Ingredients :</Heading>
                     <Styled.Ingredients>
-                        <Styled.Ingredient>
-                            <Heading variant='h6'>
-                                1 cup of uncooked rice
-                            </Heading>
-                        </Styled.Ingredient>
-                        <Styled.Ingredient>
-                            <Heading variant='h6'>
-                                1/2 cup of frozen peas and carrots
-                            </Heading>
-                        </Styled.Ingredient>
-                        <Styled.Ingredient>
-                            <Heading variant='h6'>2 eggs</Heading>
-                        </Styled.Ingredient>
-                        <Styled.Ingredient>
-                            <Heading variant='h6'>
-                                2 cloves of garlic, minced
-                            </Heading>
-                        </Styled.Ingredient>
+                        {recipe.extendedIngredients.map(
+                            (ingredient: ExtendedIngredients) => (
+                                <Styled.Ingredient key={ingredient.id}>
+                                    {/* Change color for amount */}
+                                    <Heading variant='h6'>
+                                        {ingredient.amount}
+                                    </Heading>
+                                    <Heading variant='h6'>
+                                        {ingredient.unit}
+                                    </Heading>
+                                    <Heading variant='h6'>
+                                        {ingredient.name}
+                                    </Heading>
+                                </Styled.Ingredient>
+                            )
+                        )}
                     </Styled.Ingredients>
                     <Heading variant='h4'>How To Do It Step-By-Step</Heading>
                     <Styled.Instructions>
-                        <Styled.Step>
-                            <Heading variant='p'>{recipe.instructions}</Heading>
-                        </Styled.Step>
+                        {recipe.analyzedInstructions.map(
+                            (instructions: AnalyzedInstructions) =>
+                                instructions.steps.map((step: Steps) => (
+                                    <Styled.Step key={step.number}>
+                                        <Heading variant='p'>
+                                            {step.step}
+                                        </Heading>
+                                    </Styled.Step>
+                                ))
+                        )}
                     </Styled.Instructions>
                 </Styled.Recipe>
             </Styled.Wrapper>
