@@ -3,13 +3,12 @@ import styled, { keyframes } from 'styled-components';
 export const LoadingContainer = styled.div`
     position: fixed;
     min-width: 100vw;
-    min-height: 100vh;
     z-index: 1000;
     inset: 0 0 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #CCE3C8;
+    background-color: #cce3c8;
 `;
 
 const rotate360 = keyframes`
