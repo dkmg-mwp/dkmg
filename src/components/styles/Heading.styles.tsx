@@ -4,27 +4,27 @@ import styled from 'styled-components';
 const H1 = styled.h1`
     font-size: 2rem;
     font-weight: bold;
-    /* margin: 0.5em 0em; */
     line-height: 1.5em;
     letter-spacing: 0.01em;
     z-index: 1;
 `;
+
 const H2 = styled.h2`
     font-size: 1.9rem;
     font-weight: medium;
     line-height: 1.5em;
 `;
+
 const H3 = styled.h3`
     font-size: 1.6rem;
     font-weight: bold;
-    /* margin-bottom: 0.3em;
-    margin-left: 5px; */
 `;
+
 const H4 = styled.h4`
     font-size: 1.5rem;
     font-weight: 800;
-    /* margin-bottom: 2px; */
 `;
+
 const H5 = styled.h5`
     font-size: 1.2rem;
     margin: 0;
@@ -38,6 +38,7 @@ const H6 = styled.h6`
     font-weight: 700;
     letter-spacing: 0.2px;
 `;
+
 const Paragraph = styled.p`
     font-size: 1.2rem;
     font-weight: 400;
