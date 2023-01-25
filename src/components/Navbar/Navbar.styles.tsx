@@ -8,21 +8,21 @@ export const Footer = styled.footer`
 `;
 
 export const NavbarContainer = styled.nav`
-    box-sizing: border-box;
     display: flex;
-    align-items: center;
     justify-content: space-around;
-    padding: 20px 32px;
+    align-items: center;
+    box-sizing: border-box;
     position: fixed;
-    min-width: 280px;
     height: 74px;
+    min-width: 280px;
+    padding: 20px 32px;
     bottom: 22px;
-    background: #e3ebe2;
     border: 1px solid #dde5e9;
-    box-shadow: 0px 26px 17px rgba(128, 174, 152, 0.87);
-    backdrop-filter: blur(10.5px);
     border-radius: 20px;
     z-index: 5;
+    box-shadow: 0px 26px 17px rgba(128, 174, 152, 0.87);
+    backdrop-filter: blur(10.5px);
+    background: #e3ebe2;
 `;
 
 export const NavLinks = styled(NavLink)`
@@ -57,6 +57,7 @@ export const SearchIcon = styled(RiSearchLine)`
         height: 48px;
     }
 `;
+
 export const UserIcon = styled(RiUserFill)`
     width: 24px;
     height: 24px;
