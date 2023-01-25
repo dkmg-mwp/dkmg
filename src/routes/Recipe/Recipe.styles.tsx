@@ -2,7 +2,6 @@ import { RiGroupFill, RiTimeFill } from 'react-icons/ri';
 import styled from 'styled-components';
 export const Container = styled.div`
     min-width: 100vw;
-    /* height: 100vh; */
     padding-top: 50px;
     background: #fefefe;
 `;
@@ -32,12 +31,20 @@ export const Image = styled.img`
     height: 200px;
     border-radius: 10px;
 `;
-
+export const FirstSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    background-color: #eff2ee;
+    border-radius: 10px;
+    gap: 1rem;
+    padding: 2rem;
+`;
 export const InfoContainer = styled.div`
     display: flex;
     align-items: flex-start;
     gap: 4rem;
     align-items: center;
+    padding-bottom: 1rem;
 `;
 export const Time = styled.div`
     display: flex;
@@ -59,16 +66,23 @@ export const ServingIcon = styled(RiGroupFill)`
 `;
 
 export const Ingredients = styled.ul`
-    padding-left: 1rem;
     display: flex;
+    padding-top: 1rem;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-bottom: 0.3rem;
 `;
 
 export const Ingredient = styled.li`
     display: flex;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: 0.5rem;
+`;
+export const Amount = styled.h6<{ color?: string, weight?: number }>`
+    color: ${(props) => (props.color === '#2b8872' ? '#2b8872' : '#ef8a62')};
+    font-weight: ${(props) => (props.weight === 800 ? 800 : 600 )};
+    display: flex;
+    align-items: center;
 `;
 
 export const Instructions = styled.ol`
