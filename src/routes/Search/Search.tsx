@@ -24,10 +24,11 @@ const Search = () => {
             const res = await axios.get(
                 `${
                     import.meta.env.VITE_URL_KEY
-                }recipes/complexSearch?addRecipeInformation=true&apiKey=${
+                }recipes/complexSearch?addRecipeInformation=true&fillIngredients=true&apiKey=${
                     import.meta.env.VITE_API_KEY
                 }&query=${search}`
             );
+            console.log(res.data.results)
             setDishes(res.data.results);
             setLoading(false);
             return res.data;
