@@ -12,24 +12,23 @@ export const TextContainer = styled.div`
     padding: 30px 40px 10px 40px;
 `;
 
-export const InnerContainer = styled.div`
-    margin-top: 10.5px;
-    padding: 24px 10px 153px 10px;
-    background: #cce3c8;
-    border-radius: 26px 26px 0px 0px;
-`;
-
 export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
 `;
 
+export const InnerContainer = styled.div`
+    padding: 24px 10px 153px 10px;
+    margin-top: 10.5px;
+    border-radius: 26px 26px 0px 0px;
+    background: #cce3c8;
+`;
+
 export const SearchContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* margin-bottom: 20px; */
     padding: 20px 20px;
     gap: 40px;
 `;
@@ -37,5 +36,4 @@ export const SearchContainer = styled.div`
 export const SearchResult = styled.div`
     display: grid;
     gap: 1.5rem;
-    /* margin: 1rem 1rem; */
 `;
