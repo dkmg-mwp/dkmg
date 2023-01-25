@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { useNavigate } from 'react-router-dom';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
 import * as Styled from './Slideritem.styles';
@@ -9,11 +9,12 @@ type Props = {
 };
 
 const SliderItem = ({ recipe }: Props) => {
-    const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
 
     const handleOnClick = () => {
-        navigate(`/recipe/${recipe.id}`);
+        setOpen((prev) => !prev);
     };
+
     return (
         <Styled.CardContainer>
             <Styled.CardImage src={recipe.image} />
