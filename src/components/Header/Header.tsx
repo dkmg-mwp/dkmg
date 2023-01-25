@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
 import { useLogin } from '../../routes/Login/Login.context';
 import { removeToken } from '../../api/LocalStorage/token-api';
-import { MediumButton } from '../styles/Button.styles';
-import { useState } from 'react';
 import Prompt from '../Prompt/Prompt';
+import { MediumButton } from '../styles/Button.styles';
+import * as Styled from './Header.styles';
 
 const Header = () => {
     const { token, setToken } = useLogin();
