@@ -56,6 +56,10 @@ type Dish = {
     vegan: boolean;
     vegetarian: boolean;
     title: string;
+    servings: number;
+    readyInMinutes: number;
+    // extendedIngredients: ExtendedIngredients[];
+    analyzedInstructions: AnalyzedInstructions[];
 };
 
 type Guest = {
@@ -74,5 +78,22 @@ type Recipe = {
     image: string;
     servings: number;
     readyInMinutes: number;
-    instructions: string;
+    extendedIngredients: ExtendedIngredients[];
+    analyzedInstructions: AnalyzedInstructions[];
+};
+
+type ExtendedIngredients = {
+    id: number;
+    name: string;
+    amount: number;
+    unit: string;
+};
+
+type AnalyzedInstructions = {
+    steps: Steps[];
+};
+
+type Steps = {
+    number: number;
+    step: string;
 };

@@ -37,7 +37,6 @@ const H6 = styled.h6`
     margin: 0;
     font-weight: 700;
     letter-spacing: 0.2px;
-
 `;
 const Paragraph = styled.p`
     font-size: 1.2rem;

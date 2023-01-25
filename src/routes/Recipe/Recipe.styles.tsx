@@ -5,7 +5,6 @@ export const Container = styled.div`
     /* height: 100vh; */
     padding-top: 50px;
     background: #fefefe;
-   
 `;
 
 export const Wrapper = styled.section`
@@ -22,7 +21,7 @@ export const Wrapper = styled.section`
     padding-bottom: 150px;
 `;
 export const Recipe = styled.section`
- display: flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     gap: 2rem;
@@ -39,7 +38,6 @@ export const InfoContainer = styled.div`
     align-items: flex-start;
     gap: 4rem;
     align-items: center;
-  
 `;
 export const Time = styled.div`
     display: flex;
@@ -69,7 +67,8 @@ export const Ingredients = styled.ul`
 `;
 
 export const Ingredient = styled.li`
-
+    display: flex;
+    gap: 1rem;
 `;
 
 export const Instructions = styled.ol`
@@ -77,9 +76,6 @@ export const Instructions = styled.ol`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 `;
 
-export const Step = styled.li`
-
-`;
+export const Step = styled.li``;
