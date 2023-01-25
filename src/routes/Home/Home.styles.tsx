@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.section`
     min-width: 100vw;
     min-height: 100vh;
-    padding-top: 50px;
+    top: 0px;
+    background: #cce3c8;
+    padding-top: 100px;
     padding-bottom: 75px;
     top: 0px;
     background: #cce3c8;

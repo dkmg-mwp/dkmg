@@ -13,7 +13,6 @@ export const BoxContainer = styled.div`
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    width: 100%;
 `;
 
 export const Input = styled.input`
@@ -48,16 +47,16 @@ export const Input = styled.input`
 `;
 
 export const MutedLink = styled.p`
-    margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: none;
+    margin: 16px 8px;
 `;
 
 export const BoldLink = styled.a`
-    margin: 0 8px;
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(239, 138, 98);
-    font-weight: 500;
+    font-weight: 800;
     text-decoration: none;
+    margin: 16px 8px;
 `;
