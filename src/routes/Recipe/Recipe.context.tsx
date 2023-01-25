@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const RecipeContext = createContext<RecipeContext | null>(null);
 
 export const RecipeProvider = ({ children }: ProviderProps) => {
-    const [randomRecipe, setRandomRecipe] = useState<Recipe | null>(null);
+    const [randomRecipe, setRandomRecipe] = useState<Recipe[] | null>(null);
     const [recipe, setRecipe] = useState<Recipe | null>(null);
 
     return (
