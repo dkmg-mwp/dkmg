@@ -56,6 +56,10 @@ type Dish = {
     vegan: boolean;
     vegetarian: boolean;
     title: string;
+    servings: number;
+    readyInMinutes: number;
+    // extendedIngredients: ExtendedIngredients[];
+    analyzedInstructions: AnalyzedInstructions[];
 };
 
 type Guest = {
