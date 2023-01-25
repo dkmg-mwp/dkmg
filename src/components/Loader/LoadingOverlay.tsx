@@ -1,5 +1,4 @@
 import { useProfile } from '../../routes/Profile/Profile.context';
-import Heading from '../styles/Heading.styles';
 import * as Styled from './LoadingOverlay.style';
 
 export const LoadingOverlay = () => {
@@ -7,7 +6,10 @@ export const LoadingOverlay = () => {
 
     return !loading ? null : (
         <Styled.LoadingContainer>
-            <Heading variant='h3'>Loading...</Heading>
+            <Styled.Circle
+                src='https://i.ibb.co/vP3H2z9/orange-darkgreen.png'
+                alt='MainLogo'
+            />
         </Styled.LoadingContainer>
     );
 };

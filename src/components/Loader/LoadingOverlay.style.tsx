@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const LoadingContainer = styled.div`
     position: fixed;
@@ -9,5 +9,21 @@ export const LoadingContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #CCE3C8;
+`;
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+export const Circle = styled.img`
+    animation: ${rotate360} 1s linear infinite;
+    transform: translateZ(0);
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
 `;
