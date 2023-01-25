@@ -1,24 +1,32 @@
+import { MediumButton } from '../styles/Button.styles';
+import Heading from '../styles/Heading.styles';
 import * as Styled from './Prompt.styles';
 
-const Prompt = () => {
+type Props = {
+    handleClick: React.MouseEventHandler<HTMLButtonElement>;
+    handleLogOut: React.MouseEventHandler<HTMLButtonElement>;
+};
+const Prompt = ({ handleClick, handleLogOut }: Props) => {
     return (
-        <Styled.Container>
-            <Styled.PromptContainer>
-                <Styled.SmallerContainer>
-                    <Styled.Card>
-                        <Styled.Group />
-                        <Styled.H3>Log out from DMKG?</Styled.H3>
-                        <Styled.H5>
-                            Are you sure you want to log out from your account ?
-                        </Styled.H5>
-                        <Styled.ButtonContainer>
-                            <Styled.ButtonCancel>Cancel</Styled.ButtonCancel>
-                            <Styled.ButtonLogout />
-                        </Styled.ButtonContainer>
-                    </Styled.Card>
-                </Styled.SmallerContainer>
-            </Styled.PromptContainer>
-        </Styled.Container>
+        <Styled.PromptContainer>
+            <Styled.Card>
+                <Styled.Group>
+                    <Styled.Icon />
+                </Styled.Group>
+                <Heading variant='h4'>Log out from DMKG?</Heading>
+                <Heading variant='p'>
+                    Are you sure you want to log out from your account ?
+                </Heading>
+                <Styled.ButtonContainer>
+                    <MediumButton bgColor='#2b8872' onClick={handleClick}>
+                        Cancel
+                    </MediumButton>
+                    <MediumButton bgColor='#ef8a62' onClick={handleLogOut}>
+                        Log out
+                    </MediumButton>
+                </Styled.ButtonContainer>
+            </Styled.Card>
+        </Styled.PromptContainer>
     );
 };
 

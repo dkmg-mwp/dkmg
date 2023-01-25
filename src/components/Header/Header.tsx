@@ -3,12 +3,14 @@ import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
 import { useLogin } from '../../routes/Login/Login.context';
 import { removeToken } from '../../api/LocalStorage/token-api';
 import { MediumButton } from '../styles/Button.styles';
-import * as Styled from './Header.styles';
+import { useState } from 'react';
+import Prompt from '../Prompt/Prompt';
 
 const Header = () => {
     const { token, setToken } = useLogin();
 
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
 
     const handleLogo = () => {
         navigate('/');
@@ -19,8 +21,13 @@ const Header = () => {
     };
 
     const handleLogOut = () => {
+        setOpen(false);
         removeToken();
         setToken(null);
+    };
+
+    const handleClick = () => {
+        setOpen((prev) => !prev);
     };
 
     return (
@@ -40,12 +47,21 @@ const Header = () => {
                         Log In
                     </MediumButton>
                 ) : (
-                    <MediumButton bgColor='#ef8a62' onClick={handleLogOut}>
+                    <MediumButton bgColor='#ef8a62' onClick={handleClick}>
                         <RiLogoutCircleLine />
                         Log Out
                     </MediumButton>
                 )}
             </Styled.HeaderWrapper>
+
+            {open && (
+                <Styled.Prompt>
+                    <Prompt
+                        handleClick={handleClick}
+                        handleLogOut={handleLogOut}
+                    />
+                </Styled.Prompt>
+            )}
         </Styled.HeaderContainer>
     );
 };

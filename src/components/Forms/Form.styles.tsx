@@ -7,6 +7,7 @@ export const BoxContainer = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    z-index: auto;
 `;
 
 export const FormContainer = styled.form`
@@ -42,6 +43,7 @@ export const Input = styled.input`
     font-size: 12px;
     margin-bottom: 1em;
     border-radius: 5px;
+    z-index: -5;
 
     &::placeholder {
         color: #2b8872;
