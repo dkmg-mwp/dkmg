@@ -7,7 +7,6 @@ export const Container = styled.section`
     background: #cce3c8;
     padding-top: 50px;
     padding-bottom: 75px;
-   
 `;
 export const TextContainer = styled.div`
     display: flex;
@@ -15,7 +14,6 @@ export const TextContainer = styled.div`
     align-items: flex-start;
     padding: 20px 0px 10px 20px;
     flex-direction: column;
-    
 `;
 
 export const SliderSection = styled.div`
@@ -23,15 +21,10 @@ export const SliderSection = styled.div`
     display: flex;
     align-items: center;
     padding: 20px 0px 20px 20px;
- 
 `;
 
 export const Slider = styled.div`
     display: flex;
     overflow-x: auto;
     gap: 2rem;
-   
 `;
-
-
-
