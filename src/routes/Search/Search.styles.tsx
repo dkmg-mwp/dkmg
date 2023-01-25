@@ -15,7 +15,7 @@ export const TextContainer = styled.div`
 
 export const InnerContainer = styled.div`
     margin-top: 10.5px;
-    padding: 24px 10px 75px 10px;
+    padding: 24px 10px 153px 10px;
     background: #cce3c8;
     border-radius: 26px 26px 0px 0px;
 `;
