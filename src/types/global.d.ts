@@ -3,7 +3,7 @@ interface ProviderProps {
 }
 
 interface RecipeContext {
-    randomRecipe: Recipe | null;
+    randomRecipe: Recipe[] | null;
     setRandomRecipe: React.Dispatch<React.SetStateAction>;
     recipe: Recipe | null;
     setRecipe: React.Dispatch<React.SetStateAction>;
