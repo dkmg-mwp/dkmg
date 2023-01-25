@@ -10,17 +10,6 @@ export const PromptContainer = styled.div`
     padding: 1rem;
 `;
 
-export const Logo = styled.img`
-    width: 53px;
-    height: 53px;
-    object-fit: cover;
-`;
-
-export const ButtonInstance = styled.button`
-    display: flex;
-`;
-export const SmallerContainer = styled.div``;
-
 export const Card = styled.div`
     background-color: #eff2ee;
     border-radius: 15px;
@@ -28,17 +17,17 @@ export const Card = styled.div`
     display: flex;
     gap: 1rem;
     padding: 1rem;
-
 `;
 
-export const Icon = styled(RiLogoutCircleLine)`
-    font-size: 24px;
-`;
 export const Group = styled.div`
     width: 39px;
     height: 39px;
     object-fit: cover;
     margin-bottom: 19px;
+`;
+
+export const Icon = styled(RiLogoutCircleLine)`
+    font-size: 24px;
 `;
 
 export const ButtonContainer = styled.div`
