@@ -7,22 +7,22 @@ export const Container = styled.div`
 `;
 
 export const BoxContainer = styled.div`
-    width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding-top: 40px;
     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
     position: relative;
     overflow: hidden;
-    padding-top: 40px;
 `;
 
 export const TopContainer = styled.div`
-    width: 100%;
-    height: 250px;
     display: flex;
-    flex-direction: column;
     justify-content: flex-end;
+    flex-direction: column;
+    height: 250px;
+    width: 100%;
     padding: 5em 1.8em;
 `;
 
@@ -49,14 +49,14 @@ export const BackDrop = styled(motion.div)`
 `;
 
 export const HeaderContainer = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
 `;
 
 export const InnerContainer = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding: 0 1.8em;
 `;
