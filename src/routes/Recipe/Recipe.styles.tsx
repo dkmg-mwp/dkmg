@@ -66,7 +66,10 @@ export const Ingredients = styled.ul`
     margin-bottom: 0.3rem;
 `;
 
-export const Ingredient = styled.li``;
+export const Ingredient = styled.li`
+    display: flex;
+    gap: 1rem;
+`;
 
 export const Instructions = styled.ol`
     padding-left: 1rem;
