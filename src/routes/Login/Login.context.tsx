@@ -1,9 +1,12 @@
 import { createContext, useContext, useState } from 'react';
+
 type AccountType = {
     switchToSignUp?: () => void;
     switchToLogIn?: () => void;
     switchToProfile?: () => void;
 };
+
+export const AccountContext = createContext<Partial<AccountType>>({});
 
 const LoginContext = createContext<LoginContext | null>(null);
 
@@ -23,4 +26,3 @@ export const useLogin = () => {
     }
     return contextValue;
 };
-export const AccountContext = createContext<Partial<AccountType>>({});

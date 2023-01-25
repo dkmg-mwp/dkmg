@@ -3,6 +3,7 @@ import * as Styled from './Navbar.styles';
 
 const Navbar = () => {
     const { token } = useLogin();
+
     return (
         <Styled.Footer>
             <Styled.NavbarContainer>
