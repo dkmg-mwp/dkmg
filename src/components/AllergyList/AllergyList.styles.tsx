@@ -13,6 +13,7 @@ export const List = styled.ul`
     align-items: flex-start;
     justify-content: space-between;
 `;
+
 export const ListItem = styled.li`
     display: flex;
     justify-content: center;
@@ -28,6 +29,7 @@ export const IncludeTag = styled.p`
     align-items: center;
     color: green;
 `;
+
 export const ExcludeTag = styled.p`
     display: flex;
     padding: 10px;
@@ -35,4 +37,3 @@ export const ExcludeTag = styled.p`
     align-items: center;
     color: red;
 `;
-export const Label = styled.label``;
