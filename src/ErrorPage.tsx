@@ -1,6 +1,6 @@
 import { useRouteError } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import GlobalStyle from './components/styles/Globalstyles.styled';
+import GlobalStyle from './components/styles/Globalstyles.styles';
 import Heading from './components/styles/Heading.styles';
 import styled from 'styled-components';
 
