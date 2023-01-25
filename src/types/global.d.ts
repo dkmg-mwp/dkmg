@@ -2,6 +2,13 @@ interface ProviderProps {
     children?: React.ReactNode;
 }
 
+interface RecipeContext {
+    randomRecipe: Recipe[] | null;
+    setRandomRecipe: React.Dispatch<React.SetStateAction>;
+    recipe: Recipe | null;
+    setRecipe: React.Dispatch<React.SetStateAction>;
+}
+
 interface SearchContext {
     setDishes: React.Dispatch<React.SetStateAction>;
     dishes: Dish[];
@@ -11,8 +18,6 @@ interface LoginContext {
     setToken: React.Dispatch<React.SetStateAction>;
 }
 
-type Token = string | null;
-type Username = string | null;
 interface ProfileContext {
     setUser: React.Dispatch<React.SetStateAction>;
     user: User | null;
@@ -30,6 +35,16 @@ interface ProfileContext {
         choice: string
     ) => Promise<unknown>;
 }
+
+interface GuestList {
+    guest: Guest;
+}
+
+type Token = string | null;
+
+type Username = string | null;
+
+type User = number;
 
 type Dish = {
     id: number;
@@ -54,16 +69,10 @@ type Guest = {
 };
 
 type Recipe = {
-    id: number,
-    title: string,
-    image: string,
-    servings: number,
-    readyInMinutes: number,
-    instructions: string,
-}
-
-interface GuestList {
-    guest: Guest;
-}
-
-type User = number;
+    id: number;
+    title: string;
+    image: string;
+    servings: number;
+    readyInMinutes: number;
+    instructions: string;
+};
