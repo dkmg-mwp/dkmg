@@ -1,9 +1,9 @@
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { useState } from 'react';
-import * as Styled from './Card.styles';
+import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
+import * as Styled from './Card.styles';
 
 type Props = {
     dish: Dish;
