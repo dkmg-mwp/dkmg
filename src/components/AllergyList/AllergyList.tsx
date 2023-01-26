@@ -22,7 +22,7 @@ type Props = {
 
 const AllergyList = ({ dish }: Props) => {
     const navigate = useNavigate();
-    
+
     const { setRecipe } = useRecipe();
 
     const handleClick = async (id: number) => {
