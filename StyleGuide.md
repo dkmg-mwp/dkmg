@@ -1,13 +1,36 @@
-## Style guide
 
-### Colors
+<img
+                    src='https://i.ibb.co/q9MVrBb/MainLogo.png'
+                    alt='MainLogo'
+                    height='50px'
+                    onClick={handleLogo}
+                />
+# Style-guide 🖌
+
+<a href="https://www.figma.com/file/UStNoMKKn4OqMxWmJi69qg/FoodMap?node-id=0%3A1&t=nbJlVPpOwSSvtaVL-1"><img src="https://i.ibb.co/Bfpf5gT/Screenshot-2023-01-26-at-18-09-37.png" alt="Screenshot-2023-01-26-at-18-09-37" border="0"></a>
+
+## Table of Content:
+
+---
+
+-   [Style-guide](#style-guide)
+-   [🧩 Figma-UI-Styleguide](#demo-link)
+-   [🎨 Colors ](#colors)
+-   [🖋 Typography](#typography)
+-   [📐 Layout](#layout)
+-   [💟 Iconography](#iconography)
+-   [🟨 Buttons](#buttons)
+
+---
+
+## Colors 🎨
 
 #### Primary Colors
 
 -   Background
-    `#CCE3C8`
+    -   Light Soft Green - `#CCE3C8`
 -   Sections
-    `#FFFEFE `
+    -   White - `#FFFEFE `
 
 #### Secondary Colors
 
@@ -16,46 +39,100 @@
 -   Active icons
     ` #EF8A62`
 
-### Font Family - Mulish
+---
 
--   @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,1000;1,200;1,300;1,400&display=swap')
+## Typography
 
-### Typography
+# Heading 1 Bold 2rem
 
--   Heading 1 Bold 2rem
--   Heading 2 Medium 1.9rem
--   Heading 3 Bold 1.6rem
--   Heading 4 800 1.5rem
--   Heading 5 500 1.2rem
--   Heading 6 700 1rem
--   Bodytext 400 1.2rem
+## Heading 2 Medium 1.9rem
 
-### Grid
+### Heading 3 Bold 1.6rem
+
+#### Heading 4 800 1.5rem
+
+##### Heading 5 500 1.2rem
+
+###### Heading 6 700 1rem
+
+###### Bodytext 400 1.2rem
+
+---
+
+## Layout
+
+#### Grid
 
 -   Margin: 0px 30px 30px 0px
 
-### Padding
+#### Padding
 
 -   1rem
 
-### Icons
+---
 
-#### React Icons/Remix Icon
+## Iconography
 
-##### Default
+#### Library
 
--   Size: 24px24px
--   Color: #2B8876
+React Icons/Remix Icon
 
-##### Active
+#### Sizes
 
--   Size: 60px60x
--   Color: #EF8A62
+-   Default: 24px24px
+-   Active: 60px60x
 
-### Selected icons
+#### State Colors
 
--   RiUserFill
--   RiHome5Fill
--   RiSearchLine
--   RiUserAddFill
+-   Primary: #2B8876
+-   Secondary: #FEFFEE
+-   Active: #EF8A62
 
+#### Navbar Icons
+
+-   `<RiUserFill/>`
+-   `<RiHome5Fill/>`
+-   `<RiSearchLine/>`
+
+#### Food restrictions Iconc
+
+-   `<RiPlaneFill/>`
+-   `<RiPlantLine/>`
+-   `<TbMilk/>`
+-   `<CiWheat/>`
+
+#### Button Icons
+
+-   `< RiUserAddFill/>`
+-   `< RiArrowRightLine/>`
+-   `<RiArrowDownSLine/>`
+-   `<RiArrowUpSLine/>`
+-   `<RiLogoutCircleLine/>`
+-   `<RiLoginCircleLine/>`
+
+#### Recipe Icons
+
+-   `< RiGroupFill/>`
+-   `< RiTimeFill/>`
+-   `< RiCheckboxBlankCircleLine/>`
+
+---
+
+## Button Style
+
+-   All buttons used in the projects exists in styles folder in components map.
+
+### Small
+
+-   For cards and use cases "Show" more or less.
+-   Primary prop for orange color or white color as default.
+
+### Medium
+
+-   Used as CTA such as Log in and Log out, in cancel prompt.
+-   Uses the prop "bgColor = <color>" to set orange or green color (see hed codes used)
+
+### Large
+
+-   Used as Page CTA for Login page and Sign Up Page
+-   Displays orange or green depending if it's Login or sign up.
