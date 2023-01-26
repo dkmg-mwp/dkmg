@@ -43,7 +43,7 @@ const Home = () => {
                     </MediumButton>
                 </Styled.ToastSection>
             </Styled.Wrapper>
-        ));
+        ), {id: "homePage"});
 
     useEffect(() => {
         document.title = 'Home';
