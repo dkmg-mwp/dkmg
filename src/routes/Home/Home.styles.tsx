@@ -18,6 +18,22 @@ export const TextContainer = styled.div`
     padding: 20px 40px 20px 20px;
 `;
 
+export const Wrapper = styled.div``;
+
+export const ToastSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    padding-bottom: 85px;
+    gap: 20px;
+`;
+
+export const ToastContainer = styled.div`
+    display: flex;
+    align-items: flex-start;
+`;
+
 export const SliderSection = styled.div`
     display: flex;
     align-items: center;
