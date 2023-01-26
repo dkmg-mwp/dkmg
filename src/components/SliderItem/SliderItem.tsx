@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
-import * as Styled from './Slideritem.styles';
+import * as Styled from './SliderItem.styles';
 
 type Props = {
     recipe: Recipe;

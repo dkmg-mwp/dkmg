@@ -1,15 +1,16 @@
+import { useNavigate } from 'react-router';
 import { CiWheat } from 'react-icons/ci';
 import { RiArrowRightLine, RiPlantFill, RiPlantLine } from 'react-icons/ri';
 import { TbMilk } from 'react-icons/tb';
-import * as Styled from './AllergyList.styles';
-import { useNavigate } from 'react-router';
 import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
+import * as Styled from './AllergyList.styles';
 
 type TagProps = {
     type: boolean;
     children: React.ReactNode;
 };
+
 const Tag = ({ type, children }: TagProps) => {
     const TagStyle = type ? Styled.IncludeTag : Styled.ExcludeTag;
     return <TagStyle>{children}</TagStyle>;
@@ -21,6 +22,7 @@ type Props = {
 
 const AllergyList = ({ dish }: Props) => {
     const navigate = useNavigate();
+
     const { setRecipe } = useRecipe();
 
     const handleClick = async (id: number) => {

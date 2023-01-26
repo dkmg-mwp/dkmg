@@ -1,6 +1,7 @@
 interface ProviderProps {
     children?: React.ReactNode;
 }
+
 interface RecipeContext {
     randomRecipe: Recipe[] | null;
     setRandomRecipe: React.Dispatch<React.SetStateAction>;
@@ -12,6 +13,7 @@ interface SearchContext {
     dishes: Dish[];
     setDishes: React.Dispatch<React.SetStateAction>;
 }
+
 interface LoginContext {
     token: Token;
     setToken: React.Dispatch<React.SetStateAction>;

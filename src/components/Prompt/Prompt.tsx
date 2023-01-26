@@ -6,6 +6,7 @@ type Props = {
     handleClick: React.MouseEventHandler<HTMLButtonElement>;
     handleLogOut: React.MouseEventHandler<HTMLButtonElement>;
 };
+
 const Prompt = ({ handleClick, handleLogOut }: Props) => {
     return (
         <Styled.PromptContainer>

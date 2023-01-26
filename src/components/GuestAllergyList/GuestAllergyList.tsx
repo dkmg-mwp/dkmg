@@ -7,7 +7,6 @@ import {
     ListItem,
     ListSection,
 } from '../../routes/Profile/Profile.styles';
-
 import Heading from '../styles/Heading.styles';
 import * as Styled from './GuestAllergyList.styles';
 

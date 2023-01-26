@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import GuestAllergyList from '../GuestAllergyList/GuestAllergyList';
-import * as Styled from './GuestCard.styles';
-import { SmallButton } from '../styles/Button.styles';
 import { useProfile } from '../../routes/Profile/Profile.context';
+import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
+import * as Styled from './GuestCard.styles';
 
 const GuestCard = ({ guest }: GuestList) => {
     const { handleRemoveGuest } = useProfile();
+
     const [open, setOpen] = useState(false);
 
     const handleOnClick = () => {
