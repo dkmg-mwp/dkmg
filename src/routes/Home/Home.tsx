@@ -18,32 +18,35 @@ const Home = () => {
     };
 
     const notify = () =>
-        toast((t) => (
-            <Styled.Wrapper>
-                <Styled.ToastSection>
-                    <Styled.ToastContainer>
-                        <Heading variant='p'>
-                            Hey! Sign up & and you can add your friends
-                            allergies, and filter food after their needs? Cool
-                            huh
-                        </Heading>
+        toast(
+            (t) => (
+                <Styled.Wrapper>
+                    <Styled.ToastSection>
                         <Styled.ToastContainer>
-                            <Styled.CloseIcon
-                                color='#FFFEFE'
-                                size={30}
-                                onClick={() => toast.dismiss(t.id)}
-                            />
+                            <Heading variant='p'>
+                                Hey! Sign up & and you can add your friends
+                                allergies, and filter food after their needs?
+                                Cool huh
+                            </Heading>
+                            <Styled.ToastContainer>
+                                <Styled.CloseIcon
+                                    color='#FFFEFE'
+                                    size={30}
+                                    onClick={() => toast.dismiss(t.id)}
+                                />
+                            </Styled.ToastContainer>
                         </Styled.ToastContainer>
-                    </Styled.ToastContainer>
-                    <MediumButton
-                        bgColor='#2b8872'
-                        onClick={() => handleOnClick()}
-                    >
-                        Get Started <Styled.ArrowRight />
-                    </MediumButton>
-                </Styled.ToastSection>
-            </Styled.Wrapper>
-        ), {id: "homePage"});
+                        <MediumButton
+                            bgColor='#2b8872'
+                            onClick={() => handleOnClick()}
+                        >
+                            Get Started <Styled.ArrowRight />
+                        </MediumButton>
+                    </Styled.ToastSection>
+                </Styled.Wrapper>
+            ),
+            { id: 'homePage' }
+        );
 
     useEffect(() => {
         document.title = 'Home';

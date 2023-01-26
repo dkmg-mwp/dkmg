@@ -26,7 +26,6 @@ export const ListItem = styled.li`
     gap: 1rem;
 `;
 
-
 export const AllergyTag = styled.div<{ include?: boolean }>`
     color: ${(props) => (props.include ? 'green' : 'red')};
     display: flex;
