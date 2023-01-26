@@ -19,14 +19,18 @@ const GuestFilter = ({ guest, setSelectedGuest }: Props) => {
 
     return (
         <Styled.CardContainer>
-            <Heading variant={'h5'}>{guest.name}</Heading>
-            <Styled.Checkbox
-                type='checkbox'
-                name='guest'
-                onChange={() => {
-                    handleCheck(guest.id);
-                }}
-            />
+            <Styled.ContentContainer>
+                <Styled.OptionText>{guest.name}</Styled.OptionText>
+            </Styled.ContentContainer>
+            <Styled.ContentContainer>
+                <Styled.Checkbox
+                    type='checkbox'
+                    name='guest'
+                    onChange={() => {
+                        handleCheck(guest.id);
+                    }}
+                />
+            </Styled.ContentContainer>
         </Styled.CardContainer>
     );
 };
