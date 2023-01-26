@@ -18,11 +18,8 @@ export const OptionText = styled.span`
     color: rgb(239, 138, 98);
     font-weight: 800;
     text-decoration: none;
-    
 `;
-export const ContentContainer = styled.div`
-
-`;
+export const ContentContainer = styled.div``;
 export const Checkbox = styled.input`
     border-radius: 0.15em;
     border: 0.15em solid currentColor;
