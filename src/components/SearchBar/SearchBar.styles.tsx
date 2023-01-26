@@ -1,3 +1,4 @@
+import { RiSearchLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
@@ -26,3 +27,4 @@ export const SearchBarInput = styled.input`
         color: #2b8872;
     }
 `;
+export const SearchIcon = styled(RiSearchLine)``;

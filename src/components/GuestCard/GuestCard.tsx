@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import GuestAllergyList from '../GuestAllergyList/GuestAllergyList';
 import { useProfile } from '../../routes/Profile/Profile.context';
 import { SmallButton } from '../styles/Button.styles';
@@ -31,16 +30,15 @@ const GuestCard = ({ guest }: GuestList) => {
                     <Heading variant={'h5'}>{guest.name}</Heading>
                     {!open ? (
                         <SmallButton primary onClick={() => handleOnClick()}>
-                            Allergies <RiArrowDownSLine />
+                            Allergies <Styled.ArrowDown />
                         </SmallButton>
                     ) : (
                         <SmallButton onClick={() => handleOnClick()}>
-                            See Less <RiArrowUpSLine size={20} />
+                            See Less <Styled.ArrowUp size={20} />
                         </SmallButton>
                     )}
                 </Styled.CardColumnRight>
             </Styled.CardWrapper>
-
             {open && <GuestAllergyList key={guest.id} guest={guest} />}
         </Styled.CardContainer>
     );

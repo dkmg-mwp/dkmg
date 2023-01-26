@@ -1,4 +1,3 @@
-import { RiCheckboxBlankCircleLine } from 'react-icons/ri';
 import Heading from '../../components/styles/Heading.styles';
 import { useRecipe } from './Recipe.context';
 import * as Styled from './Recipe.styles';
@@ -37,7 +36,7 @@ const RecipeCard = () => {
                                     <Styled.Ingredient key={index}>
                                         {/* Change color for amount */}
                                         <Styled.Amount color='#2b8872'>
-                                            <RiCheckboxBlankCircleLine />
+                                            <Styled.BulletIcon />
                                         </Styled.Amount>
                                         <Styled.Amount weight={800}>
                                             {ingredient.amount}
@@ -73,7 +72,9 @@ const RecipeCard = () => {
             </Styled.Wrapper>
         </Styled.Container>
     ) : (
-        <Heading variant='p'>No recipe here</Heading>
+        <Styled.Container>
+            <Heading variant='p'>No recipe here</Heading>
+        </Styled.Container>
     );
 };
 

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
 import { useLogin } from '../../routes/Login/Login.context';
 import { removeToken } from '../../api/LocalStorage/token-api';
 import Prompt from '../Prompt/Prompt';
@@ -44,12 +43,12 @@ const Header = () => {
             <Styled.HeaderWrapper>
                 {!token ? (
                     <MediumButton bgColor='#2b8872' onClick={handleLogIn}>
-                        <RiLoginCircleLine />
+                        <Styled.LogInIcon />
                         Log In
                     </MediumButton>
                 ) : (
                     <MediumButton bgColor='#ef8a62' onClick={handleClick}>
-                        <RiLogoutCircleLine />
+                        <Styled.LogOutIcon />
                         Log Out
                     </MediumButton>
                 )}

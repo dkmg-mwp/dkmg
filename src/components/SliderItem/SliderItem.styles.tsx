@@ -1,3 +1,4 @@
+import { RiArrowRightLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -33,3 +34,4 @@ export const CardColumnBottom = styled.div`
     width: 100%;
     padding: 0rem 0rem 1rem 1rem;
 `;
+export const ArrowRight = styled(RiArrowRightLine)``;

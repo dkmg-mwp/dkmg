@@ -1,3 +1,6 @@
+import { CiWheat } from 'react-icons/ci';
+import { RiArrowRightLine, RiPlaneFill, RiPlantLine } from 'react-icons/ri';
+import { TbMilk } from 'react-icons/tb';
 import styled from 'styled-components';
 
 export const ListSection = styled.div`
@@ -37,3 +40,9 @@ export const ExcludeTag = styled.p`
     padding: 10px;
     color: red;
 `;
+
+export const Dairy = styled(TbMilk)``;
+export const Gluten = styled(CiWheat)``;
+export const Vegan = styled(RiPlaneFill)``;
+export const Vegetarian = styled(RiPlantLine)``;
+export const ArrowRight = styled(RiArrowRightLine)``;

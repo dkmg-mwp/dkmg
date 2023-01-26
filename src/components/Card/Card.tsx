@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import AllergyList from '../AllergyList/AllergyList';
 import { SmallButton } from '../styles/Button.styles';
 import Heading from '../styles/Heading.styles';
@@ -26,11 +25,11 @@ const Card = ({ dish }: Props) => {
                     <Heading variant={'h5'}>{dish.title}</Heading>
                     {!open ? (
                         <SmallButton primary onClick={() => handleOnClick()}>
-                            Allergies <RiArrowDownSLine size={20} />
+                            Allergies <Styled.ArrowDown size={20} />
                         </SmallButton>
                     ) : (
                         <SmallButton onClick={() => handleOnClick()}>
-                            See Less <RiArrowUpSLine size={20} />
+                            See Less <Styled.ArrowUp size={20} />
                         </SmallButton>
                     )}
                 </Styled.CardColumnRight>

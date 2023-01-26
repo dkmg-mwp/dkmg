@@ -8,7 +8,7 @@ export const LoadingOverlay = () => {
         <Styled.LoadingContainer>
             <Styled.Circle
                 src='https://i.ibb.co/vP3H2z9/orange-darkgreen.png'
-                alt='MainLogo'
+                alt='loader'
             />
         </Styled.LoadingContainer>
     );

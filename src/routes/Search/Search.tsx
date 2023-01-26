@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import Card from '../../components/Card/Card';
-import GuestFilter from '../../components/GuestFilter/GuestFilter';
-import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
+import { useEffect, useState } from 'react';
 import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
-import Heading from '../../components/styles/Heading.styles';
 import { useSearch } from './Search.context';
 import { useProfile } from '../Profile/Profile.context';
 import { useLogin } from '../Login/Login.context';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import GuestFilter from '../../components/GuestFilter/GuestFilter';
+import FilteredDishes from '../../components/FilteredDishes/FilteredDishes';
+import Card from '../../components/Card/Card';
+import Heading from '../../components/styles/Heading.styles';
 import * as Styled from './Search.styles';
 
 const Search = () => {
@@ -80,7 +80,6 @@ const Search = () => {
             <Styled.InnerContainer>
                 <Styled.SearchContainer>
                     <SearchBar handleSearch={handleSearch} />
-                    <Heading variant='h3'>Results for:</Heading>
                 </Styled.SearchContainer>
                 {loading ? (
                     <LoadingOverlay />

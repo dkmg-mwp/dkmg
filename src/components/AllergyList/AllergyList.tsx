@@ -1,7 +1,4 @@
 import { useNavigate } from 'react-router';
-import { CiWheat } from 'react-icons/ci';
-import { RiArrowRightLine, RiPlantFill, RiPlantLine } from 'react-icons/ri';
-import { TbMilk } from 'react-icons/tb';
 import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
 import * as Styled from './AllergyList.styles';
@@ -22,7 +19,7 @@ type Props = {
 
 const AllergyList = ({ dish }: Props) => {
     const navigate = useNavigate();
-
+    
     const { setRecipe } = useRecipe();
 
     const handleClick = async (id: number) => {
@@ -33,22 +30,22 @@ const AllergyList = ({ dish }: Props) => {
     const allergies = [
         {
             name: 'dairy free',
-            icon: <TbMilk size={30} />,
+            icon: <Styled.Dairy size={30} />,
             prop: dish.dairyFree,
         },
         {
             name: 'gluten free',
-            icon: <CiWheat size={30} />,
+            icon: <Styled.Gluten size={30} />,
             prop: dish.glutenFree,
         },
         {
             name: 'vegan safe',
-            icon: <RiPlantFill size={30} />,
+            icon: <Styled.Vegan size={30} />,
             prop: dish.vegan,
         },
         {
             name: 'vegetarian safe',
-            icon: <RiPlantLine size={30} />,
+            icon: <Styled.Vegetarian size={30} />,
             prop: dish.vegetarian,
         },
     ];
@@ -69,7 +66,7 @@ const AllergyList = ({ dish }: Props) => {
             ))}
             <SmallButton primary onClick={() => handleClick(dish.id)}>
                 See recipe
-                <RiArrowRightLine />
+                <Styled.ArrowRight />
             </SmallButton>
         </Styled.ListSection>
     );

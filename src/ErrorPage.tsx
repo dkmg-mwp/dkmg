@@ -34,7 +34,7 @@ export default function ErrorPage() {
     console.log(error.message);
 
     return (
-        <Container id='error-page'>
+        <Container>
             <TextContainer>
                 <Heading variant={'h1'}>
                     Oops! Seems like something went a bit potato..{' '}

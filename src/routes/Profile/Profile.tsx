@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-import { RiPlantFill, RiPlantLine, RiUserAddFill } from 'react-icons/ri';
-import { CiWheat } from 'react-icons/ci';
-import { TbMilk } from 'react-icons/tb';
 import { Navigate, Form } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import GuestCard from '../../components/GuestCard/GuestCard';
-import { MediumButton } from '../../components/styles/Button.styles';
-import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
 import { useLogin } from '../Login/Login.context';
 import { useProfile } from './Profile.context';
+import { MediumButton } from '../../components/styles/Button.styles';
+import { LoadingOverlay } from '../../components/Loader/LoadingOverlay';
+import GuestCard from '../../components/GuestCard/GuestCard';
 import Heading from '../../components/styles/Heading.styles';
 import * as Styled from './Profile.styles';
 
@@ -72,7 +69,7 @@ const User = () => {
                                 }`}
                             >
                                 {'Add guest'}
-                                <RiUserAddFill />
+                                <Styled.AddUserIcon />
                             </MediumButton>
                         </Styled.InputSection>
                         {input.length !== 0 && (
@@ -80,7 +77,7 @@ const User = () => {
                                 <Heading variant={'h4'}>Restrictions:</Heading>
                                 <Styled.List>
                                     <Styled.ListItem>
-                                        <TbMilk size={30} />
+                                        <Styled.Dairy size={30} />
                                         <Styled.Checkbox
                                             type='checkbox'
                                             name='Dairy Free'
@@ -94,7 +91,7 @@ const User = () => {
                                         </Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
-                                        <CiWheat size={30} />
+                                        <Styled.Gluten size={30} />
                                         <Styled.Checkbox
                                             type='checkbox'
                                             name='Gluten Free'
@@ -108,7 +105,7 @@ const User = () => {
                                         </Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
-                                        <RiPlantFill size={30} />
+                                        <Styled.Vegan size={30} />
                                         <Styled.Checkbox
                                             type='checkbox'
                                             name='Vegan'
@@ -120,7 +117,7 @@ const User = () => {
                                         <Styled.Label>Vegan?</Styled.Label>
                                     </Styled.ListItem>
                                     <Styled.ListItem>
-                                        <RiPlantLine size={30} />
+                                        <Styled.Vegetarian size={30} />
                                         <Styled.Checkbox
                                             type='checkbox'
                                             name='Vegetarian'

@@ -1,12 +1,4 @@
-import { CiWheat } from 'react-icons/ci';
-import { RiPlantFill, RiPlantLine } from 'react-icons/ri';
-import { TbMilk } from 'react-icons/tb';
 import { useProfile } from '../../routes/Profile/Profile.context';
-import {
-    List,
-    ListItem,
-    ListSection,
-} from '../../routes/Profile/Profile.styles';
 import Heading from '../styles/Heading.styles';
 import * as Styled from './GuestAllergyList.styles';
 
@@ -22,13 +14,13 @@ const GuestAllergyList = ({ guest }: GuestList) => {
     };
 
     return (
-        <ListSection>
+        <Styled.ListSection>
             <Heading variant={'h4'}>Restrictions:</Heading>
-            <List>
+            <Styled.List>
                 {guest.dairyFree ? (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag include>
-                            <TbMilk size={30} />
+                            <Styled.Dairy size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Dairy Free'
@@ -43,11 +35,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>No Dairy, here!</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 ) : (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag>
-                            <TbMilk size={30} />
+                            <Styled.Dairy size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Dairy Free'
@@ -62,12 +54,12 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Dairy sensitive?</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 )}
                 {guest.glutenFree ? (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag include>
-                            <CiWheat size={30} />
+                            <Styled.Gluten size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Gluten Free'
@@ -82,11 +74,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Is glutenintolerant!</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 ) : (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag>
-                            <CiWheat size={30} />
+                            <Styled.Gluten size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Gluten Free'
@@ -101,12 +93,12 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Glutenintolerant?</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 )}
                 {guest.vegan ? (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag include>
-                            <RiPlantFill size={30} />
+                            <Styled.Vegan size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Vegan'
@@ -121,11 +113,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Is Vegan!</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 ) : (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag>
-                            <RiPlantFill size={30} />
+                            <Styled.Vegan size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Vegan'
@@ -140,12 +132,12 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Vegan?</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 )}
                 {guest.vegetarian ? (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag include>
-                            <RiPlantLine size={30} />
+                            <Styled.Vegetarian size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Vegetarian'
@@ -160,11 +152,11 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Is Vegetarian!</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 ) : (
-                    <ListItem>
+                    <Styled.ListItem>
                         <Styled.AllergyTag>
-                            <RiPlantLine size={30} />
+                            <Styled.Vegetarian size={30} />
                             <Styled.Checkbox
                                 type='checkbox'
                                 name='Vegetarian'
@@ -179,10 +171,10 @@ const GuestAllergyList = ({ guest }: GuestList) => {
                             />
                             <Styled.Label>Vegetarian?</Styled.Label>
                         </Styled.AllergyTag>
-                    </ListItem>
+                    </Styled.ListItem>
                 )}
-            </List>
-        </ListSection>
+            </Styled.List>
+        </Styled.ListSection>
     );
 };
 

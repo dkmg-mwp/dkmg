@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerContainer = styled.div`
-    padding: 24px 10px 153px 10px;
+    padding: 24px 10px 253px 10px;
     margin-top: 10.5px;
     border-radius: 26px 26px 0px 0px;
     background: #cce3c8;
