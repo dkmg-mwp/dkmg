@@ -23,3 +23,7 @@ git switch -C <branch name>
 ``
 git branch -D <branch name>
 ``
+* All styled components should be imported as the following
+``
+import * as Styled from ''
+``
