@@ -9,8 +9,8 @@ export const SmallButton = styled.button<{ primary?: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    letter-spacing: 0.025em;
     height: 37px;
+    letter-spacing: 0.025em;
 `;
 
 export const MediumButton = styled.button<{ bgColor?: string }>`

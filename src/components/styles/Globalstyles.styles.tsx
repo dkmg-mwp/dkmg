@@ -14,14 +14,12 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
-    
 }
 
 ul {
     margin: 0;
     padding: 0;
 }
-
 
 body {
     min-width: 320px;
@@ -32,7 +30,6 @@ body {
     background-color: #ffffff;
     color: #2b8872;
 }
-
-
 `;
+
 export default GlobalStyle;

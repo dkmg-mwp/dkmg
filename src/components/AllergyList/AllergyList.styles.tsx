@@ -7,12 +7,13 @@ export const ListSection = styled.div`
 `;
 
 export const List = styled.ul`
-    list-style-type: none;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    list-style-type: none;
 `;
+
 export const ListItem = styled.li`
     display: flex;
     justify-content: center;
@@ -22,17 +23,17 @@ export const ListItem = styled.li`
 
 export const IncludeTag = styled.p`
     display: flex;
-    padding: 10px;
     justify-content: stretch;
-    gap: 1em;
     align-items: center;
+    gap: 1em;
+    padding: 10px;
     color: green;
 `;
+
 export const ExcludeTag = styled.p`
     display: flex;
-    padding: 10px;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
     color: red;
 `;
-export const Label = styled.label``;

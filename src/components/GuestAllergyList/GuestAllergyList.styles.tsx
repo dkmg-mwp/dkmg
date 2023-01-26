@@ -8,13 +8,14 @@ export const ListSection = styled.div`
 `;
 
 export const List = styled.ul`
-    list-style-type: none;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
     gap: 1rem;
+    list-style-type: none;
 `;
+
 export const ListItem = styled.li`
     display: flex;
     justify-content: center;
@@ -29,12 +30,13 @@ export const AllergyTag = styled.div<{ include?: boolean }>`
     align-items: center;
     gap: 1rem;
 `;
-export const Label = styled.label``;
 
 export const Checkbox = styled.input`
-    accent-color: orange;
     border-radius: 0.15em;
-    background-color: #fff;
-    color: currentColor;
     border: 0.15em solid currentColor;
+    color: currentColor;
+    accent-color: orange;
+    background-color: #fff;
 `;
+
+export const Label = styled.label``;

@@ -13,9 +13,9 @@ export const CardContainer = styled.div`
 `;
 
 export const Checkbox = styled.input`
-    accent-color: orange;
     border-radius: 0.15em;
-    background-color: #fff;
-    color: currentColor;
     border: 0.15em solid currentColor;
+    color: currentColor;
+    accent-color: orange;
+    background-color: #fff;
 `;

@@ -33,7 +33,6 @@ const FilteredDishes = ({ guests, dishes, selectedGuest }: Props) => {
     const renderGuest = () => {
         const allGuests = guests.map((guest) => guest.name);
         for (let i = 0; i < allGuests.length; i++) {
-            console.log(allGuests);
             return allGuests[i];
         }
     };

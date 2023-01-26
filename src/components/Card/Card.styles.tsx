@@ -4,33 +4,36 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-    background: #eff2ee;
+    height: auto;
     width: 100%;
-    margin-bottom: 20px;
     padding: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+    border-radius: 15px;
+    background: #eff2ee;
     box-shadow: 9px 15px 10px -1px rgba(92, 130, 122, 0.28);
     backdrop-filter: blur(2px);
-    border-radius: 15px;
-    height: auto;
 `;
+
 export const CardWrapper = styled.div`
     display: flex;
-    align-items: stretch;
     justify-content: space-between;
+    align-items: stretch;
     gap: 2rem;
 `;
+
 export const CardColumnLeft = styled.div``;
+
 export const CardImage = styled.img`
     max-width: 150px;
     height: 100%;
-    object-fit: cover;
     border-radius: 15px;
+    object-fit: cover;
 `;
 
 export const CardColumnRight = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 50px;
     justify-content: flex-end;
+    gap: 50px;
 `;
