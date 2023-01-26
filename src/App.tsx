@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useLogin } from './routes/Login/Login.context';
+import { useProfile } from './routes/Profile/Profile.context';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import GlobalStyle from './components/styles/Globalstyles.styles';
-import { useLogin } from './routes/Login/Login.context';
-import { useProfile } from './routes/Profile/Profile.context';
 
 function App() {
     const { setToken, token } = useLogin();

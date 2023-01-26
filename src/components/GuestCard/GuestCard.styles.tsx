@@ -1,3 +1,4 @@
+import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
@@ -40,3 +41,6 @@ export const CardColumnRight = styled.div`
     flex-direction: column;
     gap: 50px;
 `;
+
+export const ArrowDown = styled(RiArrowDownSLine)``;
+export const ArrowUp = styled(RiArrowUpSLine)``;

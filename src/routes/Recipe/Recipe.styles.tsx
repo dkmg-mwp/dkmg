@@ -1,4 +1,8 @@
-import { RiGroupFill, RiTimeFill } from 'react-icons/ri';
+import {
+    RiCheckboxBlankCircleLine,
+    RiGroupFill,
+    RiTimeFill,
+} from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -79,6 +83,7 @@ export const Ingredients = styled.ul`
     padding-top: 1rem;
     margin-bottom: 0.3rem;
 `;
+export const BulletIcon = styled(RiCheckboxBlankCircleLine)``;
 
 export const Ingredient = styled.li`
     display: flex;

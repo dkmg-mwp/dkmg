@@ -1,3 +1,4 @@
+import { RiArrowRightLine, RiCloseCircleFill } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const Container = styled.section`
@@ -46,3 +47,6 @@ export const Slider = styled.div`
     gap: 2rem;
     overflow-x: auto;
 `;
+
+export const ArrowRight = styled(RiArrowRightLine)``;
+export const CloseIcon = styled(RiCloseCircleFill)``;

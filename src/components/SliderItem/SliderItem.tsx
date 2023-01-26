@@ -1,4 +1,3 @@
-import { RiArrowRightLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import { useRecipe } from '../../routes/Recipe/Recipe.context';
 import { SmallButton } from '../styles/Button.styles';
@@ -28,7 +27,7 @@ const SliderItem = ({ recipe }: Props) => {
             <Styled.CardColumnBottom>
                 <SmallButton primary onClick={() => handleOnClick(recipe.id)}>
                     See recipe
-                    <RiArrowRightLine />
+                    <Styled.ArrowRight />
                 </SmallButton>
             </Styled.CardColumnBottom>
         </Styled.CardContainer>

@@ -1,3 +1,11 @@
+import { CiWheat } from 'react-icons/ci';
+import {
+    RiArrowRightLine,
+    RiPlaneFill,
+    RiPlantLine,
+    RiUserAddFill,
+} from 'react-icons/ri';
+import { TbMilk } from 'react-icons/tb';
 import styled from 'styled-components';
 
 export const GuestContainer = styled.div`
@@ -104,3 +112,10 @@ export const AllGuest = styled.div`
     margin: 1rem 1rem;
     grid-auto-flow: dense;
 `;
+
+export const Dairy = styled(TbMilk)``;
+export const Gluten = styled(CiWheat)``;
+export const Vegan = styled(RiPlaneFill)``;
+export const Vegetarian = styled(RiPlantLine)``;
+export const ArrowRight = styled(RiArrowRightLine)``;
+export const AddUserIcon = styled(RiUserAddFill)``;

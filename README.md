@@ -2,9 +2,11 @@
 
 Dont Kill My Guest!
 
-## Demo link:
+A webbapp to help people not to slaughter them dinner guests.
 
-Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/)
+## Demo link:
+[https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/)
+
 
 ## Table of Content:
 
@@ -19,9 +21,6 @@ Access our site at [https://dkmg-mvp.netlify.app/](https://dkmg-mvp.netlify.app/
   - [Status](#status)
   - [Credits](#credits)
 
-## About The App
-
-[Dont Kill My Guest] is a website to help people not to slaughter them dinner guests.
 
 ## Screenshots
 

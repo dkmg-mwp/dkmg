@@ -1,4 +1,3 @@
-import Heading from '../styles/Heading.styles';
 import * as Styled from './GuestFilter.styles';
 
 type Props = {

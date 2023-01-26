@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import LoginForm from '../../components/Forms/LoginForm/LoginForm';
-import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
 import { useProfile } from '../Profile/Profile.context';
 import { AccountContext, useLogin } from './Login.context';
 import { addToken, addUser } from '../../api/LocalStorage/token-api';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import SignUpForm from '../../components/Forms/SignUpForm/SignUp';
 import Heading from '../../components/styles/Heading.styles';
 import * as Styled from './Login.styles';
 

@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { RiArrowRightLine, RiCloseCircleFill } from 'react-icons/ri';
+import { useLogin } from '../Login/Login.context';
+import { useRecipe } from '../Recipe/Recipe.context';
 import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import SliderItem from '../../components/SliderItem/SliderItem';
 import { MediumButton } from '../../components/styles/Button.styles';
 import Heading from '../../components/styles/Heading.styles';
-import { useLogin } from '../Login/Login.context';
-import { useRecipe } from '../Recipe/Recipe.context';
 import * as Styled from './Home.styles';
 
 const Home = () => {
@@ -29,7 +28,7 @@ const Home = () => {
                             huh
                         </Heading>
                         <Styled.ToastContainer>
-                            <RiCloseCircleFill
+                            <Styled.CloseIcon
                                 color='#FFFEFE'
                                 size={30}
                                 onClick={() => toast.dismiss(t.id)}
@@ -40,7 +39,7 @@ const Home = () => {
                         bgColor='#2b8872'
                         onClick={() => handleOnClick()}
                     >
-                        Get Started <RiArrowRightLine />
+                        Get Started <Styled.ArrowRight />
                     </MediumButton>
                 </Styled.ToastSection>
             </Styled.Wrapper>
@@ -48,9 +47,6 @@ const Home = () => {
 
     useEffect(() => {
         document.title = 'Home';
-    }, []);
-
-    useEffect(() => {
         if (token) return;
         notify();
     }, []);

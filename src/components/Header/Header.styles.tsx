@@ -1,3 +1,4 @@
+import { RiLoginCircleLine, RiLogoutCircleLine } from 'react-icons/ri';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
@@ -22,3 +23,6 @@ export const Prompt = styled.div`
     bottom: 0px;
     backdrop-filter: blur(8px);
 `;
+
+export const LogOutIcon = styled(RiLogoutCircleLine)``;
+export const LogInIcon = styled(RiLoginCircleLine)``;
